@@ -26,6 +26,7 @@ Trained for 8 days:
 
 16 days:
 ![16days](https://github.com/y60/stylegan2/blob/master/results/00012-stylegan2-face_256_-1gpu-config-f/fakes009515_16days_8_5.png?raw=true)
+It means that this training setting has some difficulty in learning plausible structure, which depends on the latent style code of a few beginning layers. It can be avoided by the truncation (next section), or may be solved by adjusting training hyper-parameters or aligning the dataset images.
 
 ### Truncation experiments
 
@@ -36,7 +37,7 @@ Though shapes are improved, details are too neutralized. (color, painting style,
 
 Truncation parameter `0.5` only for the first 5 layers (`1.0` for the rest):
 
-Good detail variation is observed. It means that this training setting has some difficulty in learning plausible structure, which depends on the latent style code of a few beginning layers. It may be solved by adjusting hyper-parameters or aligning the dataset images.
+Good detail variation is observed. 
 ![~5:0.5](https://github.com/y60/stylegan2/blob/master/results/00081-generate-images_~5:0.5/grid.png?raw=true)
 ### Interpolation
 ### Discussion
