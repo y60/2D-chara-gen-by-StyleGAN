@@ -36,7 +36,7 @@ Though shapes are improved, details are too neutralized. (color, painting style,
 
 Truncation parameter `0.5` only for the first 5 layers (`1.0` for the rest):
 
-Good detail variation is observed. The latent style code of the first layers are corresponding to shape and structure. It means that this training setting has some difficulty in learning plausible structure. It may be solved by adjusting hyper-parameters or aligning the dataset images.
+Good detail variation is observed. It means that this training setting has some difficulty in learning plausible structure, which depends on the latent style code of a few beginning layers. It may be solved by adjusting hyper-parameters or aligning the dataset images.
 ![~5:0.5](https://github.com/y60/stylegan2/blob/master/results/00081-generate-images_~5:0.5/grid.png?raw=true)
 ### Interpolation
 ### Discussion
