@@ -39,3 +39,6 @@ Truncation parameter `0.5` only for the first 5 layers (`1.0` for the rest):
 Good detail variation.
 ![~5:0.5](https://github.com/y60/stylegan2/blob/master/results/00081-generate-images_~5:0.5/grid.png?raw=true)
 ### Interpolation
+### Discussion
+### Image2StyleGAN(++)
+
