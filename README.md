@@ -27,6 +27,18 @@ Trained for 8 days:
 16 days:
 ![16days](https://github.com/y60/stylegan2/blob/master/results/00012-stylegan2-face_256_-1gpu-config-f/fakes009515_16days_8_5.png?raw=true)
 
-### Generation
+### Truncation experiments
 
+Truncation parameter `0.5` for all layers:
+
+Though shapes are improved, details are too neutralized. (color, painting style,... etc.)
+![all0.5](https://github.com/y60/stylegan2/blob/master/results/00080-generate-images_all:0.5/grid.png?raw=true)
+
+Truncation parameter `0.5` only for the first 5 layers (`1.0` for the rest):
+
+Good detail variation.
+![~5:0.5](https://github.com/y60/stylegan2/blob/master/results/00081-generate-images_~5:0.5/grid.png?raw=true)
 ### Interpolation
+### Discussion
+### Image2StyleGAN(++)
+
