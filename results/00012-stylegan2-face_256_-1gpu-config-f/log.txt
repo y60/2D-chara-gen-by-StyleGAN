@@ -1,0 +1,1452 @@
+dnnlib: Running training.training_loop.training_loop() on localhost...
+Streaming data using training.dataset.TFRecordDataset...
+Dataset shape = [3, 256, 256]
+Dynamic range = [0, 255]
+Label size    = 0
+Constructing networks...
+Setting up TensorFlow plugin "fused_bias_act.cu": Preprocessing... Loading... Done.
+Setting up TensorFlow plugin "upfirdn_2d.cu": Preprocessing... Loading... Done.
+
+G                             Params    OutputShape         WeightShape     
+---                           ---       ---                 ---             
+latents_in                    -         (?, 512)            -               
+labels_in                     -         (?, 0)              -               
+lod                           -         ()                  -               
+dlatent_avg                   -         (512,)              -               
+G_mapping/latents_in          -         (?, 512)            -               
+G_mapping/labels_in           -         (?, 0)              -               
+G_mapping/Normalize           -         (?, 512)            -               
+G_mapping/Dense0              262656    (?, 512)            (512, 512)      
+G_mapping/Dense1              262656    (?, 512)            (512, 512)      
+G_mapping/Dense2              262656    (?, 512)            (512, 512)      
+G_mapping/Dense3              262656    (?, 512)            (512, 512)      
+G_mapping/Dense4              262656    (?, 512)            (512, 512)      
+G_mapping/Dense5              262656    (?, 512)            (512, 512)      
+G_mapping/Dense6              262656    (?, 512)            (512, 512)      
+G_mapping/Dense7              262656    (?, 512)            (512, 512)      
+G_mapping/Broadcast           -         (?, 14, 512)        -               
+G_mapping/dlatents_out        -         (?, 14, 512)        -               
+Truncation/Lerp               -         (?, 14, 512)        -               
+G_synthesis/dlatents_in       -         (?, 14, 512)        -               
+G_synthesis/4x4/Const         8192      (?, 512, 4, 4)      (1, 512, 4, 4)  
+G_synthesis/4x4/Conv          2622465   (?, 512, 4, 4)      (3, 3, 512, 512)
+G_synthesis/4x4/ToRGB         264195    (?, 3, 4, 4)        (1, 1, 512, 3)  
+G_synthesis/8x8/Conv0_up      2622465   (?, 512, 8, 8)      (3, 3, 512, 512)
+G_synthesis/8x8/Conv1         2622465   (?, 512, 8, 8)      (3, 3, 512, 512)
+G_synthesis/8x8/Upsample      -         (?, 3, 8, 8)        -               
+G_synthesis/8x8/ToRGB         264195    (?, 3, 8, 8)        (1, 1, 512, 3)  
+G_synthesis/16x16/Conv0_up    2622465   (?, 512, 16, 16)    (3, 3, 512, 512)
+G_synthesis/16x16/Conv1       2622465   (?, 512, 16, 16)    (3, 3, 512, 512)
+G_synthesis/16x16/Upsample    -         (?, 3, 16, 16)      -               
+G_synthesis/16x16/ToRGB       264195    (?, 3, 16, 16)      (1, 1, 512, 3)  
+G_synthesis/32x32/Conv0_up    2622465   (?, 512, 32, 32)    (3, 3, 512, 512)
+G_synthesis/32x32/Conv1       2622465   (?, 512, 32, 32)    (3, 3, 512, 512)
+G_synthesis/32x32/Upsample    -         (?, 3, 32, 32)      -               
+G_synthesis/32x32/ToRGB       264195    (?, 3, 32, 32)      (1, 1, 512, 3)  
+G_synthesis/64x64/Conv0_up    2622465   (?, 512, 64, 64)    (3, 3, 512, 512)
+G_synthesis/64x64/Conv1       2622465   (?, 512, 64, 64)    (3, 3, 512, 512)
+G_synthesis/64x64/Upsample    -         (?, 3, 64, 64)      -               
+G_synthesis/64x64/ToRGB       264195    (?, 3, 64, 64)      (1, 1, 512, 3)  
+G_synthesis/128x128/Conv0_up  1442561   (?, 256, 128, 128)  (3, 3, 512, 256)
+G_synthesis/128x128/Conv1     721409    (?, 256, 128, 128)  (3, 3, 256, 256)
+G_synthesis/128x128/Upsample  -         (?, 3, 128, 128)    -               
+G_synthesis/128x128/ToRGB     132099    (?, 3, 128, 128)    (1, 1, 256, 3)  
+G_synthesis/256x256/Conv0_up  426369    (?, 128, 256, 256)  (3, 3, 256, 128)
+G_synthesis/256x256/Conv1     213249    (?, 128, 256, 256)  (3, 3, 128, 128)
+G_synthesis/256x256/Upsample  -         (?, 3, 256, 256)    -               
+G_synthesis/256x256/ToRGB     66051     (?, 3, 256, 256)    (1, 1, 128, 3)  
+G_synthesis/images_out        -         (?, 3, 256, 256)    -               
+G_synthesis/noise0            -         (1, 1, 4, 4)        -               
+G_synthesis/noise1            -         (1, 1, 8, 8)        -               
+G_synthesis/noise2            -         (1, 1, 8, 8)        -               
+G_synthesis/noise3            -         (1, 1, 16, 16)      -               
+G_synthesis/noise4            -         (1, 1, 16, 16)      -               
+G_synthesis/noise5            -         (1, 1, 32, 32)      -               
+G_synthesis/noise6            -         (1, 1, 32, 32)      -               
+G_synthesis/noise7            -         (1, 1, 64, 64)      -               
+G_synthesis/noise8            -         (1, 1, 64, 64)      -               
+G_synthesis/noise9            -         (1, 1, 128, 128)    -               
+G_synthesis/noise10           -         (1, 1, 128, 128)    -               
+G_synthesis/noise11           -         (1, 1, 256, 256)    -               
+G_synthesis/noise12           -         (1, 1, 256, 256)    -               
+images_out                    -         (?, 3, 256, 256)    -               
+---                           ---       ---                 ---             
+Total                         30034338                                      
+
+
+D                    Params    OutputShape         WeightShape     
+---                  ---       ---                 ---             
+images_in            -         (?, 3, 256, 256)    -               
+labels_in            -         (?, 0)              -               
+256x256/FromRGB      512       (?, 128, 256, 256)  (1, 1, 3, 128)  
+256x256/Conv0        147584    (?, 128, 256, 256)  (3, 3, 128, 128)
+256x256/Conv1_down   295168    (?, 256, 128, 128)  (3, 3, 128, 256)
+256x256/Skip         32768     (?, 256, 128, 128)  (1, 1, 128, 256)
+128x128/Conv0        590080    (?, 256, 128, 128)  (3, 3, 256, 256)
+128x128/Conv1_down   1180160   (?, 512, 64, 64)    (3, 3, 256, 512)
+128x128/Skip         131072    (?, 512, 64, 64)    (1, 1, 256, 512)
+64x64/Conv0          2359808   (?, 512, 64, 64)    (3, 3, 512, 512)
+64x64/Conv1_down     2359808   (?, 512, 32, 32)    (3, 3, 512, 512)
+64x64/Skip           262144    (?, 512, 32, 32)    (1, 1, 512, 512)
+32x32/Conv0          2359808   (?, 512, 32, 32)    (3, 3, 512, 512)
+32x32/Conv1_down     2359808   (?, 512, 16, 16)    (3, 3, 512, 512)
+32x32/Skip           262144    (?, 512, 16, 16)    (1, 1, 512, 512)
+16x16/Conv0          2359808   (?, 512, 16, 16)    (3, 3, 512, 512)
+16x16/Conv1_down     2359808   (?, 512, 8, 8)      (3, 3, 512, 512)
+16x16/Skip           262144    (?, 512, 8, 8)      (1, 1, 512, 512)
+8x8/Conv0            2359808   (?, 512, 8, 8)      (3, 3, 512, 512)
+8x8/Conv1_down       2359808   (?, 512, 4, 4)      (3, 3, 512, 512)
+8x8/Skip             262144    (?, 512, 4, 4)      (1, 1, 512, 512)
+4x4/MinibatchStddev  -         (?, 513, 4, 4)      -               
+4x4/Conv             2364416   (?, 512, 4, 4)      (3, 3, 513, 512)
+4x4/Dense0           4194816   (?, 512)            (8192, 512)     
+Output               513       (?, 1)              (512, 1)        
+scores_out           -         (?, 1)              -               
+---                  ---       ---                 ---             
+Total                28864129                                      
+
+Building TensorFlow graph...
+Initializing logs...
+Training for 25000 kimg...
+
+tick 0     kimg 0.1      lod 0.00  minibatch 32   time 40s          sec/tick 39.7    sec/kimg 309.95  maintenance 0.0    gpumem 6.1
+Downloading http://d36zk2xti64re0.cloudfront.net/stylegan1/networks/metrics/inception_v3_features.pkl ... done
+network-snapshot-000000        time 15m 24s      fid50k 313.3054
+tick 1     kimg 8.2      lod 0.00  minibatch 32   time 34m 37s      sec/tick 1081.9  sec/kimg 134.16  maintenance 955.6  gpumem 6.1
+tick 2     kimg 16.3     lod 0.00  minibatch 32   time 52m 41s      sec/tick 1083.4  sec/kimg 134.35  maintenance 0.0    gpumem 6.1
+tick 3     kimg 24.3     lod 0.00  minibatch 32   time 1h 10m 44s   sec/tick 1083.4  sec/kimg 134.36  maintenance 0.0    gpumem 6.1
+tick 4     kimg 32.4     lod 0.00  minibatch 32   time 1h 28m 49s   sec/tick 1084.5  sec/kimg 134.48  maintenance 0.0    gpumem 6.1
+tick 5     kimg 40.4     lod 0.00  minibatch 32   time 1h 46m 52s   sec/tick 1083.5  sec/kimg 134.36  maintenance 0.0    gpumem 6.1
+tick 6     kimg 48.5     lod 0.00  minibatch 32   time 2h 04m 57s   sec/tick 1085.0  sec/kimg 134.55  maintenance 0.0    gpumem 6.1
+tick 7     kimg 56.6     lod 0.00  minibatch 32   time 2h 23m 02s   sec/tick 1085.3  sec/kimg 134.58  maintenance 0.0    gpumem 6.1
+tick 8     kimg 64.6     lod 0.00  minibatch 32   time 2h 41m 08s   sec/tick 1085.4  sec/kimg 134.60  maintenance 0.0    gpumem 6.1
+tick 9     kimg 72.7     lod 0.00  minibatch 32   time 2h 59m 12s   sec/tick 1083.7  sec/kimg 134.39  maintenance 0.0    gpumem 6.1
+tick 10    kimg 80.8     lod 0.00  minibatch 32   time 3h 17m 16s   sec/tick 1084.5  sec/kimg 134.49  maintenance 0.0    gpumem 6.1
+network-snapshot-000080        time 12m 12s      fid50k 284.0785
+tick 11    kimg 88.8     lod 0.00  minibatch 32   time 3h 47m 50s   sec/tick 1085.1  sec/kimg 134.56  maintenance 748.8  gpumem 6.1
+tick 12    kimg 96.9     lod 0.00  minibatch 32   time 4h 05m 55s   sec/tick 1084.9  sec/kimg 134.53  maintenance 0.0    gpumem 6.1
+tick 13    kimg 105.0    lod 0.00  minibatch 32   time 4h 23m 59s   sec/tick 1084.2  sec/kimg 134.45  maintenance 0.0    gpumem 6.1
+tick 14    kimg 113.0    lod 0.00  minibatch 32   time 4h 42m 04s   sec/tick 1085.2  sec/kimg 134.57  maintenance 0.0    gpumem 6.1
+tick 15    kimg 121.1    lod 0.00  minibatch 32   time 5h 00m 12s   sec/tick 1088.1  sec/kimg 134.94  maintenance 0.0    gpumem 6.1
+tick 16    kimg 129.2    lod 0.00  minibatch 32   time 5h 18m 15s   sec/tick 1082.8  sec/kimg 134.28  maintenance 0.0    gpumem 6.1
+tick 17    kimg 137.2    lod 0.00  minibatch 32   time 5h 36m 14s   sec/tick 1078.7  sec/kimg 133.77  maintenance 0.0    gpumem 6.1
+tick 18    kimg 145.3    lod 0.00  minibatch 32   time 5h 54m 14s   sec/tick 1080.4  sec/kimg 133.97  maintenance 0.0    gpumem 6.1
+tick 19    kimg 153.3    lod 0.00  minibatch 32   time 6h 12m 15s   sec/tick 1080.4  sec/kimg 133.98  maintenance 0.0    gpumem 6.1
+tick 20    kimg 161.4    lod 0.00  minibatch 32   time 6h 30m 15s   sec/tick 1080.6  sec/kimg 134.00  maintenance 0.0    gpumem 6.1
+network-snapshot-000161        time 12m 06s      fid50k 135.4299
+tick 21    kimg 169.5    lod 0.00  minibatch 32   time 7h 00m 41s   sec/tick 1078.9  sec/kimg 133.79  maintenance 746.5  gpumem 6.1
+tick 22    kimg 177.5    lod 0.00  minibatch 32   time 7h 18m 42s   sec/tick 1081.3  sec/kimg 134.09  maintenance 0.0    gpumem 6.1
+tick 23    kimg 185.6    lod 0.00  minibatch 32   time 7h 36m 43s   sec/tick 1080.9  sec/kimg 134.04  maintenance 0.0    gpumem 6.1
+tick 24    kimg 193.7    lod 0.00  minibatch 32   time 7h 54m 44s   sec/tick 1081.2  sec/kimg 134.07  maintenance 0.0    gpumem 6.1
+tick 25    kimg 201.7    lod 0.00  minibatch 32   time 8h 12m 43s   sec/tick 1078.6  sec/kimg 133.76  maintenance 0.0    gpumem 6.1
+tick 26    kimg 209.8    lod 0.00  minibatch 32   time 8h 30m 44s   sec/tick 1081.2  sec/kimg 134.08  maintenance 0.0    gpumem 6.1
+tick 27    kimg 217.9    lod 0.00  minibatch 32   time 8h 48m 44s   sec/tick 1080.4  sec/kimg 133.98  maintenance 0.0    gpumem 6.1
+tick 28    kimg 225.9    lod 0.00  minibatch 32   time 9h 06m 45s   sec/tick 1080.9  sec/kimg 134.04  maintenance 0.0    gpumem 6.1
+tick 29    kimg 234.0    lod 0.00  minibatch 32   time 9h 24m 45s   sec/tick 1079.2  sec/kimg 133.83  maintenance 0.0    gpumem 6.1
+tick 30    kimg 242.0    lod 0.00  minibatch 32   time 9h 42m 45s   sec/tick 1080.3  sec/kimg 133.97  maintenance 0.0    gpumem 6.1
+network-snapshot-000242        time 12m 08s      fid50k 81.7261
+tick 31    kimg 250.1    lod 0.00  minibatch 32   time 10h 13m 14s  sec/tick 1079.9  sec/kimg 133.92  maintenance 748.9  gpumem 6.1
+tick 32    kimg 258.2    lod 0.00  minibatch 32   time 10h 31m 14s  sec/tick 1080.5  sec/kimg 133.99  maintenance 0.0    gpumem 6.1
+tick 33    kimg 266.2    lod 0.00  minibatch 32   time 10h 49m 13s  sec/tick 1078.9  sec/kimg 133.80  maintenance 0.0    gpumem 6.1
+tick 34    kimg 274.3    lod 0.00  minibatch 32   time 11h 07m 14s  sec/tick 1080.7  sec/kimg 134.02  maintenance 0.0    gpumem 6.1
+tick 35    kimg 282.4    lod 0.00  minibatch 32   time 11h 25m 16s  sec/tick 1082.6  sec/kimg 134.25  maintenance 0.0    gpumem 6.1
+tick 36    kimg 290.4    lod 0.00  minibatch 32   time 11h 43m 18s  sec/tick 1081.0  sec/kimg 134.06  maintenance 0.0    gpumem 6.1
+tick 37    kimg 298.5    lod 0.00  minibatch 32   time 12h 01m 17s  sec/tick 1079.5  sec/kimg 133.87  maintenance 0.0    gpumem 6.1
+tick 38    kimg 306.6    lod 0.00  minibatch 32   time 12h 19m 18s  sec/tick 1080.6  sec/kimg 134.01  maintenance 0.0    gpumem 6.1
+tick 39    kimg 314.6    lod 0.00  minibatch 32   time 12h 37m 20s  sec/tick 1081.9  sec/kimg 134.16  maintenance 0.0    gpumem 6.1
+tick 40    kimg 322.7    lod 0.00  minibatch 32   time 12h 55m 20s  sec/tick 1080.3  sec/kimg 133.96  maintenance 0.0    gpumem 6.1
+network-snapshot-000322        time 12m 06s      fid50k 58.9566
+tick 41    kimg 330.8    lod 0.00  minibatch 32   time 13h 25m 47s  sec/tick 1079.5  sec/kimg 133.86  maintenance 747.6  gpumem 6.1
+tick 42    kimg 338.8    lod 0.00  minibatch 32   time 13h 43m 48s  sec/tick 1080.7  sec/kimg 134.02  maintenance 0.0    gpumem 6.1
+tick 43    kimg 346.9    lod 0.00  minibatch 32   time 14h 01m 49s  sec/tick 1081.4  sec/kimg 134.10  maintenance 0.0    gpumem 6.1
+tick 44    kimg 354.9    lod 0.00  minibatch 32   time 14h 19m 49s  sec/tick 1080.1  sec/kimg 133.94  maintenance 0.0    gpumem 6.1
+tick 45    kimg 363.0    lod 0.00  minibatch 32   time 14h 37m 50s  sec/tick 1080.9  sec/kimg 134.04  maintenance 0.0    gpumem 6.1
+tick 46    kimg 371.1    lod 0.00  minibatch 32   time 14h 55m 54s  sec/tick 1083.4  sec/kimg 134.35  maintenance 0.0    gpumem 6.1
+tick 47    kimg 379.1    lod 0.00  minibatch 32   time 15h 14m 01s  sec/tick 1087.6  sec/kimg 134.87  maintenance 0.0    gpumem 6.1
+tick 48    kimg 387.2    lod 0.00  minibatch 32   time 15h 32m 08s  sec/tick 1086.7  sec/kimg 134.76  maintenance 0.0    gpumem 6.1
+tick 49    kimg 395.3    lod 0.00  minibatch 32   time 15h 50m 14s  sec/tick 1086.2  sec/kimg 134.70  maintenance 0.0    gpumem 6.1
+tick 50    kimg 403.3    lod 0.00  minibatch 32   time 16h 08m 22s  sec/tick 1087.8  sec/kimg 134.89  maintenance 0.0    gpumem 6.1
+network-snapshot-000403        time 12m 12s      fid50k 43.5779
+tick 51    kimg 411.4    lod 0.00  minibatch 32   time 16h 39m 03s  sec/tick 1088.7  sec/kimg 135.01  maintenance 752.4  gpumem 6.1
+tick 52    kimg 419.5    lod 0.00  minibatch 32   time 16h 57m 12s  sec/tick 1089.3  sec/kimg 135.08  maintenance 0.0    gpumem 6.1
+tick 53    kimg 427.5    lod 0.00  minibatch 32   time 17h 15m 18s  sec/tick 1085.7  sec/kimg 134.63  maintenance 0.0    gpumem 6.1
+tick 54    kimg 435.6    lod 0.00  minibatch 32   time 17h 33m 26s  sec/tick 1087.7  sec/kimg 134.89  maintenance 0.0    gpumem 6.1
+tick 55    kimg 443.6    lod 0.00  minibatch 32   time 17h 51m 34s  sec/tick 1087.9  sec/kimg 134.91  maintenance 0.0    gpumem 6.1
+tick 56    kimg 451.7    lod 0.00  minibatch 32   time 18h 09m 41s  sec/tick 1087.1  sec/kimg 134.80  maintenance 0.0    gpumem 6.1
+tick 57    kimg 459.8    lod 0.00  minibatch 32   time 18h 27m 46s  sec/tick 1085.6  sec/kimg 134.62  maintenance 0.0    gpumem 6.1
+tick 58    kimg 467.8    lod 0.00  minibatch 32   time 18h 46m 07s  sec/tick 1100.8  sec/kimg 136.51  maintenance 0.0    gpumem 6.1
+tick 59    kimg 475.9    lod 0.00  minibatch 32   time 19h 04m 41s  sec/tick 1113.9  sec/kimg 138.13  maintenance 0.0    gpumem 6.1
+tick 60    kimg 484.0    lod 0.00  minibatch 32   time 19h 23m 15s  sec/tick 1114.0  sec/kimg 138.14  maintenance 0.0    gpumem 6.1
+network-snapshot-000483        time 12m 51s      fid50k 32.3863
+tick 61    kimg 492.0    lod 0.00  minibatch 32   time 19h 55m 00s  sec/tick 1112.3  sec/kimg 137.94  maintenance 792.6  gpumem 6.1
+tick 62    kimg 500.1    lod 0.00  minibatch 32   time 20h 13m 36s  sec/tick 1115.7  sec/kimg 138.36  maintenance 0.0    gpumem 6.1
+tick 63    kimg 508.2    lod 0.00  minibatch 32   time 20h 32m 10s  sec/tick 1114.1  sec/kimg 138.15  maintenance 0.0    gpumem 6.1
+tick 64    kimg 516.2    lod 0.00  minibatch 32   time 20h 50m 46s  sec/tick 1116.3  sec/kimg 138.43  maintenance 0.0    gpumem 6.1
+tick 65    kimg 524.3    lod 0.00  minibatch 32   time 21h 09m 20s  sec/tick 1113.9  sec/kimg 138.14  maintenance 0.0    gpumem 6.1
+tick 66    kimg 532.4    lod 0.00  minibatch 32   time 21h 27m 57s  sec/tick 1117.0  sec/kimg 138.51  maintenance 0.0    gpumem 6.1
+tick 67    kimg 540.4    lod 0.00  minibatch 32   time 21h 46m 32s  sec/tick 1115.4  sec/kimg 138.31  maintenance 0.0    gpumem 6.1
+tick 68    kimg 548.5    lod 0.00  minibatch 32   time 22h 05m 07s  sec/tick 1115.1  sec/kimg 138.28  maintenance 0.0    gpumem 6.1
+tick 69    kimg 556.5    lod 0.00  minibatch 32   time 22h 23m 43s  sec/tick 1115.6  sec/kimg 138.34  maintenance 0.0    gpumem 6.1
+tick 70    kimg 564.6    lod 0.00  minibatch 32   time 22h 42m 19s  sec/tick 1115.5  sec/kimg 138.33  maintenance 0.0    gpumem 6.1
+network-snapshot-000564        time 12m 51s      fid50k 27.8788
+tick 71    kimg 572.7    lod 0.00  minibatch 32   time 23h 14m 07s  sec/tick 1115.3  sec/kimg 138.31  maintenance 793.1  gpumem 6.1
+tick 72    kimg 580.7    lod 0.00  minibatch 32   time 23h 32m 43s  sec/tick 1115.9  sec/kimg 138.38  maintenance 0.0    gpumem 6.1
+tick 73    kimg 588.8    lod 0.00  minibatch 32   time 23h 51m 16s  sec/tick 1112.7  sec/kimg 137.99  maintenance 0.0    gpumem 6.1
+tick 74    kimg 596.9    lod 0.00  minibatch 32   time 1d 00h 09m   sec/tick 1116.6  sec/kimg 138.46  maintenance 0.0    gpumem 6.1
+tick 75    kimg 604.9    lod 0.00  minibatch 32   time 1d 00h 28m   sec/tick 1114.9  sec/kimg 138.25  maintenance 0.0    gpumem 6.1
+tick 76    kimg 613.0    lod 0.00  minibatch 32   time 1d 00h 47m   sec/tick 1117.7  sec/kimg 138.60  maintenance 0.0    gpumem 6.1
+tick 77    kimg 621.1    lod 0.00  minibatch 32   time 1d 01h 05m   sec/tick 1113.9  sec/kimg 138.13  maintenance 0.0    gpumem 6.1
+tick 78    kimg 629.1    lod 0.00  minibatch 32   time 1d 01h 24m   sec/tick 1117.2  sec/kimg 138.54  maintenance 0.0    gpumem 6.1
+tick 79    kimg 637.2    lod 0.00  minibatch 32   time 1d 01h 42m   sec/tick 1115.6  sec/kimg 138.35  maintenance 0.0    gpumem 6.1
+tick 80    kimg 645.2    lod 0.00  minibatch 32   time 1d 02h 01m   sec/tick 1117.0  sec/kimg 138.52  maintenance 0.0    gpumem 6.1
+network-snapshot-000645        time 12m 51s      fid50k 24.3164
+tick 81    kimg 653.3    lod 0.00  minibatch 32   time 1d 02h 33m   sec/tick 1115.2  sec/kimg 138.29  maintenance 791.8  gpumem 6.1
+tick 82    kimg 661.4    lod 0.00  minibatch 32   time 1d 02h 51m   sec/tick 1115.8  sec/kimg 138.36  maintenance 0.0    gpumem 6.1
+tick 83    kimg 669.4    lod 0.00  minibatch 32   time 1d 03h 10m   sec/tick 1117.3  sec/kimg 138.55  maintenance 0.0    gpumem 6.1
+tick 84    kimg 677.5    lod 0.00  minibatch 32   time 1d 03h 29m   sec/tick 1115.8  sec/kimg 138.37  maintenance 0.0    gpumem 6.1
+tick 85    kimg 685.6    lod 0.00  minibatch 32   time 1d 03h 47m   sec/tick 1116.3  sec/kimg 138.43  maintenance 0.0    gpumem 6.1
+tick 86    kimg 693.6    lod 0.00  minibatch 32   time 1d 04h 06m   sec/tick 1115.6  sec/kimg 138.35  maintenance 0.0    gpumem 6.1
+tick 87    kimg 701.7    lod 0.00  minibatch 32   time 1d 04h 24m   sec/tick 1118.2  sec/kimg 138.66  maintenance 0.0    gpumem 6.1
+tick 88    kimg 709.8    lod 0.00  minibatch 32   time 1d 04h 43m   sec/tick 1114.0  sec/kimg 138.14  maintenance 0.0    gpumem 6.1
+tick 89    kimg 717.8    lod 0.00  minibatch 32   time 1d 05h 02m   sec/tick 1111.7  sec/kimg 137.86  maintenance 0.0    gpumem 6.1
+tick 90    kimg 725.9    lod 0.00  minibatch 32   time 1d 05h 20m   sec/tick 1114.4  sec/kimg 138.20  maintenance 0.0    gpumem 6.1
+network-snapshot-000725        time 12m 48s      fid50k 21.6534
+tick 91    kimg 734.0    lod 0.00  minibatch 32   time 1d 05h 52m   sec/tick 1113.4  sec/kimg 138.07  maintenance 788.8  gpumem 6.1
+tick 92    kimg 742.0    lod 0.00  minibatch 32   time 1d 06h 10m   sec/tick 1114.3  sec/kimg 138.18  maintenance 0.0    gpumem 6.1
+tick 93    kimg 750.1    lod 0.00  minibatch 32   time 1d 06h 29m   sec/tick 1112.4  sec/kimg 137.95  maintenance 0.0    gpumem 6.1
+tick 94    kimg 758.1    lod 0.00  minibatch 32   time 1d 06h 47m   sec/tick 1114.1  sec/kimg 138.16  maintenance 0.0    gpumem 6.1
+tick 95    kimg 766.2    lod 0.00  minibatch 32   time 1d 07h 06m   sec/tick 1115.0  sec/kimg 138.27  maintenance 0.0    gpumem 6.1
+tick 96    kimg 774.3    lod 0.00  minibatch 32   time 1d 07h 25m   sec/tick 1113.3  sec/kimg 138.06  maintenance 0.0    gpumem 6.1
+tick 97    kimg 782.3    lod 0.00  minibatch 32   time 1d 07h 43m   sec/tick 1112.8  sec/kimg 137.99  maintenance 0.0    gpumem 6.1
+tick 98    kimg 790.4    lod 0.00  minibatch 32   time 1d 08h 02m   sec/tick 1113.7  sec/kimg 138.11  maintenance 0.0    gpumem 6.1
+tick 99    kimg 798.5    lod 0.00  minibatch 32   time 1d 08h 20m   sec/tick 1115.1  sec/kimg 138.28  maintenance 0.0    gpumem 6.1
+tick 100   kimg 806.5    lod 0.00  minibatch 32   time 1d 08h 39m   sec/tick 1114.3  sec/kimg 138.18  maintenance 0.0    gpumem 6.1
+network-snapshot-000806        time 12m 51s      fid50k 20.4392
+tick 101   kimg 814.6    lod 0.00  minibatch 32   time 1d 09h 11m   sec/tick 1111.5  sec/kimg 137.83  maintenance 790.9  gpumem 6.1
+tick 102   kimg 822.7    lod 0.00  minibatch 32   time 1d 09h 29m   sec/tick 1115.7  sec/kimg 138.35  maintenance 0.0    gpumem 6.1
+tick 103   kimg 830.7    lod 0.00  minibatch 32   time 1d 09h 48m   sec/tick 1114.5  sec/kimg 138.21  maintenance 0.0    gpumem 6.1
+tick 104   kimg 838.8    lod 0.00  minibatch 32   time 1d 10h 06m   sec/tick 1114.3  sec/kimg 138.19  maintenance 0.0    gpumem 6.1
+tick 105   kimg 846.8    lod 0.00  minibatch 32   time 1d 10h 25m   sec/tick 1112.1  sec/kimg 137.91  maintenance 0.0    gpumem 6.1
+tick 106   kimg 854.9    lod 0.00  minibatch 32   time 1d 10h 43m   sec/tick 1115.1  sec/kimg 138.28  maintenance 0.0    gpumem 6.1
+tick 107   kimg 863.0    lod 0.00  minibatch 32   time 1d 11h 02m   sec/tick 1114.2  sec/kimg 138.17  maintenance 0.0    gpumem 6.1
+tick 108   kimg 871.0    lod 0.00  minibatch 32   time 1d 11h 21m   sec/tick 1114.5  sec/kimg 138.20  maintenance 0.0    gpumem 6.1
+tick 109   kimg 879.1    lod 0.00  minibatch 32   time 1d 11h 39m   sec/tick 1112.0  sec/kimg 137.90  maintenance 0.0    gpumem 6.1
+tick 110   kimg 887.2    lod 0.00  minibatch 32   time 1d 11h 58m   sec/tick 1114.7  sec/kimg 138.23  maintenance 0.0    gpumem 6.1
+network-snapshot-000887        time 12m 52s      fid50k 18.7012
+tick 111   kimg 895.2    lod 0.00  minibatch 32   time 1d 12h 30m   sec/tick 1116.1  sec/kimg 138.41  maintenance 798.3  gpumem 6.1
+tick 112   kimg 903.3    lod 0.00  minibatch 32   time 1d 12h 48m   sec/tick 1114.5  sec/kimg 138.21  maintenance 0.0    gpumem 6.1
+tick 113   kimg 911.4    lod 0.00  minibatch 32   time 1d 13h 07m   sec/tick 1113.6  sec/kimg 138.09  maintenance 0.0    gpumem 6.1
+tick 114   kimg 919.4    lod 0.00  minibatch 32   time 1d 13h 25m   sec/tick 1115.5  sec/kimg 138.33  maintenance 0.0    gpumem 6.1
+tick 115   kimg 927.5    lod 0.00  minibatch 32   time 1d 13h 44m   sec/tick 1115.2  sec/kimg 138.30  maintenance 0.0    gpumem 6.1
+tick 116   kimg 935.6    lod 0.00  minibatch 32   time 1d 14h 03m   sec/tick 1116.1  sec/kimg 138.40  maintenance 0.0    gpumem 6.1
+tick 117   kimg 943.6    lod 0.00  minibatch 32   time 1d 14h 21m   sec/tick 1108.6  sec/kimg 137.48  maintenance 0.0    gpumem 6.1
+tick 118   kimg 951.7    lod 0.00  minibatch 32   time 1d 14h 40m   sec/tick 1111.7  sec/kimg 137.86  maintenance 0.0    gpumem 6.1
+tick 119   kimg 959.7    lod 0.00  minibatch 32   time 1d 14h 58m   sec/tick 1109.2  sec/kimg 137.55  maintenance 0.0    gpumem 6.1
+tick 120   kimg 967.8    lod 0.00  minibatch 32   time 1d 15h 17m   sec/tick 1112.1  sec/kimg 137.91  maintenance 0.0    gpumem 6.1
+network-snapshot-000967        time 12m 40s      fid50k 17.6527
+tick 121   kimg 975.9    lod 0.00  minibatch 32   time 1d 15h 48m   sec/tick 1109.4  sec/kimg 137.57  maintenance 783.5  gpumem 6.1
+tick 122   kimg 983.9    lod 0.00  minibatch 32   time 1d 16h 07m   sec/tick 1110.2  sec/kimg 137.68  maintenance 0.0    gpumem 6.1
+tick 123   kimg 992.0    lod 0.00  minibatch 32   time 1d 16h 25m   sec/tick 1111.5  sec/kimg 137.84  maintenance 0.0    gpumem 6.1
+tick 124   kimg 1000.1   lod 0.00  minibatch 32   time 1d 16h 44m   sec/tick 1110.5  sec/kimg 137.71  maintenance 0.0    gpumem 6.1
+tick 125   kimg 1008.1   lod 0.00  minibatch 32   time 1d 17h 02m   sec/tick 1110.2  sec/kimg 137.67  maintenance 0.0    gpumem 6.1
+tick 126   kimg 1016.2   lod 0.00  minibatch 32   time 1d 17h 21m   sec/tick 1110.9  sec/kimg 137.76  maintenance 0.0    gpumem 6.1
+tick 127   kimg 1024.3   lod 0.00  minibatch 32   time 1d 17h 39m   sec/tick 1111.7  sec/kimg 137.86  maintenance 0.0    gpumem 6.1
+tick 128   kimg 1032.3   lod 0.00  minibatch 32   time 1d 17h 58m   sec/tick 1110.0  sec/kimg 137.65  maintenance 0.0    gpumem 6.1
+tick 129   kimg 1040.4   lod 0.00  minibatch 32   time 1d 18h 16m   sec/tick 1110.2  sec/kimg 137.67  maintenance 0.0    gpumem 6.1
+tick 130   kimg 1048.4   lod 0.00  minibatch 32   time 1d 18h 35m   sec/tick 1109.9  sec/kimg 137.64  maintenance 0.0    gpumem 6.1
+network-snapshot-001048        time 12m 35s      fid50k 16.4281
+tick 131   kimg 1056.5   lod 0.00  minibatch 32   time 1d 19h 06m   sec/tick 1109.1  sec/kimg 137.54  maintenance 776.8  gpumem 6.1
+tick 132   kimg 1064.6   lod 0.00  minibatch 32   time 1d 19h 25m   sec/tick 1110.7  sec/kimg 137.73  maintenance 0.0    gpumem 6.1
+tick 133   kimg 1072.6   lod 0.00  minibatch 32   time 1d 19h 43m   sec/tick 1109.0  sec/kimg 137.53  maintenance 0.0    gpumem 6.1
+tick 134   kimg 1080.7   lod 0.00  minibatch 32   time 1d 20h 02m   sec/tick 1111.1  sec/kimg 137.78  maintenance 0.0    gpumem 6.1
+tick 135   kimg 1088.8   lod 0.00  minibatch 32   time 1d 20h 20m   sec/tick 1111.1  sec/kimg 137.79  maintenance 0.0    gpumem 6.1
+tick 136   kimg 1096.8   lod 0.00  minibatch 32   time 1d 20h 39m   sec/tick 1109.6  sec/kimg 137.59  maintenance 0.0    gpumem 6.1
+tick 137   kimg 1104.9   lod 0.00  minibatch 32   time 1d 20h 57m   sec/tick 1108.9  sec/kimg 137.51  maintenance 0.0    gpumem 6.1
+tick 138   kimg 1113.0   lod 0.00  minibatch 32   time 1d 21h 16m   sec/tick 1109.4  sec/kimg 137.58  maintenance 0.0    gpumem 6.1
+tick 139   kimg 1121.0   lod 0.00  minibatch 32   time 1d 21h 34m   sec/tick 1110.8  sec/kimg 137.75  maintenance 0.0    gpumem 6.1
+tick 140   kimg 1129.1   lod 0.00  minibatch 32   time 1d 21h 53m   sec/tick 1110.6  sec/kimg 137.73  maintenance 0.0    gpumem 6.1
+network-snapshot-001129        time 12m 37s      fid50k 15.4217
+tick 141   kimg 1137.2   lod 0.00  minibatch 32   time 1d 22h 24m   sec/tick 1107.8  sec/kimg 137.38  maintenance 777.1  gpumem 6.1
+tick 142   kimg 1145.2   lod 0.00  minibatch 32   time 1d 22h 43m   sec/tick 1112.0  sec/kimg 137.90  maintenance 0.0    gpumem 6.1
+tick 143   kimg 1153.3   lod 0.00  minibatch 32   time 1d 23h 01m   sec/tick 1110.5  sec/kimg 137.71  maintenance 0.0    gpumem 6.1
+tick 144   kimg 1161.3   lod 0.00  minibatch 32   time 1d 23h 20m   sec/tick 1112.3  sec/kimg 137.94  maintenance 0.0    gpumem 6.1
+tick 145   kimg 1169.4   lod 0.00  minibatch 32   time 1d 23h 38m   sec/tick 1110.8  sec/kimg 137.75  maintenance 0.0    gpumem 6.1
+tick 146   kimg 1177.5   lod 0.00  minibatch 32   time 1d 23h 57m   sec/tick 1114.8  sec/kimg 138.24  maintenance 0.0    gpumem 6.1
+tick 147   kimg 1185.5   lod 0.00  minibatch 32   time 2d 00h 15m   sec/tick 1114.6  sec/kimg 138.21  maintenance 0.0    gpumem 6.1
+tick 148   kimg 1193.6   lod 0.00  minibatch 32   time 2d 00h 34m   sec/tick 1117.5  sec/kimg 138.58  maintenance 0.0    gpumem 6.1
+tick 149   kimg 1201.7   lod 0.00  minibatch 32   time 2d 00h 52m   sec/tick 1113.6  sec/kimg 138.09  maintenance 0.0    gpumem 6.1
+tick 150   kimg 1209.7   lod 0.00  minibatch 32   time 2d 01h 11m   sec/tick 1116.7  sec/kimg 138.48  maintenance 0.0    gpumem 6.1
+network-snapshot-001209        time 13m 04s      fid50k 14.5099
+tick 151   kimg 1217.8   lod 0.00  minibatch 32   time 2d 01h 43m   sec/tick 1115.9  sec/kimg 138.38  maintenance 804.5  gpumem 6.1
+tick 152   kimg 1225.9   lod 0.00  minibatch 32   time 2d 02h 02m   sec/tick 1113.5  sec/kimg 138.08  maintenance 0.0    gpumem 6.1
+tick 153   kimg 1233.9   lod 0.00  minibatch 32   time 2d 02h 20m   sec/tick 1114.1  sec/kimg 138.15  maintenance 0.0    gpumem 6.1
+tick 154   kimg 1242.0   lod 0.00  minibatch 32   time 2d 02h 39m   sec/tick 1114.3  sec/kimg 138.19  maintenance 0.0    gpumem 6.1
+tick 155   kimg 1250.0   lod 0.00  minibatch 32   time 2d 02h 57m   sec/tick 1116.2  sec/kimg 138.41  maintenance 0.0    gpumem 6.1
+tick 156   kimg 1258.1   lod 0.00  minibatch 32   time 2d 03h 16m   sec/tick 1115.6  sec/kimg 138.35  maintenance 0.0    gpumem 6.1
+tick 157   kimg 1266.2   lod 0.00  minibatch 32   time 2d 03h 35m   sec/tick 1113.1  sec/kimg 138.04  maintenance 0.0    gpumem 6.1
+tick 158   kimg 1274.2   lod 0.00  minibatch 32   time 2d 03h 53m   sec/tick 1115.7  sec/kimg 138.36  maintenance 0.0    gpumem 6.1
+tick 159   kimg 1282.3   lod 0.00  minibatch 32   time 2d 04h 12m   sec/tick 1114.3  sec/kimg 138.19  maintenance 0.0    gpumem 6.1
+tick 160   kimg 1290.4   lod 0.00  minibatch 32   time 2d 04h 30m   sec/tick 1116.4  sec/kimg 138.44  maintenance 0.0    gpumem 6.1
+network-snapshot-001290        time 12m 47s      fid50k 13.8376
+tick 161   kimg 1298.4   lod 0.00  minibatch 32   time 2d 05h 02m   sec/tick 1112.3  sec/kimg 137.94  maintenance 789.0  gpumem 6.1
+tick 162   kimg 1306.5   lod 0.00  minibatch 32   time 2d 05h 21m   sec/tick 1113.2  sec/kimg 138.05  maintenance 0.0    gpumem 6.1
+tick 163   kimg 1314.6   lod 0.00  minibatch 32   time 2d 05h 39m   sec/tick 1114.9  sec/kimg 138.26  maintenance 0.0    gpumem 6.1
+tick 164   kimg 1322.6   lod 0.00  minibatch 32   time 2d 05h 58m   sec/tick 1114.3  sec/kimg 138.18  maintenance 0.0    gpumem 6.1
+tick 165   kimg 1330.7   lod 0.00  minibatch 32   time 2d 06h 16m   sec/tick 1113.1  sec/kimg 138.03  maintenance 0.0    gpumem 6.1
+tick 166   kimg 1338.8   lod 0.00  minibatch 32   time 2d 06h 35m   sec/tick 1115.4  sec/kimg 138.32  maintenance 0.0    gpumem 6.1
+tick 167   kimg 1346.8   lod 0.00  minibatch 32   time 2d 06h 53m   sec/tick 1115.6  sec/kimg 138.34  maintenance 0.0    gpumem 6.1
+tick 168   kimg 1354.9   lod 0.00  minibatch 32   time 2d 07h 12m   sec/tick 1114.9  sec/kimg 138.26  maintenance 0.0    gpumem 6.1
+tick 169   kimg 1362.9   lod 0.00  minibatch 32   time 2d 07h 31m   sec/tick 1114.1  sec/kimg 138.16  maintenance 0.0    gpumem 6.1
+tick 170   kimg 1371.0   lod 0.00  minibatch 32   time 2d 07h 49m   sec/tick 1114.3  sec/kimg 138.18  maintenance 0.0    gpumem 6.1
+network-snapshot-001371        time 12m 49s      fid50k 12.5668
+tick 171   kimg 1379.1   lod 0.00  minibatch 32   time 2d 08h 21m   sec/tick 1112.8  sec/kimg 137.99  maintenance 789.6  gpumem 6.1
+tick 172   kimg 1387.1   lod 0.00  minibatch 32   time 2d 08h 39m   sec/tick 1115.2  sec/kimg 138.30  maintenance 0.0    gpumem 6.1
+tick 173   kimg 1395.2   lod 0.00  minibatch 32   time 2d 08h 58m   sec/tick 1111.7  sec/kimg 137.86  maintenance 0.0    gpumem 6.1
+tick 174   kimg 1403.3   lod 0.00  minibatch 32   time 2d 09h 17m   sec/tick 1115.9  sec/kimg 138.38  maintenance 0.0    gpumem 6.1
+tick 175   kimg 1411.3   lod 0.00  minibatch 32   time 2d 09h 35m   sec/tick 1114.4  sec/kimg 138.19  maintenance 0.0    gpumem 6.1
+tick 176   kimg 1419.4   lod 0.00  minibatch 32   time 2d 09h 54m   sec/tick 1114.3  sec/kimg 138.18  maintenance 0.0    gpumem 6.1
+tick 177   kimg 1427.5   lod 0.00  minibatch 32   time 2d 10h 12m   sec/tick 1114.4  sec/kimg 138.20  maintenance 0.0    gpumem 6.1
+tick 178   kimg 1435.5   lod 0.00  minibatch 32   time 2d 10h 31m   sec/tick 1113.9  sec/kimg 138.13  maintenance 0.0    gpumem 6.1
+tick 179   kimg 1443.6   lod 0.00  minibatch 32   time 2d 10h 50m   sec/tick 1116.0  sec/kimg 138.40  maintenance 0.0    gpumem 6.1
+tick 180   kimg 1451.6   lod 0.00  minibatch 32   time 2d 11h 08m   sec/tick 1115.0  sec/kimg 138.26  maintenance 0.0    gpumem 6.1
+network-snapshot-001451        time 12m 45s      fid50k 12.2936
+tick 181   kimg 1459.7   lod 0.00  minibatch 32   time 2d 11h 40m   sec/tick 1112.5  sec/kimg 137.96  maintenance 786.2  gpumem 6.1
+tick 182   kimg 1467.8   lod 0.00  minibatch 32   time 2d 11h 58m   sec/tick 1116.6  sec/kimg 138.47  maintenance 0.0    gpumem 6.1
+tick 183   kimg 1475.8   lod 0.00  minibatch 32   time 2d 12h 17m   sec/tick 1114.9  sec/kimg 138.26  maintenance 0.0    gpumem 6.1
+tick 184   kimg 1483.9   lod 0.00  minibatch 32   time 2d 12h 36m   sec/tick 1115.6  sec/kimg 138.34  maintenance 0.0    gpumem 6.1
+tick 185   kimg 1492.0   lod 0.00  minibatch 32   time 2d 12h 54m   sec/tick 1113.1  sec/kimg 138.03  maintenance 0.0    gpumem 6.1
+tick 186   kimg 1500.0   lod 0.00  minibatch 32   time 2d 13h 13m   sec/tick 1115.7  sec/kimg 138.36  maintenance 0.0    gpumem 6.1
+tick 187   kimg 1508.1   lod 0.00  minibatch 32   time 2d 13h 31m   sec/tick 1113.9  sec/kimg 138.13  maintenance 0.0    gpumem 6.1
+tick 188   kimg 1516.2   lod 0.00  minibatch 32   time 2d 13h 50m   sec/tick 1115.3  sec/kimg 138.31  maintenance 0.0    gpumem 6.1
+tick 189   kimg 1524.2   lod 0.00  minibatch 32   time 2d 14h 08m   sec/tick 1111.7  sec/kimg 137.85  maintenance 0.0    gpumem 6.1
+tick 190   kimg 1532.3   lod 0.00  minibatch 32   time 2d 14h 27m   sec/tick 1115.6  sec/kimg 138.35  maintenance 0.0    gpumem 6.1
+network-snapshot-001532        time 12m 46s      fid50k 11.9427
+tick 191   kimg 1540.4   lod 0.00  minibatch 32   time 2d 14h 59m   sec/tick 1115.1  sec/kimg 138.28  maintenance 786.1  gpumem 6.1
+tick 192   kimg 1548.4   lod 0.00  minibatch 32   time 2d 15h 17m   sec/tick 1114.0  sec/kimg 138.15  maintenance 0.0    gpumem 6.1
+tick 193   kimg 1556.5   lod 0.00  minibatch 32   time 2d 15h 36m   sec/tick 1114.9  sec/kimg 138.26  maintenance 0.0    gpumem 6.1
+tick 194   kimg 1564.5   lod 0.00  minibatch 32   time 2d 15h 54m   sec/tick 1115.7  sec/kimg 138.36  maintenance 0.0    gpumem 6.1
+tick 195   kimg 1572.6   lod 0.00  minibatch 32   time 2d 16h 13m   sec/tick 1116.0  sec/kimg 138.39  maintenance 0.0    gpumem 6.1
+tick 196   kimg 1580.7   lod 0.00  minibatch 32   time 2d 16h 32m   sec/tick 1115.2  sec/kimg 138.30  maintenance 0.0    gpumem 6.1
+tick 197   kimg 1588.7   lod 0.00  minibatch 32   time 2d 16h 50m   sec/tick 1113.5  sec/kimg 138.09  maintenance 0.0    gpumem 6.1
+tick 198   kimg 1596.8   lod 0.00  minibatch 32   time 2d 17h 09m   sec/tick 1116.3  sec/kimg 138.44  maintenance 0.0    gpumem 6.1
+tick 199   kimg 1604.9   lod 0.00  minibatch 32   time 2d 17h 27m   sec/tick 1114.4  sec/kimg 138.19  maintenance 0.0    gpumem 6.1
+tick 200   kimg 1612.9   lod 0.00  minibatch 32   time 2d 17h 46m   sec/tick 1114.0  sec/kimg 138.15  maintenance 0.0    gpumem 6.1
+network-snapshot-001612        time 12m 42s      fid50k 11.5338
+tick 201   kimg 1621.0   lod 0.00  minibatch 32   time 2d 18h 17m   sec/tick 1111.7  sec/kimg 137.86  maintenance 783.3  gpumem 6.1
+tick 202   kimg 1629.1   lod 0.00  minibatch 32   time 2d 18h 36m   sec/tick 1111.8  sec/kimg 137.87  maintenance 0.0    gpumem 6.1
+tick 203   kimg 1637.1   lod 0.00  minibatch 32   time 2d 18h 55m   sec/tick 1115.3  sec/kimg 138.31  maintenance 0.0    gpumem 6.1
+tick 204   kimg 1645.2   lod 0.00  minibatch 32   time 2d 19h 13m   sec/tick 1112.8  sec/kimg 137.99  maintenance 0.0    gpumem 6.1
+tick 205   kimg 1653.2   lod 0.00  minibatch 32   time 2d 19h 32m   sec/tick 1108.8  sec/kimg 137.49  maintenance 0.0    gpumem 6.1
+tick 206   kimg 1661.3   lod 0.00  minibatch 32   time 2d 19h 50m   sec/tick 1108.4  sec/kimg 137.46  maintenance 0.0    gpumem 6.1
+tick 207   kimg 1669.4   lod 0.00  minibatch 32   time 2d 20h 09m   sec/tick 1110.3  sec/kimg 137.68  maintenance 0.0    gpumem 6.1
+tick 208   kimg 1677.4   lod 0.00  minibatch 32   time 2d 20h 27m   sec/tick 1108.4  sec/kimg 137.45  maintenance 0.0    gpumem 6.1
+tick 209   kimg 1685.5   lod 0.00  minibatch 32   time 2d 20h 46m   sec/tick 1107.9  sec/kimg 137.39  maintenance 0.0    gpumem 6.1
+tick 210   kimg 1693.6   lod 0.00  minibatch 32   time 2d 21h 04m   sec/tick 1108.2  sec/kimg 137.42  maintenance 0.0    gpumem 6.1
+network-snapshot-001693        time 12m 33s      fid50k 11.1668
+tick 211   kimg 1701.6   lod 0.00  minibatch 32   time 2d 21h 35m   sec/tick 1107.6  sec/kimg 137.35  maintenance 773.7  gpumem 6.1
+tick 212   kimg 1709.7   lod 0.00  minibatch 32   time 2d 21h 54m   sec/tick 1109.4  sec/kimg 137.58  maintenance 0.0    gpumem 6.1
+tick 213   kimg 1717.8   lod 0.00  minibatch 32   time 2d 22h 12m   sec/tick 1106.1  sec/kimg 137.16  maintenance 0.0    gpumem 6.1
+tick 214   kimg 1725.8   lod 0.00  minibatch 32   time 2d 22h 31m   sec/tick 1109.1  sec/kimg 137.53  maintenance 0.0    gpumem 6.1
+tick 215   kimg 1733.9   lod 0.00  minibatch 32   time 2d 22h 49m   sec/tick 1107.2  sec/kimg 137.31  maintenance 0.0    gpumem 6.1
+tick 216   kimg 1742.0   lod 0.00  minibatch 32   time 2d 23h 08m   sec/tick 1109.0  sec/kimg 137.53  maintenance 0.0    gpumem 6.1
+tick 217   kimg 1750.0   lod 0.00  minibatch 32   time 2d 23h 26m   sec/tick 1106.5  sec/kimg 137.21  maintenance 0.0    gpumem 6.1
+tick 218   kimg 1758.1   lod 0.00  minibatch 32   time 2d 23h 45m   sec/tick 1108.1  sec/kimg 137.41  maintenance 0.0    gpumem 6.1
+tick 219   kimg 1766.1   lod 0.00  minibatch 32   time 3d 00h 03m   sec/tick 1108.4  sec/kimg 137.45  maintenance 0.0    gpumem 6.1
+tick 220   kimg 1774.2   lod 0.00  minibatch 32   time 3d 00h 22m   sec/tick 1106.6  sec/kimg 137.23  maintenance 0.0    gpumem 6.1
+network-snapshot-001774        time 12m 34s      fid50k 10.4740
+tick 221   kimg 1782.3   lod 0.00  minibatch 32   time 3d 00h 53m   sec/tick 1105.2  sec/kimg 137.06  maintenance 775.8  gpumem 6.1
+tick 222   kimg 1790.3   lod 0.00  minibatch 32   time 3d 01h 11m   sec/tick 1106.6  sec/kimg 137.23  maintenance 0.0    gpumem 6.1
+tick 223   kimg 1798.4   lod 0.00  minibatch 32   time 3d 01h 30m   sec/tick 1106.2  sec/kimg 137.18  maintenance 0.0    gpumem 6.1
+tick 224   kimg 1806.5   lod 0.00  minibatch 32   time 3d 01h 48m   sec/tick 1107.4  sec/kimg 137.33  maintenance 0.0    gpumem 6.1
+tick 225   kimg 1814.5   lod 0.00  minibatch 32   time 3d 02h 07m   sec/tick 1104.7  sec/kimg 136.99  maintenance 0.0    gpumem 6.1
+tick 226   kimg 1822.6   lod 0.00  minibatch 32   time 3d 02h 25m   sec/tick 1108.3  sec/kimg 137.43  maintenance 0.0    gpumem 6.1
+tick 227   kimg 1830.7   lod 0.00  minibatch 32   time 3d 02h 44m   sec/tick 1106.1  sec/kimg 137.16  maintenance 0.0    gpumem 6.1
+tick 228   kimg 1838.7   lod 0.00  minibatch 32   time 3d 03h 02m   sec/tick 1108.5  sec/kimg 137.46  maintenance 0.0    gpumem 6.1
+tick 229   kimg 1846.8   lod 0.00  minibatch 32   time 3d 03h 20m   sec/tick 1105.0  sec/kimg 137.02  maintenance 0.0    gpumem 6.1
+tick 230   kimg 1854.8   lod 0.00  minibatch 32   time 3d 03h 39m   sec/tick 1108.0  sec/kimg 137.40  maintenance 0.0    gpumem 6.1
+network-snapshot-001854        time 12m 32s      fid50k 10.2367
+tick 231   kimg 1862.9   lod 0.00  minibatch 32   time 3d 04h 10m   sec/tick 1108.3  sec/kimg 137.43  maintenance 772.2  gpumem 6.1
+tick 232   kimg 1871.0   lod 0.00  minibatch 32   time 3d 04h 29m   sec/tick 1101.6  sec/kimg 136.61  maintenance 0.0    gpumem 6.1
+tick 233   kimg 1879.0   lod 0.00  minibatch 32   time 3d 04h 47m   sec/tick 1086.4  sec/kimg 134.72  maintenance 0.0    gpumem 6.1
+tick 234   kimg 1887.1   lod 0.00  minibatch 32   time 3d 05h 05m   sec/tick 1087.8  sec/kimg 134.89  maintenance 0.0    gpumem 6.1
+tick 235   kimg 1895.2   lod 0.00  minibatch 32   time 3d 05h 23m   sec/tick 1087.7  sec/kimg 134.89  maintenance 0.0    gpumem 6.1
+tick 236   kimg 1903.2   lod 0.00  minibatch 32   time 3d 05h 41m   sec/tick 1088.0  sec/kimg 134.92  maintenance 0.0    gpumem 6.1
+tick 237   kimg 1911.3   lod 0.00  minibatch 32   time 3d 05h 59m   sec/tick 1085.8  sec/kimg 134.65  maintenance 0.0    gpumem 6.1
+tick 238   kimg 1919.4   lod 0.00  minibatch 32   time 3d 06h 17m   sec/tick 1087.2  sec/kimg 134.83  maintenance 0.0    gpumem 6.1
+tick 239   kimg 1927.4   lod 0.00  minibatch 32   time 3d 06h 35m   sec/tick 1087.7  sec/kimg 134.89  maintenance 0.0    gpumem 6.1
+tick 240   kimg 1935.5   lod 0.00  minibatch 32   time 3d 06h 54m   sec/tick 1087.7  sec/kimg 134.88  maintenance 0.0    gpumem 6.1
+network-snapshot-001935        time 12m 13s      fid50k 10.3359
+tick 241   kimg 1943.6   lod 0.00  minibatch 32   time 3d 07h 24m   sec/tick 1087.1  sec/kimg 134.81  maintenance 754.4  gpumem 6.1
+tick 242   kimg 1951.6   lod 0.00  minibatch 32   time 3d 07h 42m   sec/tick 1089.2  sec/kimg 135.07  maintenance 0.0    gpumem 6.1
+tick 243   kimg 1959.7   lod 0.00  minibatch 32   time 3d 08h 01m   sec/tick 1088.9  sec/kimg 135.03  maintenance 0.0    gpumem 6.1
+tick 244   kimg 1967.7   lod 0.00  minibatch 32   time 3d 08h 19m   sec/tick 1088.7  sec/kimg 135.01  maintenance 0.0    gpumem 6.1
+tick 245   kimg 1975.8   lod 0.00  minibatch 32   time 3d 08h 37m   sec/tick 1086.5  sec/kimg 134.73  maintenance 0.0    gpumem 6.1
+tick 246   kimg 1983.9   lod 0.00  minibatch 32   time 3d 08h 55m   sec/tick 1086.9  sec/kimg 134.79  maintenance 0.0    gpumem 6.1
+tick 247   kimg 1991.9   lod 0.00  minibatch 32   time 3d 09h 13m   sec/tick 1087.8  sec/kimg 134.89  maintenance 0.0    gpumem 6.1
+tick 248   kimg 2000.0   lod 0.00  minibatch 32   time 3d 09h 31m   sec/tick 1087.6  sec/kimg 134.87  maintenance 0.0    gpumem 6.1
+tick 249   kimg 2008.1   lod 0.00  minibatch 32   time 3d 09h 49m   sec/tick 1086.4  sec/kimg 134.72  maintenance 0.0    gpumem 6.1
+tick 250   kimg 2016.1   lod 0.00  minibatch 32   time 3d 10h 07m   sec/tick 1088.8  sec/kimg 135.02  maintenance 0.0    gpumem 6.1
+network-snapshot-002016        time 12m 24s      fid50k 9.9006
+tick 251   kimg 2024.2   lod 0.00  minibatch 32   time 3d 10h 38m   sec/tick 1084.0  sec/kimg 134.43  maintenance 765.0  gpumem 6.1
+tick 252   kimg 2032.3   lod 0.00  minibatch 32   time 3d 10h 56m   sec/tick 1080.1  sec/kimg 133.95  maintenance 0.0    gpumem 6.1
+tick 253   kimg 2040.3   lod 0.00  minibatch 32   time 3d 11h 14m   sec/tick 1078.8  sec/kimg 133.78  maintenance 0.0    gpumem 6.1
+tick 254   kimg 2048.4   lod 0.00  minibatch 32   time 3d 11h 32m   sec/tick 1081.5  sec/kimg 134.11  maintenance 0.0    gpumem 6.1
+tick 255   kimg 2056.4   lod 0.00  minibatch 32   time 3d 11h 50m   sec/tick 1081.6  sec/kimg 134.13  maintenance 0.0    gpumem 6.1
+tick 256   kimg 2064.5   lod 0.00  minibatch 32   time 3d 12h 08m   sec/tick 1081.2  sec/kimg 134.08  maintenance 0.0    gpumem 6.1
+tick 257   kimg 2072.6   lod 0.00  minibatch 32   time 3d 12h 26m   sec/tick 1079.6  sec/kimg 133.88  maintenance 0.0    gpumem 6.1
+tick 258   kimg 2080.6   lod 0.00  minibatch 32   time 3d 12h 44m   sec/tick 1080.8  sec/kimg 134.03  maintenance 0.0    gpumem 6.1
+tick 259   kimg 2088.7   lod 0.00  minibatch 32   time 3d 13h 02m   sec/tick 1081.5  sec/kimg 134.12  maintenance 0.0    gpumem 6.1
+tick 260   kimg 2096.8   lod 0.00  minibatch 32   time 3d 13h 20m   sec/tick 1081.1  sec/kimg 134.07  maintenance 0.0    gpumem 6.1
+network-snapshot-002096        time 12m 07s      fid50k 9.7764
+tick 261   kimg 2104.8   lod 0.00  minibatch 32   time 3d 13h 51m   sec/tick 1079.4  sec/kimg 133.86  maintenance 748.0  gpumem 6.1
+tick 262   kimg 2112.9   lod 0.00  minibatch 32   time 3d 14h 09m   sec/tick 1081.8  sec/kimg 134.15  maintenance 0.0    gpumem 6.1
+tick 263   kimg 2121.0   lod 0.00  minibatch 32   time 3d 14h 27m   sec/tick 1101.5  sec/kimg 136.59  maintenance 0.0    gpumem 6.1
+tick 264   kimg 2129.0   lod 0.00  minibatch 32   time 3d 14h 45m   sec/tick 1093.6  sec/kimg 135.62  maintenance 0.0    gpumem 6.1
+tick 265   kimg 2137.1   lod 0.00  minibatch 32   time 3d 15h 03m   sec/tick 1079.1  sec/kimg 133.81  maintenance 0.0    gpumem 6.1
+tick 266   kimg 2145.2   lod 0.00  minibatch 32   time 3d 15h 21m   sec/tick 1080.9  sec/kimg 134.04  maintenance 0.0    gpumem 6.1
+tick 267   kimg 2153.2   lod 0.00  minibatch 32   time 3d 15h 39m   sec/tick 1081.1  sec/kimg 134.07  maintenance 0.0    gpumem 6.1
+tick 268   kimg 2161.3   lod 0.00  minibatch 32   time 3d 15h 57m   sec/tick 1079.7  sec/kimg 133.89  maintenance 0.0    gpumem 6.1
+tick 269   kimg 2169.3   lod 0.00  minibatch 32   time 3d 16h 15m   sec/tick 1079.0  sec/kimg 133.80  maintenance 0.0    gpumem 6.1
+tick 270   kimg 2177.4   lod 0.00  minibatch 32   time 3d 16h 33m   sec/tick 1080.8  sec/kimg 134.03  maintenance 0.0    gpumem 6.1
+network-snapshot-002177        time 12m 07s      fid50k 9.5433
+tick 271   kimg 2185.5   lod 0.00  minibatch 32   time 3d 17h 04m   sec/tick 1107.9  sec/kimg 137.39  maintenance 747.0  gpumem 6.1
+tick 272   kimg 2193.5   lod 0.00  minibatch 32   time 3d 17h 22m   sec/tick 1087.8  sec/kimg 134.90  maintenance 0.0    gpumem 6.1
+tick 273   kimg 2201.6   lod 0.00  minibatch 32   time 3d 17h 40m   sec/tick 1078.8  sec/kimg 133.78  maintenance 0.0    gpumem 6.1
+tick 274   kimg 2209.7   lod 0.00  minibatch 32   time 3d 17h 59m   sec/tick 1090.9  sec/kimg 135.28  maintenance 0.0    gpumem 6.1
+tick 275   kimg 2217.7   lod 0.00  minibatch 32   time 3d 18h 17m   sec/tick 1123.8  sec/kimg 139.35  maintenance 0.0    gpumem 6.1
+tick 276   kimg 2225.8   lod 0.00  minibatch 32   time 3d 18h 35m   sec/tick 1084.2  sec/kimg 134.44  maintenance 0.0    gpumem 6.1
+tick 277   kimg 2233.9   lod 0.00  minibatch 32   time 3d 18h 53m   sec/tick 1079.2  sec/kimg 133.83  maintenance 0.0    gpumem 6.1
+tick 278   kimg 2241.9   lod 0.00  minibatch 32   time 3d 19h 11m   sec/tick 1081.1  sec/kimg 134.06  maintenance 0.0    gpumem 6.1
+tick 279   kimg 2250.0   lod 0.00  minibatch 32   time 3d 19h 30m   sec/tick 1095.9  sec/kimg 135.90  maintenance 0.0    gpumem 6.1
+tick 280   kimg 2258.0   lod 0.00  minibatch 32   time 3d 19h 48m   sec/tick 1104.3  sec/kimg 136.95  maintenance 0.0    gpumem 6.1
+network-snapshot-002258        time 12m 39s      fid50k 9.2251
+tick 281   kimg 2266.1   lod 0.00  minibatch 32   time 3d 20h 19m   sec/tick 1100.4  sec/kimg 136.45  maintenance 781.7  gpumem 6.1
+tick 282   kimg 2274.2   lod 0.00  minibatch 32   time 3d 20h 38m   sec/tick 1103.2  sec/kimg 136.81  maintenance 0.0    gpumem 6.1
+tick 283   kimg 2282.2   lod 0.00  minibatch 32   time 3d 20h 56m   sec/tick 1113.8  sec/kimg 138.11  maintenance 0.0    gpumem 6.1
+tick 284   kimg 2290.3   lod 0.00  minibatch 32   time 3d 21h 15m   sec/tick 1104.7  sec/kimg 136.99  maintenance 0.0    gpumem 6.1
+tick 285   kimg 2298.4   lod 0.00  minibatch 32   time 3d 21h 33m   sec/tick 1102.7  sec/kimg 136.74  maintenance 0.0    gpumem 6.1
+tick 286   kimg 2306.4   lod 0.00  minibatch 32   time 3d 21h 52m   sec/tick 1105.2  sec/kimg 137.05  maintenance 0.0    gpumem 6.1
+tick 287   kimg 2314.5   lod 0.00  minibatch 32   time 3d 22h 10m   sec/tick 1104.9  sec/kimg 137.02  maintenance 0.0    gpumem 6.1
+tick 288   kimg 2322.6   lod 0.00  minibatch 32   time 3d 22h 28m   sec/tick 1104.8  sec/kimg 137.00  maintenance 0.0    gpumem 6.1
+tick 289   kimg 2330.6   lod 0.00  minibatch 32   time 3d 22h 47m   sec/tick 1103.8  sec/kimg 136.88  maintenance 0.0    gpumem 6.1
+tick 290   kimg 2338.7   lod 0.00  minibatch 32   time 3d 23h 05m   sec/tick 1106.5  sec/kimg 137.22  maintenance 0.0    gpumem 6.1
+network-snapshot-002338        time 12m 36s      fid50k 8.7446
+tick 291   kimg 2346.8   lod 0.00  minibatch 32   time 3d 23h 37m   sec/tick 1106.1  sec/kimg 137.16  maintenance 777.5  gpumem 6.1
+tick 292   kimg 2354.8   lod 0.00  minibatch 32   time 3d 23h 55m   sec/tick 1106.7  sec/kimg 137.24  maintenance 0.0    gpumem 6.1
+tick 293   kimg 2362.9   lod 0.00  minibatch 32   time 4d 00h 14m   sec/tick 1103.7  sec/kimg 136.86  maintenance 0.0    gpumem 6.1
+tick 294   kimg 2370.9   lod 0.00  minibatch 32   time 4d 00h 32m   sec/tick 1104.3  sec/kimg 136.94  maintenance 0.0    gpumem 6.1
+tick 295   kimg 2379.0   lod 0.00  minibatch 32   time 4d 00h 50m   sec/tick 1104.9  sec/kimg 137.01  maintenance 0.0    gpumem 6.1
+tick 296   kimg 2387.1   lod 0.00  minibatch 32   time 4d 01h 09m   sec/tick 1105.6  sec/kimg 137.11  maintenance 0.0    gpumem 6.1
+tick 297   kimg 2395.1   lod 0.00  minibatch 32   time 4d 01h 27m   sec/tick 1103.6  sec/kimg 136.85  maintenance 0.0    gpumem 6.1
+tick 298   kimg 2403.2   lod 0.00  minibatch 32   time 4d 01h 46m   sec/tick 1105.7  sec/kimg 137.12  maintenance 0.0    gpumem 6.1
+tick 299   kimg 2411.3   lod 0.00  minibatch 32   time 4d 02h 04m   sec/tick 1104.9  sec/kimg 137.02  maintenance 0.0    gpumem 6.1
+tick 300   kimg 2419.3   lod 0.00  minibatch 32   time 4d 02h 22m   sec/tick 1104.4  sec/kimg 136.95  maintenance 0.0    gpumem 6.1
+network-snapshot-002419        time 12m 39s      fid50k 8.8854
+tick 301   kimg 2427.4   lod 0.00  minibatch 32   time 4d 02h 54m   sec/tick 1101.8  sec/kimg 136.63  maintenance 780.2  gpumem 6.1
+tick 302   kimg 2435.5   lod 0.00  minibatch 32   time 4d 03h 12m   sec/tick 1103.1  sec/kimg 136.80  maintenance 0.0    gpumem 6.1
+tick 303   kimg 2443.5   lod 0.00  minibatch 32   time 4d 03h 31m   sec/tick 1103.9  sec/kimg 136.89  maintenance 0.0    gpumem 6.1
+tick 304   kimg 2451.6   lod 0.00  minibatch 32   time 4d 03h 49m   sec/tick 1105.6  sec/kimg 137.11  maintenance 0.0    gpumem 6.1
+tick 305   kimg 2459.6   lod 0.00  minibatch 32   time 4d 04h 07m   sec/tick 1105.1  sec/kimg 137.04  maintenance 0.0    gpumem 6.1
+tick 306   kimg 2467.7   lod 0.00  minibatch 32   time 4d 04h 26m   sec/tick 1106.7  sec/kimg 137.24  maintenance 0.0    gpumem 6.1
+tick 307   kimg 2475.8   lod 0.00  minibatch 32   time 4d 04h 44m   sec/tick 1106.4  sec/kimg 137.20  maintenance 0.0    gpumem 6.1
+tick 308   kimg 2483.8   lod 0.00  minibatch 32   time 4d 05h 03m   sec/tick 1106.7  sec/kimg 137.24  maintenance 0.0    gpumem 6.1
+tick 309   kimg 2491.9   lod 0.00  minibatch 32   time 4d 05h 21m   sec/tick 1105.1  sec/kimg 137.04  maintenance 0.0    gpumem 6.1
+tick 310   kimg 2500.0   lod 0.00  minibatch 32   time 4d 05h 40m   sec/tick 1105.8  sec/kimg 137.13  maintenance 0.0    gpumem 6.1
+network-snapshot-002499        time 12m 35s      fid50k 8.7333
+tick 311   kimg 2508.0   lod 0.00  minibatch 32   time 4d 06h 11m   sec/tick 1104.1  sec/kimg 136.92  maintenance 776.0  gpumem 6.1
+tick 312   kimg 2516.1   lod 0.00  minibatch 32   time 4d 06h 29m   sec/tick 1104.3  sec/kimg 136.94  maintenance 0.0    gpumem 6.1
+tick 313   kimg 2524.2   lod 0.00  minibatch 32   time 4d 06h 48m   sec/tick 1102.9  sec/kimg 136.77  maintenance 0.0    gpumem 6.1
+tick 314   kimg 2532.2   lod 0.00  minibatch 32   time 4d 07h 06m   sec/tick 1105.7  sec/kimg 137.11  maintenance 0.0    gpumem 6.1
+tick 315   kimg 2540.3   lod 0.00  minibatch 32   time 4d 07h 25m   sec/tick 1106.0  sec/kimg 137.15  maintenance 0.0    gpumem 6.1
+tick 316   kimg 2548.4   lod 0.00  minibatch 32   time 4d 07h 43m   sec/tick 1105.2  sec/kimg 137.05  maintenance 0.0    gpumem 6.1
+tick 317   kimg 2556.4   lod 0.00  minibatch 32   time 4d 08h 01m   sec/tick 1104.6  sec/kimg 136.97  maintenance 0.0    gpumem 6.1
+tick 318   kimg 2564.5   lod 0.00  minibatch 32   time 4d 08h 20m   sec/tick 1104.1  sec/kimg 136.92  maintenance 0.0    gpumem 6.1
+tick 319   kimg 2572.5   lod 0.00  minibatch 32   time 4d 08h 38m   sec/tick 1104.5  sec/kimg 136.96  maintenance 0.0    gpumem 6.1
+tick 320   kimg 2580.6   lod 0.00  minibatch 32   time 4d 08h 57m   sec/tick 1103.9  sec/kimg 136.89  maintenance 0.0    gpumem 6.1
+network-snapshot-002580        time 12m 37s      fid50k 8.7213
+tick 321   kimg 2588.7   lod 0.00  minibatch 32   time 4d 09h 28m   sec/tick 1103.1  sec/kimg 136.79  maintenance 778.3  gpumem 6.1
+tick 322   kimg 2596.7   lod 0.00  minibatch 32   time 4d 09h 46m   sec/tick 1104.3  sec/kimg 136.94  maintenance 0.0    gpumem 6.1
+tick 323   kimg 2604.8   lod 0.00  minibatch 32   time 4d 10h 05m   sec/tick 1104.3  sec/kimg 136.94  maintenance 0.0    gpumem 6.1
+tick 324   kimg 2612.9   lod 0.00  minibatch 32   time 4d 10h 23m   sec/tick 1103.8  sec/kimg 136.88  maintenance 0.0    gpumem 6.1
+tick 325   kimg 2620.9   lod 0.00  minibatch 32   time 4d 10h 42m   sec/tick 1101.9  sec/kimg 136.64  maintenance 0.0    gpumem 6.1
+tick 326   kimg 2629.0   lod 0.00  minibatch 32   time 4d 11h 00m   sec/tick 1103.9  sec/kimg 136.89  maintenance 0.0    gpumem 6.1
+tick 327   kimg 2637.1   lod 0.00  minibatch 32   time 4d 11h 18m   sec/tick 1103.9  sec/kimg 136.89  maintenance 0.0    gpumem 6.1
+tick 328   kimg 2645.1   lod 0.00  minibatch 32   time 4d 11h 37m   sec/tick 1104.8  sec/kimg 137.00  maintenance 0.0    gpumem 6.1
+tick 329   kimg 2653.2   lod 0.00  minibatch 32   time 4d 11h 55m   sec/tick 1099.7  sec/kimg 136.37  maintenance 0.0    gpumem 6.1
+tick 330   kimg 2661.2   lod 0.00  minibatch 32   time 4d 12h 13m   sec/tick 1096.1  sec/kimg 135.93  maintenance 0.0    gpumem 6.1
+network-snapshot-002661        time 12m 22s      fid50k 8.5308
+tick 331   kimg 2669.3   lod 0.00  minibatch 32   time 4d 12h 44m   sec/tick 1095.7  sec/kimg 135.88  maintenance 763.0  gpumem 6.1
+tick 332   kimg 2677.4   lod 0.00  minibatch 32   time 4d 13h 03m   sec/tick 1096.7  sec/kimg 136.00  maintenance 0.0    gpumem 6.1
+tick 333   kimg 2685.4   lod 0.00  minibatch 32   time 4d 13h 21m   sec/tick 1095.5  sec/kimg 135.85  maintenance 0.0    gpumem 6.1
+tick 334   kimg 2693.5   lod 0.00  minibatch 32   time 4d 13h 39m   sec/tick 1091.2  sec/kimg 135.32  maintenance 0.0    gpumem 6.1
+tick 335   kimg 2701.6   lod 0.00  minibatch 32   time 4d 13h 57m   sec/tick 1094.6  sec/kimg 135.74  maintenance 0.0    gpumem 6.1
+tick 336   kimg 2709.6   lod 0.00  minibatch 32   time 4d 14h 16m   sec/tick 1103.7  sec/kimg 136.86  maintenance 0.0    gpumem 6.1
+tick 337   kimg 2717.7   lod 0.00  minibatch 32   time 4d 14h 34m   sec/tick 1097.2  sec/kimg 136.06  maintenance 0.0    gpumem 6.1
+tick 338   kimg 2725.8   lod 0.00  minibatch 32   time 4d 14h 52m   sec/tick 1098.2  sec/kimg 136.18  maintenance 0.0    gpumem 6.1
+tick 339   kimg 2733.8   lod 0.00  minibatch 32   time 4d 15h 11m   sec/tick 1108.4  sec/kimg 137.45  maintenance 0.0    gpumem 6.1
+tick 340   kimg 2741.9   lod 0.00  minibatch 32   time 4d 15h 29m   sec/tick 1107.6  sec/kimg 137.35  maintenance 0.0    gpumem 6.1
+network-snapshot-002741        time 13m 20s      fid50k 8.3546
+tick 341   kimg 2750.0   lod 0.00  minibatch 32   time 4d 16h 01m   sec/tick 1092.7  sec/kimg 135.50  maintenance 828.3  gpumem 6.1
+tick 342   kimg 2758.0   lod 0.00  minibatch 32   time 4d 16h 20m   sec/tick 1098.5  sec/kimg 136.22  maintenance 0.0    gpumem 6.1
+tick 343   kimg 2766.1   lod 0.00  minibatch 32   time 4d 16h 38m   sec/tick 1099.1  sec/kimg 136.30  maintenance 0.0    gpumem 6.1
+tick 344   kimg 2774.1   lod 0.00  minibatch 32   time 4d 16h 56m   sec/tick 1098.9  sec/kimg 136.28  maintenance 0.0    gpumem 6.1
+tick 345   kimg 2782.2   lod 0.00  minibatch 32   time 4d 17h 14m   sec/tick 1097.8  sec/kimg 136.14  maintenance 0.0    gpumem 6.1
+tick 346   kimg 2790.3   lod 0.00  minibatch 32   time 4d 17h 33m   sec/tick 1099.3  sec/kimg 136.32  maintenance 0.0    gpumem 6.1
+tick 347   kimg 2798.3   lod 0.00  minibatch 32   time 4d 17h 51m   sec/tick 1103.0  sec/kimg 136.78  maintenance 0.0    gpumem 6.1
+tick 348   kimg 2806.4   lod 0.00  minibatch 32   time 4d 18h 10m   sec/tick 1105.1  sec/kimg 137.04  maintenance 0.0    gpumem 6.1
+tick 349   kimg 2814.5   lod 0.00  minibatch 32   time 4d 18h 28m   sec/tick 1104.3  sec/kimg 136.94  maintenance 0.0    gpumem 6.1
+tick 350   kimg 2822.5   lod 0.00  minibatch 32   time 4d 18h 46m   sec/tick 1106.4  sec/kimg 137.20  maintenance 0.0    gpumem 6.1
+network-snapshot-002822        time 12m 43s      fid50k 7.9684
+tick 351   kimg 2830.6   lod 0.00  minibatch 32   time 4d 19h 18m   sec/tick 1106.0  sec/kimg 137.15  maintenance 784.7  gpumem 6.1
+tick 352   kimg 2838.7   lod 0.00  minibatch 32   time 4d 19h 36m   sec/tick 1107.1  sec/kimg 137.29  maintenance 0.0    gpumem 6.1
+tick 353   kimg 2846.7   lod 0.00  minibatch 32   time 4d 19h 55m   sec/tick 1110.2  sec/kimg 137.68  maintenance 0.0    gpumem 6.1
+tick 354   kimg 2854.8   lod 0.00  minibatch 32   time 4d 20h 13m   sec/tick 1111.1  sec/kimg 137.79  maintenance 0.0    gpumem 6.1
+tick 355   kimg 2862.8   lod 0.00  minibatch 32   time 4d 20h 32m   sec/tick 1106.3  sec/kimg 137.19  maintenance 0.0    gpumem 6.1
+tick 356   kimg 2870.9   lod 0.00  minibatch 32   time 4d 20h 50m   sec/tick 1105.9  sec/kimg 137.14  maintenance 0.0    gpumem 6.1
+tick 357   kimg 2879.0   lod 0.00  minibatch 32   time 4d 21h 09m   sec/tick 1104.7  sec/kimg 136.99  maintenance 0.0    gpumem 6.1
+tick 358   kimg 2887.0   lod 0.00  minibatch 32   time 4d 21h 27m   sec/tick 1105.9  sec/kimg 137.14  maintenance 0.0    gpumem 6.1
+tick 359   kimg 2895.1   lod 0.00  minibatch 32   time 4d 21h 46m   sec/tick 1105.1  sec/kimg 137.04  maintenance 0.0    gpumem 6.1
+tick 360   kimg 2903.2   lod 0.00  minibatch 32   time 4d 22h 04m   sec/tick 1105.3  sec/kimg 137.07  maintenance 0.0    gpumem 6.1
+network-snapshot-002903        time 12m 42s      fid50k 8.5699
+tick 361   kimg 2911.2   lod 0.00  minibatch 32   time 4d 22h 36m   sec/tick 1113.1  sec/kimg 138.04  maintenance 781.6  gpumem 6.1
+tick 362   kimg 2919.3   lod 0.00  minibatch 32   time 4d 22h 54m   sec/tick 1119.7  sec/kimg 138.86  maintenance 0.0    gpumem 6.1
+tick 363   kimg 2927.4   lod 0.00  minibatch 32   time 4d 23h 13m   sec/tick 1104.8  sec/kimg 137.00  maintenance 0.0    gpumem 6.1
+tick 364   kimg 2935.4   lod 0.00  minibatch 32   time 4d 23h 31m   sec/tick 1105.3  sec/kimg 137.06  maintenance 0.0    gpumem 6.1
+tick 365   kimg 2943.5   lod 0.00  minibatch 32   time 4d 23h 49m   sec/tick 1104.0  sec/kimg 136.90  maintenance 0.0    gpumem 6.1
+tick 366   kimg 2951.6   lod 0.00  minibatch 32   time 5d 00h 08m   sec/tick 1105.8  sec/kimg 137.13  maintenance 0.0    gpumem 6.1
+tick 367   kimg 2959.6   lod 0.00  minibatch 32   time 5d 00h 26m   sec/tick 1105.4  sec/kimg 137.08  maintenance 0.0    gpumem 6.1
+tick 368   kimg 2967.7   lod 0.00  minibatch 32   time 5d 00h 45m   sec/tick 1105.7  sec/kimg 137.11  maintenance 0.0    gpumem 6.1
+tick 369   kimg 2975.7   lod 0.00  minibatch 32   time 5d 01h 03m   sec/tick 1104.3  sec/kimg 136.94  maintenance 0.0    gpumem 6.1
+tick 370   kimg 2983.8   lod 0.00  minibatch 32   time 5d 01h 22m   sec/tick 1106.3  sec/kimg 137.19  maintenance 0.0    gpumem 6.1
+network-snapshot-002983        time 12m 31s      fid50k 7.7813
+tick 371   kimg 2991.9   lod 0.00  minibatch 32   time 5d 01h 53m   sec/tick 1105.3  sec/kimg 137.06  maintenance 772.2  gpumem 6.1
+tick 372   kimg 2999.9   lod 0.00  minibatch 32   time 5d 02h 11m   sec/tick 1105.9  sec/kimg 137.15  maintenance 0.0    gpumem 6.1
+tick 373   kimg 3008.0   lod 0.00  minibatch 32   time 5d 02h 30m   sec/tick 1103.7  sec/kimg 136.86  maintenance 0.0    gpumem 6.1
+tick 374   kimg 3016.1   lod 0.00  minibatch 32   time 5d 02h 48m   sec/tick 1106.8  sec/kimg 137.25  maintenance 0.0    gpumem 6.1
+tick 375   kimg 3024.1   lod 0.00  minibatch 32   time 5d 03h 07m   sec/tick 1106.2  sec/kimg 137.18  maintenance 0.0    gpumem 6.1
+tick 376   kimg 3032.2   lod 0.00  minibatch 32   time 5d 03h 25m   sec/tick 1106.9  sec/kimg 137.27  maintenance 0.0    gpumem 6.1
+tick 377   kimg 3040.3   lod 0.00  minibatch 32   time 5d 03h 43m   sec/tick 1104.5  sec/kimg 136.97  maintenance 0.0    gpumem 6.1
+tick 378   kimg 3048.3   lod 0.00  minibatch 32   time 5d 04h 02m   sec/tick 1106.6  sec/kimg 137.22  maintenance 0.0    gpumem 6.1
+tick 379   kimg 3056.4   lod 0.00  minibatch 32   time 5d 04h 20m   sec/tick 1106.9  sec/kimg 137.27  maintenance 0.0    gpumem 6.1
+tick 380   kimg 3064.4   lod 0.00  minibatch 32   time 5d 04h 39m   sec/tick 1105.8  sec/kimg 137.12  maintenance 0.0    gpumem 6.1
+network-snapshot-003064        time 12m 50s      fid50k 7.4563
+tick 381   kimg 3072.5   lod 0.00  minibatch 32   time 5d 05h 10m   sec/tick 1103.6  sec/kimg 136.86  maintenance 792.1  gpumem 6.1
+tick 382   kimg 3080.6   lod 0.00  minibatch 32   time 5d 05h 29m   sec/tick 1101.9  sec/kimg 136.64  maintenance 0.0    gpumem 6.1
+tick 383   kimg 3088.6   lod 0.00  minibatch 32   time 5d 05h 47m   sec/tick 1098.8  sec/kimg 136.26  maintenance 0.0    gpumem 6.1
+tick 384   kimg 3096.7   lod 0.00  minibatch 32   time 5d 06h 05m   sec/tick 1097.6  sec/kimg 136.11  maintenance 0.0    gpumem 6.1
+tick 385   kimg 3104.8   lod 0.00  minibatch 32   time 5d 06h 24m   sec/tick 1095.3  sec/kimg 135.83  maintenance 0.0    gpumem 6.1
+tick 386   kimg 3112.8   lod 0.00  minibatch 32   time 5d 06h 42m   sec/tick 1097.8  sec/kimg 136.13  maintenance 0.0    gpumem 6.1
+tick 387   kimg 3120.9   lod 0.00  minibatch 32   time 5d 07h 00m   sec/tick 1097.7  sec/kimg 136.12  maintenance 0.0    gpumem 6.1
+tick 388   kimg 3129.0   lod 0.00  minibatch 32   time 5d 07h 18m   sec/tick 1095.5  sec/kimg 135.85  maintenance 0.0    gpumem 6.1
+tick 389   kimg 3137.0   lod 0.00  minibatch 32   time 5d 07h 37m   sec/tick 1096.1  sec/kimg 135.92  maintenance 0.0    gpumem 6.1
+tick 390   kimg 3145.1   lod 0.00  minibatch 32   time 5d 07h 55m   sec/tick 1097.6  sec/kimg 136.11  maintenance 0.0    gpumem 6.1
+network-snapshot-003145        time 12m 25s      fid50k 7.2372
+tick 391   kimg 3153.2   lod 0.00  minibatch 32   time 5d 08h 26m   sec/tick 1096.9  sec/kimg 136.02  maintenance 766.1  gpumem 6.1
+tick 392   kimg 3161.2   lod 0.00  minibatch 32   time 5d 08h 44m   sec/tick 1097.9  sec/kimg 136.15  maintenance 0.0    gpumem 6.1
+tick 393   kimg 3169.3   lod 0.00  minibatch 32   time 5d 09h 03m   sec/tick 1096.7  sec/kimg 136.00  maintenance 0.0    gpumem 6.1
+tick 394   kimg 3177.3   lod 0.00  minibatch 32   time 5d 09h 21m   sec/tick 1097.9  sec/kimg 136.15  maintenance 0.0    gpumem 6.1
+tick 395   kimg 3185.4   lod 0.00  minibatch 32   time 5d 09h 39m   sec/tick 1098.1  sec/kimg 136.17  maintenance 0.0    gpumem 6.1
+tick 396   kimg 3193.5   lod 0.00  minibatch 32   time 5d 09h 58m   sec/tick 1098.0  sec/kimg 136.16  maintenance 0.0    gpumem 6.1
+tick 397   kimg 3201.5   lod 0.00  minibatch 32   time 5d 10h 16m   sec/tick 1096.9  sec/kimg 136.02  maintenance 0.0    gpumem 6.1
+tick 398   kimg 3209.6   lod 0.00  minibatch 32   time 5d 10h 34m   sec/tick 1097.9  sec/kimg 136.15  maintenance 0.0    gpumem 6.1
+tick 399   kimg 3217.7   lod 0.00  minibatch 32   time 5d 10h 52m   sec/tick 1098.3  sec/kimg 136.20  maintenance 0.0    gpumem 6.1
+tick 400   kimg 3225.7   lod 0.00  minibatch 32   time 5d 11h 11m   sec/tick 1098.5  sec/kimg 136.23  maintenance 0.0    gpumem 6.1
+network-snapshot-003225        time 13m 30s      fid50k 7.5931
+tick 401   kimg 3233.8   lod 0.00  minibatch 32   time 5d 11h 43m   sec/tick 1095.0  sec/kimg 135.79  maintenance 839.2  gpumem 6.1
+tick 402   kimg 3241.9   lod 0.00  minibatch 32   time 5d 12h 01m   sec/tick 1098.8  sec/kimg 136.26  maintenance 0.0    gpumem 6.1
+tick 403   kimg 3249.9   lod 0.00  minibatch 32   time 5d 12h 20m   sec/tick 1104.3  sec/kimg 136.94  maintenance 0.0    gpumem 6.1
+tick 404   kimg 3258.0   lod 0.00  minibatch 32   time 5d 12h 38m   sec/tick 1114.7  sec/kimg 138.24  maintenance 0.0    gpumem 6.1
+tick 405   kimg 3266.0   lod 0.00  minibatch 32   time 5d 12h 57m   sec/tick 1096.4  sec/kimg 135.96  maintenance 0.0    gpumem 6.1
+tick 406   kimg 3274.1   lod 0.00  minibatch 32   time 5d 13h 15m   sec/tick 1098.0  sec/kimg 136.16  maintenance 0.0    gpumem 6.1
+tick 407   kimg 3282.2   lod 0.00  minibatch 32   time 5d 13h 33m   sec/tick 1097.6  sec/kimg 136.11  maintenance 0.0    gpumem 6.1
+tick 408   kimg 3290.2   lod 0.00  minibatch 32   time 5d 13h 51m   sec/tick 1098.2  sec/kimg 136.18  maintenance 0.0    gpumem 6.1
+tick 409   kimg 3298.3   lod 0.00  minibatch 32   time 5d 14h 10m   sec/tick 1096.0  sec/kimg 135.92  maintenance 0.0    gpumem 6.1
+tick 410   kimg 3306.4   lod 0.00  minibatch 32   time 5d 14h 28m   sec/tick 1098.7  sec/kimg 136.25  maintenance 0.0    gpumem 6.1
+network-snapshot-003306        time 12m 25s      fid50k 7.2638
+tick 411   kimg 3314.4   lod 0.00  minibatch 32   time 5d 14h 59m   sec/tick 1100.0  sec/kimg 136.41  maintenance 766.8  gpumem 6.1
+tick 412   kimg 3322.5   lod 0.00  minibatch 32   time 5d 15h 17m   sec/tick 1099.1  sec/kimg 136.30  maintenance 0.0    gpumem 6.1
+tick 413   kimg 3330.6   lod 0.00  minibatch 32   time 5d 15h 36m   sec/tick 1098.0  sec/kimg 136.16  maintenance 0.0    gpumem 6.1
+tick 414   kimg 3338.6   lod 0.00  minibatch 32   time 5d 15h 54m   sec/tick 1100.2  sec/kimg 136.43  maintenance 0.0    gpumem 6.1
+tick 415   kimg 3346.7   lod 0.00  minibatch 32   time 5d 16h 12m   sec/tick 1100.1  sec/kimg 136.42  maintenance 0.0    gpumem 6.1
+tick 416   kimg 3354.8   lod 0.00  minibatch 32   time 5d 16h 31m   sec/tick 1098.5  sec/kimg 136.23  maintenance 0.0    gpumem 6.1
+tick 417   kimg 3362.8   lod 0.00  minibatch 32   time 5d 16h 49m   sec/tick 1096.4  sec/kimg 135.96  maintenance 0.0    gpumem 6.1
+tick 418   kimg 3370.9   lod 0.00  minibatch 32   time 5d 17h 07m   sec/tick 1099.7  sec/kimg 136.38  maintenance 0.0    gpumem 6.1
+tick 419   kimg 3378.9   lod 0.00  minibatch 32   time 5d 17h 26m   sec/tick 1099.3  sec/kimg 136.32  maintenance 0.0    gpumem 6.1
+tick 420   kimg 3387.0   lod 0.00  minibatch 32   time 5d 17h 44m   sec/tick 1099.5  sec/kimg 136.35  maintenance 0.0    gpumem 6.1
+network-snapshot-003387        time 12m 25s      fid50k 6.9119
+tick 421   kimg 3395.1   lod 0.00  minibatch 32   time 5d 18h 15m   sec/tick 1096.8  sec/kimg 136.02  maintenance 766.6  gpumem 6.1
+tick 422   kimg 3403.1   lod 0.00  minibatch 32   time 5d 18h 33m   sec/tick 1098.5  sec/kimg 136.22  maintenance 0.0    gpumem 6.1
+tick 423   kimg 3411.2   lod 0.00  minibatch 32   time 5d 18h 52m   sec/tick 1098.7  sec/kimg 136.25  maintenance 0.0    gpumem 6.1
+tick 424   kimg 3419.3   lod 0.00  minibatch 32   time 5d 19h 10m   sec/tick 1099.1  sec/kimg 136.30  maintenance 0.0    gpumem 6.1
+tick 425   kimg 3427.3   lod 0.00  minibatch 32   time 5d 19h 28m   sec/tick 1097.2  sec/kimg 136.06  maintenance 0.0    gpumem 6.1
+tick 426   kimg 3435.4   lod 0.00  minibatch 32   time 5d 19h 47m   sec/tick 1099.9  sec/kimg 136.39  maintenance 0.0    gpumem 6.1
+tick 427   kimg 3443.5   lod 0.00  minibatch 32   time 5d 20h 05m   sec/tick 1119.2  sec/kimg 138.79  maintenance 0.0    gpumem 6.1
+tick 428   kimg 3451.5   lod 0.00  minibatch 32   time 5d 20h 24m   sec/tick 1110.2  sec/kimg 137.67  maintenance 0.0    gpumem 6.1
+tick 429   kimg 3459.6   lod 0.00  minibatch 32   time 5d 20h 42m   sec/tick 1097.2  sec/kimg 136.06  maintenance 0.0    gpumem 6.1
+tick 430   kimg 3467.6   lod 0.00  minibatch 32   time 5d 21h 00m   sec/tick 1097.9  sec/kimg 136.15  maintenance 0.0    gpumem 6.1
+network-snapshot-003467        time 12m 24s      fid50k 6.9772
+tick 431   kimg 3475.7   lod 0.00  minibatch 32   time 5d 21h 31m   sec/tick 1099.3  sec/kimg 136.32  maintenance 766.8  gpumem 6.1
+tick 432   kimg 3483.8   lod 0.00  minibatch 32   time 5d 21h 50m   sec/tick 1099.2  sec/kimg 136.30  maintenance 0.0    gpumem 6.1
+tick 433   kimg 3491.8   lod 0.00  minibatch 32   time 5d 22h 08m   sec/tick 1095.9  sec/kimg 135.90  maintenance 0.0    gpumem 6.1
+tick 434   kimg 3499.9   lod 0.00  minibatch 32   time 5d 22h 26m   sec/tick 1096.0  sec/kimg 135.91  maintenance 0.0    gpumem 6.1
+tick 435   kimg 3508.0   lod 0.00  minibatch 32   time 5d 22h 45m   sec/tick 1097.6  sec/kimg 136.11  maintenance 0.0    gpumem 6.1
+tick 436   kimg 3516.0   lod 0.00  minibatch 32   time 5d 23h 03m   sec/tick 1099.4  sec/kimg 136.34  maintenance 0.0    gpumem 6.1
+tick 437   kimg 3524.1   lod 0.00  minibatch 32   time 5d 23h 21m   sec/tick 1096.9  sec/kimg 136.02  maintenance 0.0    gpumem 6.1
+tick 438   kimg 3532.2   lod 0.00  minibatch 32   time 5d 23h 40m   sec/tick 1099.9  sec/kimg 136.40  maintenance 0.0    gpumem 6.1
+tick 439   kimg 3540.2   lod 0.00  minibatch 32   time 5d 23h 58m   sec/tick 1099.5  sec/kimg 136.34  maintenance 0.0    gpumem 6.1
+tick 440   kimg 3548.3   lod 0.00  minibatch 32   time 6d 00h 16m   sec/tick 1099.8  sec/kimg 136.38  maintenance 0.0    gpumem 6.1
+network-snapshot-003548        time 12m 28s      fid50k 6.6981
+tick 441   kimg 3556.4   lod 0.00  minibatch 32   time 6d 00h 47m   sec/tick 1096.1  sec/kimg 135.93  maintenance 769.6  gpumem 6.1
+tick 442   kimg 3564.4   lod 0.00  minibatch 32   time 6d 01h 06m   sec/tick 1100.0  sec/kimg 136.41  maintenance 0.0    gpumem 6.1
+tick 443   kimg 3572.5   lod 0.00  minibatch 32   time 6d 01h 24m   sec/tick 1099.4  sec/kimg 136.33  maintenance 0.0    gpumem 6.1
+tick 444   kimg 3580.5   lod 0.00  minibatch 32   time 6d 01h 42m   sec/tick 1099.8  sec/kimg 136.38  maintenance 0.0    gpumem 6.1
+tick 445   kimg 3588.6   lod 0.00  minibatch 32   time 6d 02h 01m   sec/tick 1097.3  sec/kimg 136.08  maintenance 0.0    gpumem 6.1
+tick 446   kimg 3596.7   lod 0.00  minibatch 32   time 6d 02h 19m   sec/tick 1098.4  sec/kimg 136.22  maintenance 0.0    gpumem 6.1
+tick 447   kimg 3604.7   lod 0.00  minibatch 32   time 6d 02h 37m   sec/tick 1098.5  sec/kimg 136.22  maintenance 0.0    gpumem 6.1
+tick 448   kimg 3612.8   lod 0.00  minibatch 32   time 6d 02h 56m   sec/tick 1099.3  sec/kimg 136.32  maintenance 0.0    gpumem 6.1
+tick 449   kimg 3620.9   lod 0.00  minibatch 32   time 6d 03h 14m   sec/tick 1097.4  sec/kimg 136.08  maintenance 0.0    gpumem 6.1
+tick 450   kimg 3628.9   lod 0.00  minibatch 32   time 6d 03h 32m   sec/tick 1097.8  sec/kimg 136.13  maintenance 0.0    gpumem 6.1
+network-snapshot-003628        time 12m 25s      fid50k 6.9291
+tick 451   kimg 3637.0   lod 0.00  minibatch 32   time 6d 04h 03m   sec/tick 1099.4  sec/kimg 136.33  maintenance 766.2  gpumem 6.1
+tick 452   kimg 3645.1   lod 0.00  minibatch 32   time 6d 04h 22m   sec/tick 1100.0  sec/kimg 136.40  maintenance 0.0    gpumem 6.1
+tick 453   kimg 3653.1   lod 0.00  minibatch 32   time 6d 04h 40m   sec/tick 1097.3  sec/kimg 136.08  maintenance 0.0    gpumem 6.1
+tick 454   kimg 3661.2   lod 0.00  minibatch 32   time 6d 04h 58m   sec/tick 1099.7  sec/kimg 136.37  maintenance 0.0    gpumem 6.1
+tick 455   kimg 3669.2   lod 0.00  minibatch 32   time 6d 05h 16m   sec/tick 1099.8  sec/kimg 136.38  maintenance 0.0    gpumem 6.1
+tick 456   kimg 3677.3   lod 0.00  minibatch 32   time 6d 05h 35m   sec/tick 1099.6  sec/kimg 136.35  maintenance 0.0    gpumem 6.1
+tick 457   kimg 3685.4   lod 0.00  minibatch 32   time 6d 05h 53m   sec/tick 1097.7  sec/kimg 136.13  maintenance 0.0    gpumem 6.1
+tick 458   kimg 3693.4   lod 0.00  minibatch 32   time 6d 06h 11m   sec/tick 1099.2  sec/kimg 136.31  maintenance 0.0    gpumem 6.1
+tick 459   kimg 3701.5   lod 0.00  minibatch 32   time 6d 06h 30m   sec/tick 1099.9  sec/kimg 136.40  maintenance 0.0    gpumem 6.1
+tick 460   kimg 3709.6   lod 0.00  minibatch 32   time 6d 06h 48m   sec/tick 1082.6  sec/kimg 134.25  maintenance 0.0    gpumem 6.1
+network-snapshot-003709        time 12m 05s      fid50k 7.0047
+tick 461   kimg 3717.6   lod 0.00  minibatch 32   time 6d 07h 18m   sec/tick 1080.8  sec/kimg 134.03  maintenance 745.7  gpumem 6.1
+tick 462   kimg 3725.7   lod 0.00  minibatch 32   time 6d 07h 36m   sec/tick 1081.5  sec/kimg 134.12  maintenance 0.0    gpumem 6.1
+tick 463   kimg 3733.8   lod 0.00  minibatch 32   time 6d 07h 54m   sec/tick 1081.4  sec/kimg 134.11  maintenance 0.0    gpumem 6.1
+tick 464   kimg 3741.8   lod 0.00  minibatch 32   time 6d 08h 12m   sec/tick 1081.8  sec/kimg 134.15  maintenance 0.0    gpumem 6.1
+tick 465   kimg 3749.9   lod 0.00  minibatch 32   time 6d 08h 30m   sec/tick 1079.9  sec/kimg 133.91  maintenance 0.0    gpumem 6.1
+tick 466   kimg 3758.0   lod 0.00  minibatch 32   time 6d 08h 48m   sec/tick 1082.4  sec/kimg 134.23  maintenance 0.0    gpumem 6.1
+tick 467   kimg 3766.0   lod 0.00  minibatch 32   time 6d 09h 06m   sec/tick 1081.5  sec/kimg 134.12  maintenance 0.0    gpumem 6.1
+tick 468   kimg 3774.1   lod 0.00  minibatch 32   time 6d 09h 24m   sec/tick 1082.1  sec/kimg 134.19  maintenance 0.0    gpumem 6.1
+tick 469   kimg 3782.1   lod 0.00  minibatch 32   time 6d 09h 42m   sec/tick 1079.9  sec/kimg 133.91  maintenance 0.0    gpumem 6.1
+tick 470   kimg 3790.2   lod 0.00  minibatch 32   time 6d 10h 00m   sec/tick 1082.1  sec/kimg 134.19  maintenance 0.0    gpumem 6.1
+network-snapshot-003790        time 12m 07s      fid50k 7.1036
+tick 471   kimg 3798.3   lod 0.00  minibatch 32   time 6d 10h 31m   sec/tick 1081.7  sec/kimg 134.13  maintenance 748.1  gpumem 6.1
+tick 472   kimg 3806.3   lod 0.00  minibatch 32   time 6d 10h 49m   sec/tick 1081.1  sec/kimg 134.06  maintenance 0.0    gpumem 6.1
+tick 473   kimg 3814.4   lod 0.00  minibatch 32   time 6d 11h 07m   sec/tick 1080.6  sec/kimg 134.00  maintenance 0.0    gpumem 6.1
+tick 474   kimg 3822.5   lod 0.00  minibatch 32   time 6d 11h 25m   sec/tick 1081.9  sec/kimg 134.16  maintenance 0.0    gpumem 6.1
+tick 475   kimg 3830.5   lod 0.00  minibatch 32   time 6d 11h 43m   sec/tick 1082.0  sec/kimg 134.18  maintenance 0.0    gpumem 6.1
+tick 476   kimg 3838.6   lod 0.00  minibatch 32   time 6d 12h 01m   sec/tick 1082.6  sec/kimg 134.25  maintenance 0.0    gpumem 6.1
+tick 477   kimg 3846.7   lod 0.00  minibatch 32   time 6d 12h 19m   sec/tick 1089.5  sec/kimg 135.11  maintenance 0.0    gpumem 6.1
+tick 478   kimg 3854.7   lod 0.00  minibatch 32   time 6d 12h 37m   sec/tick 1090.9  sec/kimg 135.27  maintenance 0.0    gpumem 6.1
+tick 479   kimg 3862.8   lod 0.00  minibatch 32   time 6d 12h 56m   sec/tick 1090.4  sec/kimg 135.22  maintenance 0.0    gpumem 6.1
+tick 480   kimg 3870.8   lod 0.00  minibatch 32   time 6d 13h 14m   sec/tick 1105.7  sec/kimg 137.12  maintenance 0.0    gpumem 6.1
+network-snapshot-003870        time 12m 15s      fid50k 6.6384
+tick 481   kimg 3878.9   lod 0.00  minibatch 32   time 6d 13h 45m   sec/tick 1090.0  sec/kimg 135.17  maintenance 756.5  gpumem 6.1
+tick 482   kimg 3887.0   lod 0.00  minibatch 32   time 6d 14h 03m   sec/tick 1092.6  sec/kimg 135.50  maintenance 0.0    gpumem 6.1
+tick 483   kimg 3895.0   lod 0.00  minibatch 32   time 6d 14h 21m   sec/tick 1092.7  sec/kimg 135.50  maintenance 0.0    gpumem 6.1
+tick 484   kimg 3903.1   lod 0.00  minibatch 32   time 6d 14h 39m   sec/tick 1091.7  sec/kimg 135.38  maintenance 0.0    gpumem 6.1
+tick 485   kimg 3911.2   lod 0.00  minibatch 32   time 6d 14h 58m   sec/tick 1091.2  sec/kimg 135.31  maintenance 0.0    gpumem 6.1
+tick 486   kimg 3919.2   lod 0.00  minibatch 32   time 6d 15h 16m   sec/tick 1102.0  sec/kimg 136.66  maintenance 0.0    gpumem 6.1
+tick 487   kimg 3927.3   lod 0.00  minibatch 32   time 6d 15h 34m   sec/tick 1100.5  sec/kimg 136.47  maintenance 0.0    gpumem 6.1
+tick 488   kimg 3935.4   lod 0.00  minibatch 32   time 6d 15h 53m   sec/tick 1103.9  sec/kimg 136.89  maintenance 0.0    gpumem 6.1
+tick 489   kimg 3943.4   lod 0.00  minibatch 32   time 6d 16h 11m   sec/tick 1102.3  sec/kimg 136.69  maintenance 0.0    gpumem 6.1
+tick 490   kimg 3951.5   lod 0.00  minibatch 32   time 6d 16h 29m   sec/tick 1100.0  sec/kimg 136.41  maintenance 0.0    gpumem 6.1
+network-snapshot-003951        time 15m 53s      fid50k 6.4924
+tick 491   kimg 3959.6   lod 0.00  minibatch 32   time 6d 17h 05m   sec/tick 1101.6  sec/kimg 136.60  maintenance 1017.0 gpumem 6.1
+tick 492   kimg 3967.6   lod 0.00  minibatch 32   time 6d 17h 23m   sec/tick 1100.0  sec/kimg 136.41  maintenance 0.0    gpumem 6.1
+tick 493   kimg 3975.7   lod 0.00  minibatch 32   time 6d 17h 41m   sec/tick 1098.8  sec/kimg 136.25  maintenance 0.0    gpumem 6.1
+tick 494   kimg 3983.7   lod 0.00  minibatch 32   time 6d 18h 00m   sec/tick 1099.8  sec/kimg 136.38  maintenance 0.0    gpumem 6.1
+tick 495   kimg 3991.8   lod 0.00  minibatch 32   time 6d 18h 18m   sec/tick 1099.4  sec/kimg 136.34  maintenance 0.0    gpumem 6.1
+tick 496   kimg 3999.9   lod 0.00  minibatch 32   time 6d 18h 36m   sec/tick 1100.7  sec/kimg 136.49  maintenance 0.0    gpumem 6.1
+tick 497   kimg 4007.9   lod 0.00  minibatch 32   time 6d 18h 55m   sec/tick 1097.2  sec/kimg 136.06  maintenance 0.0    gpumem 6.1
+tick 498   kimg 4016.0   lod 0.00  minibatch 32   time 6d 19h 13m   sec/tick 1099.1  sec/kimg 136.30  maintenance 0.0    gpumem 6.1
+tick 499   kimg 4024.1   lod 0.00  minibatch 32   time 6d 19h 31m   sec/tick 1100.1  sec/kimg 136.42  maintenance 0.0    gpumem 6.1
+tick 500   kimg 4032.1   lod 0.00  minibatch 32   time 6d 19h 50m   sec/tick 1100.0  sec/kimg 136.41  maintenance 0.0    gpumem 6.1
+network-snapshot-004032        time 14m 57s      fid50k 6.3997
+tick 501   kimg 4040.2   lod 0.00  minibatch 32   time 6d 20h 24m   sec/tick 1098.9  sec/kimg 136.27  maintenance 940.7  gpumem 6.1
+tick 502   kimg 4048.3   lod 0.00  minibatch 32   time 6d 20h 42m   sec/tick 1100.5  sec/kimg 136.47  maintenance 0.0    gpumem 6.1
+tick 503   kimg 4056.3   lod 0.00  minibatch 32   time 6d 21h 00m   sec/tick 1100.2  sec/kimg 136.44  maintenance 0.0    gpumem 6.1
+tick 504   kimg 4064.4   lod 0.00  minibatch 32   time 6d 21h 19m   sec/tick 1099.7  sec/kimg 136.37  maintenance 0.0    gpumem 6.1
+tick 505   kimg 4072.4   lod 0.00  minibatch 32   time 6d 21h 37m   sec/tick 1100.0  sec/kimg 136.41  maintenance 0.0    gpumem 6.1
+tick 506   kimg 4080.5   lod 0.00  minibatch 32   time 6d 21h 55m   sec/tick 1101.4  sec/kimg 136.59  maintenance 0.0    gpumem 6.1
+tick 507   kimg 4088.6   lod 0.00  minibatch 32   time 6d 22h 14m   sec/tick 1100.4  sec/kimg 136.45  maintenance 0.0    gpumem 6.1
+tick 508   kimg 4096.6   lod 0.00  minibatch 32   time 6d 22h 32m   sec/tick 1102.1  sec/kimg 136.67  maintenance 0.0    gpumem 6.1
+tick 509   kimg 4104.7   lod 0.00  minibatch 32   time 6d 22h 50m   sec/tick 1098.5  sec/kimg 136.22  maintenance 0.0    gpumem 6.1
+tick 510   kimg 4112.8   lod 0.00  minibatch 32   time 6d 23h 09m   sec/tick 1100.0  sec/kimg 136.41  maintenance 0.0    gpumem 6.1
+network-snapshot-004112        time 14m 48s      fid50k 6.5868
+tick 511   kimg 4120.8   lod 0.00  minibatch 32   time 6d 23h 43m   sec/tick 1099.2  sec/kimg 136.30  maintenance 941.2  gpumem 6.1
+tick 512   kimg 4128.9   lod 0.00  minibatch 32   time 7d 00h 01m   sec/tick 1099.5  sec/kimg 136.35  maintenance 0.0    gpumem 6.1
+tick 513   kimg 4137.0   lod 0.00  minibatch 32   time 7d 00h 19m   sec/tick 1100.0  sec/kimg 136.40  maintenance 0.0    gpumem 6.1
+tick 514   kimg 4145.0   lod 0.00  minibatch 32   time 7d 00h 38m   sec/tick 1099.5  sec/kimg 136.34  maintenance 0.0    gpumem 6.1
+tick 515   kimg 4153.1   lod 0.00  minibatch 32   time 7d 00h 56m   sec/tick 1099.8  sec/kimg 136.38  maintenance 0.0    gpumem 6.1
+tick 516   kimg 4161.2   lod 0.00  minibatch 32   time 7d 01h 14m   sec/tick 1103.2  sec/kimg 136.80  maintenance 0.0    gpumem 6.1
+tick 517   kimg 4169.2   lod 0.00  minibatch 32   time 7d 01h 33m   sec/tick 1099.5  sec/kimg 136.35  maintenance 0.0    gpumem 6.1
+tick 518   kimg 4177.3   lod 0.00  minibatch 32   time 7d 01h 51m   sec/tick 1101.0  sec/kimg 136.53  maintenance 0.0    gpumem 6.1
+tick 519   kimg 4185.3   lod 0.00  minibatch 32   time 7d 02h 09m   sec/tick 1101.6  sec/kimg 136.61  maintenance 0.0    gpumem 6.1
+tick 520   kimg 4193.4   lod 0.00  minibatch 32   time 7d 02h 28m   sec/tick 1100.5  sec/kimg 136.47  maintenance 0.0    gpumem 6.1
+network-snapshot-004193        time 14m 25s      fid50k 6.6656
+tick 521   kimg 4201.5   lod 0.00  minibatch 32   time 7d 03h 01m   sec/tick 1097.5  sec/kimg 136.09  maintenance 920.4  gpumem 6.1
+tick 522   kimg 4209.5   lod 0.00  minibatch 32   time 7d 03h 20m   sec/tick 1094.8  sec/kimg 135.76  maintenance 0.0    gpumem 6.1
+tick 523   kimg 4217.6   lod 0.00  minibatch 32   time 7d 03h 38m   sec/tick 1106.2  sec/kimg 137.17  maintenance 0.0    gpumem 6.1
+tick 524   kimg 4225.7   lod 0.00  minibatch 32   time 7d 03h 56m   sec/tick 1101.0  sec/kimg 136.53  maintenance 0.0    gpumem 6.1
+tick 525   kimg 4233.7   lod 0.00  minibatch 32   time 7d 04h 15m   sec/tick 1098.4  sec/kimg 136.22  maintenance 0.0    gpumem 6.1
+tick 526   kimg 4241.8   lod 0.00  minibatch 32   time 7d 04h 33m   sec/tick 1097.4  sec/kimg 136.09  maintenance 0.0    gpumem 6.1
+tick 527   kimg 4249.9   lod 0.00  minibatch 32   time 7d 04h 51m   sec/tick 1097.1  sec/kimg 136.05  maintenance 0.0    gpumem 6.1
+tick 528   kimg 4257.9   lod 0.00  minibatch 32   time 7d 05h 10m   sec/tick 1097.8  sec/kimg 136.14  maintenance 0.0    gpumem 6.1
+tick 529   kimg 4266.0   lod 0.00  minibatch 32   time 7d 05h 28m   sec/tick 1096.2  sec/kimg 135.93  maintenance 0.0    gpumem 6.1
+tick 530   kimg 4274.0   lod 0.00  minibatch 32   time 7d 05h 46m   sec/tick 1098.5  sec/kimg 136.22  maintenance 0.0    gpumem 6.1
+network-snapshot-004274        time 12m 27s      fid50k 6.5887
+tick 531   kimg 4282.1   lod 0.00  minibatch 32   time 7d 06h 17m   sec/tick 1099.0  sec/kimg 136.29  maintenance 768.1  gpumem 6.1
+tick 532   kimg 4290.2   lod 0.00  minibatch 32   time 7d 06h 36m   sec/tick 1097.9  sec/kimg 136.15  maintenance 0.0    gpumem 6.1
+tick 533   kimg 4298.2   lod 0.00  minibatch 32   time 7d 06h 54m   sec/tick 1097.1  sec/kimg 136.05  maintenance 0.0    gpumem 6.1
+tick 534   kimg 4306.3   lod 0.00  minibatch 32   time 7d 07h 12m   sec/tick 1099.2  sec/kimg 136.31  maintenance 0.0    gpumem 6.1
+tick 535   kimg 4314.4   lod 0.00  minibatch 32   time 7d 07h 31m   sec/tick 1099.0  sec/kimg 136.28  maintenance 0.0    gpumem 6.1
+tick 536   kimg 4322.4   lod 0.00  minibatch 32   time 7d 07h 49m   sec/tick 1098.9  sec/kimg 136.27  maintenance 0.0    gpumem 6.1
+tick 537   kimg 4330.5   lod 0.00  minibatch 32   time 7d 08h 07m   sec/tick 1097.7  sec/kimg 136.12  maintenance 0.0    gpumem 6.1
+tick 538   kimg 4338.6   lod 0.00  minibatch 32   time 7d 08h 25m   sec/tick 1099.9  sec/kimg 136.39  maintenance 0.0    gpumem 6.1
+tick 539   kimg 4346.6   lod 0.00  minibatch 32   time 7d 08h 44m   sec/tick 1099.2  sec/kimg 136.31  maintenance 0.0    gpumem 6.1
+tick 540   kimg 4354.7   lod 0.00  minibatch 32   time 7d 09h 02m   sec/tick 1098.6  sec/kimg 136.24  maintenance 0.0    gpumem 6.1
+network-snapshot-004354        time 12m 25s      fid50k 7.0155
+tick 541   kimg 4362.8   lod 0.00  minibatch 32   time 7d 09h 33m   sec/tick 1096.9  sec/kimg 136.03  maintenance 764.9  gpumem 6.1
+tick 542   kimg 4370.8   lod 0.00  minibatch 32   time 7d 09h 51m   sec/tick 1098.9  sec/kimg 136.28  maintenance 0.0    gpumem 6.1
+tick 543   kimg 4378.9   lod 0.00  minibatch 32   time 7d 10h 10m   sec/tick 1098.0  sec/kimg 136.16  maintenance 0.0    gpumem 6.1
+tick 544   kimg 4386.9   lod 0.00  minibatch 32   time 7d 10h 28m   sec/tick 1098.3  sec/kimg 136.20  maintenance 0.0    gpumem 6.1
+tick 545   kimg 4395.0   lod 0.00  minibatch 32   time 7d 10h 46m   sec/tick 1096.5  sec/kimg 135.97  maintenance 0.0    gpumem 6.1
+tick 546   kimg 4403.1   lod 0.00  minibatch 32   time 7d 11h 05m   sec/tick 1098.0  sec/kimg 136.16  maintenance 0.0    gpumem 6.1
+tick 547   kimg 4411.1   lod 0.00  minibatch 32   time 7d 11h 23m   sec/tick 1095.9  sec/kimg 135.90  maintenance 0.0    gpumem 6.1
+tick 548   kimg 4419.2   lod 0.00  minibatch 32   time 7d 11h 41m   sec/tick 1090.6  sec/kimg 135.24  maintenance 0.0    gpumem 6.1
+tick 549   kimg 4427.3   lod 0.00  minibatch 32   time 7d 11h 59m   sec/tick 1089.8  sec/kimg 135.14  maintenance 0.0    gpumem 6.1
+tick 550   kimg 4435.3   lod 0.00  minibatch 32   time 7d 12h 17m   sec/tick 1091.2  sec/kimg 135.32  maintenance 0.0    gpumem 6.1
+network-snapshot-004435        time 12m 07s      fid50k 6.8857
+tick 551   kimg 4443.4   lod 0.00  minibatch 32   time 7d 12h 48m   sec/tick 1090.2  sec/kimg 135.19  maintenance 746.7  gpumem 6.1
+tick 552   kimg 4451.5   lod 0.00  minibatch 32   time 7d 13h 06m   sec/tick 1091.3  sec/kimg 135.33  maintenance 0.0    gpumem 6.1
+tick 553   kimg 4459.5   lod 0.00  minibatch 32   time 7d 13h 24m   sec/tick 1088.7  sec/kimg 135.01  maintenance 0.0    gpumem 6.1
+tick 554   kimg 4467.6   lod 0.00  minibatch 32   time 7d 13h 43m   sec/tick 1091.0  sec/kimg 135.30  maintenance 0.0    gpumem 6.1
+tick 555   kimg 4475.6   lod 0.00  minibatch 32   time 7d 14h 01m   sec/tick 1090.4  sec/kimg 135.21  maintenance 0.0    gpumem 6.1
+tick 556   kimg 4483.7   lod 0.00  minibatch 32   time 7d 14h 19m   sec/tick 1090.3  sec/kimg 135.20  maintenance 0.0    gpumem 6.1
+tick 557   kimg 4491.8   lod 0.00  minibatch 32   time 7d 14h 37m   sec/tick 1089.7  sec/kimg 135.14  maintenance 0.0    gpumem 6.1
+tick 558   kimg 4499.8   lod 0.00  minibatch 32   time 7d 14h 55m   sec/tick 1092.5  sec/kimg 135.48  maintenance 0.0    gpumem 6.1
+tick 559   kimg 4507.9   lod 0.00  minibatch 32   time 7d 15h 14m   sec/tick 1098.1  sec/kimg 136.17  maintenance 0.0    gpumem 6.1
+tick 560   kimg 4516.0   lod 0.00  minibatch 32   time 7d 15h 32m   sec/tick 1099.7  sec/kimg 136.38  maintenance 0.0    gpumem 6.1
+network-snapshot-004515        time 12m 24s      fid50k 6.5382
+tick 561   kimg 4524.0   lod 0.00  minibatch 32   time 7d 16h 03m   sec/tick 1097.6  sec/kimg 136.11  maintenance 763.9  gpumem 6.1
+tick 562   kimg 4532.1   lod 0.00  minibatch 32   time 7d 16h 21m   sec/tick 1099.2  sec/kimg 136.31  maintenance 0.0    gpumem 6.1
+tick 563   kimg 4540.2   lod 0.00  minibatch 32   time 7d 16h 40m   sec/tick 1098.5  sec/kimg 136.23  maintenance 0.0    gpumem 6.1
+tick 564   kimg 4548.2   lod 0.00  minibatch 32   time 7d 16h 58m   sec/tick 1098.7  sec/kimg 136.25  maintenance 0.0    gpumem 6.1
+tick 565   kimg 4556.3   lod 0.00  minibatch 32   time 7d 17h 16m   sec/tick 1088.1  sec/kimg 134.93  maintenance 0.0    gpumem 6.1
+tick 566   kimg 4564.4   lod 0.00  minibatch 32   time 7d 17h 34m   sec/tick 1091.1  sec/kimg 135.31  maintenance 0.0    gpumem 6.1
+tick 567   kimg 4572.4   lod 0.00  minibatch 32   time 7d 17h 52m   sec/tick 1092.1  sec/kimg 135.43  maintenance 0.0    gpumem 6.1
+tick 568   kimg 4580.5   lod 0.00  minibatch 32   time 7d 18h 11m   sec/tick 1104.6  sec/kimg 136.98  maintenance 0.0    gpumem 6.1
+tick 569   kimg 4588.5   lod 0.00  minibatch 32   time 7d 18h 29m   sec/tick 1099.6  sec/kimg 136.36  maintenance 0.0    gpumem 6.1
+tick 570   kimg 4596.6   lod 0.00  minibatch 32   time 7d 18h 47m   sec/tick 1097.5  sec/kimg 136.10  maintenance 0.0    gpumem 6.1
+network-snapshot-004596        time 13m 07s      fid50k 6.1640
+tick 571   kimg 4604.7   lod 0.00  minibatch 32   time 7d 19h 19m   sec/tick 1100.5  sec/kimg 136.47  maintenance 812.3  gpumem 6.1
+tick 572   kimg 4612.7   lod 0.00  minibatch 32   time 7d 19h 38m   sec/tick 1100.5  sec/kimg 136.48  maintenance 0.0    gpumem 6.1
+tick 573   kimg 4620.8   lod 0.00  minibatch 32   time 7d 19h 56m   sec/tick 1097.5  sec/kimg 136.10  maintenance 0.0    gpumem 6.1
+tick 574   kimg 4628.9   lod 0.00  minibatch 32   time 7d 20h 14m   sec/tick 1099.8  sec/kimg 136.38  maintenance 0.0    gpumem 6.1
+tick 575   kimg 4636.9   lod 0.00  minibatch 32   time 7d 20h 33m   sec/tick 1100.0  sec/kimg 136.41  maintenance 0.0    gpumem 6.1
+tick 576   kimg 4645.0   lod 0.00  minibatch 32   time 7d 20h 51m   sec/tick 1095.5  sec/kimg 135.85  maintenance 0.0    gpumem 6.1
+tick 577   kimg 4653.1   lod 0.00  minibatch 32   time 7d 21h 09m   sec/tick 1099.5  sec/kimg 136.35  maintenance 0.0    gpumem 6.1
+tick 578   kimg 4661.1   lod 0.00  minibatch 32   time 7d 21h 28m   sec/tick 1103.7  sec/kimg 136.87  maintenance 0.0    gpumem 6.1
+tick 579   kimg 4669.2   lod 0.00  minibatch 32   time 7d 21h 46m   sec/tick 1104.9  sec/kimg 137.02  maintenance 0.0    gpumem 6.1
+tick 580   kimg 4677.2   lod 0.00  minibatch 32   time 7d 22h 04m   sec/tick 1103.9  sec/kimg 136.89  maintenance 0.0    gpumem 6.1
+network-snapshot-004677        time 13m 17s      fid50k 6.2668
+tick 581   kimg 4685.3   lod 0.00  minibatch 32   time 7d 22h 36m   sec/tick 1098.0  sec/kimg 136.16  maintenance 820.5  gpumem 6.1
+tick 582   kimg 4693.4   lod 0.00  minibatch 32   time 7d 22h 55m   sec/tick 1099.5  sec/kimg 136.34  maintenance 0.0    gpumem 6.1
+tick 583   kimg 4701.4   lod 0.00  minibatch 32   time 7d 23h 13m   sec/tick 1097.3  sec/kimg 136.08  maintenance 0.0    gpumem 6.1
+tick 584   kimg 4709.5   lod 0.00  minibatch 32   time 7d 23h 31m   sec/tick 1097.4  sec/kimg 136.08  maintenance 0.0    gpumem 6.1
+tick 585   kimg 4717.6   lod 0.00  minibatch 32   time 7d 23h 49m   sec/tick 1093.2  sec/kimg 135.56  maintenance 0.0    gpumem 6.1
+tick 586   kimg 4725.6   lod 0.00  minibatch 32   time 8d 00h 08m   sec/tick 1092.7  sec/kimg 135.51  maintenance 0.0    gpumem 6.1
+tick 587   kimg 4733.7   lod 0.00  minibatch 32   time 8d 00h 26m   sec/tick 1091.3  sec/kimg 135.33  maintenance 0.0    gpumem 6.1
+tick 588   kimg 4741.8   lod 0.00  minibatch 32   time 8d 00h 44m   sec/tick 1095.0  sec/kimg 135.79  maintenance 0.0    gpumem 6.1
+tick 589   kimg 4749.8   lod 0.00  minibatch 32   time 8d 01h 02m   sec/tick 1090.6  sec/kimg 135.24  maintenance 0.0    gpumem 6.1
+tick 590   kimg 4757.9   lod 0.00  minibatch 32   time 8d 01h 21m   sec/tick 1093.3  sec/kimg 135.58  maintenance 0.0    gpumem 6.1
+network-snapshot-004757        time 12m 06s      fid50k 5.8977
+tick 591   kimg 4766.0   lod 0.00  minibatch 32   time 8d 01h 51m   sec/tick 1091.4  sec/kimg 135.35  maintenance 748.2  gpumem 6.1
+tick 592   kimg 4774.0   lod 0.00  minibatch 32   time 8d 02h 09m   sec/tick 1092.1  sec/kimg 135.44  maintenance 0.0    gpumem 6.1
+tick 593   kimg 4782.1   lod 0.00  minibatch 32   time 8d 02h 28m   sec/tick 1090.2  sec/kimg 135.19  maintenance 0.0    gpumem 6.1
+tick 594   kimg 4790.1   lod 0.00  minibatch 32   time 8d 02h 46m   sec/tick 1091.7  sec/kimg 135.38  maintenance 0.0    gpumem 6.1
+tick 595   kimg 4798.2   lod 0.00  minibatch 32   time 8d 03h 04m   sec/tick 1091.4  sec/kimg 135.35  maintenance 0.0    gpumem 6.1
+tick 596   kimg 4806.3   lod 0.00  minibatch 32   time 8d 03h 22m   sec/tick 1091.1  sec/kimg 135.30  maintenance 0.0    gpumem 6.1
+tick 597   kimg 4814.3   lod 0.00  minibatch 32   time 8d 03h 40m   sec/tick 1089.5  sec/kimg 135.11  maintenance 0.0    gpumem 6.1
+tick 598   kimg 4822.4   lod 0.00  minibatch 32   time 8d 03h 58m   sec/tick 1090.9  sec/kimg 135.28  maintenance 0.0    gpumem 6.1
+tick 599   kimg 4830.5   lod 0.00  minibatch 32   time 8d 04h 17m   sec/tick 1091.0  sec/kimg 135.29  maintenance 0.0    gpumem 6.1
+tick 600   kimg 4838.5   lod 0.00  minibatch 32   time 8d 04h 35m   sec/tick 1093.7  sec/kimg 135.62  maintenance 0.0    gpumem 6.1
+network-snapshot-004838        time 12m 08s      fid50k 6.0858
+tick 601   kimg 4846.6   lod 0.00  minibatch 32   time 8d 05h 06m   sec/tick 1090.3  sec/kimg 135.20  maintenance 749.9  gpumem 6.1
+tick 602   kimg 4854.7   lod 0.00  minibatch 32   time 8d 05h 24m   sec/tick 1092.2  sec/kimg 135.45  maintenance 0.0    gpumem 6.1
+tick 603   kimg 4862.7   lod 0.00  minibatch 32   time 8d 05h 42m   sec/tick 1091.8  sec/kimg 135.39  maintenance 0.0    gpumem 6.1
+tick 604   kimg 4870.8   lod 0.00  minibatch 32   time 8d 06h 00m   sec/tick 1090.9  sec/kimg 135.28  maintenance 0.0    gpumem 6.1
+tick 605   kimg 4878.8   lod 0.00  minibatch 32   time 8d 06h 18m   sec/tick 1090.8  sec/kimg 135.27  maintenance 0.0    gpumem 6.1
+tick 606   kimg 4886.9   lod 0.00  minibatch 32   time 8d 06h 37m   sec/tick 1091.1  sec/kimg 135.30  maintenance 0.0    gpumem 6.1
+tick 607   kimg 4895.0   lod 0.00  minibatch 32   time 8d 06h 55m   sec/tick 1092.3  sec/kimg 135.45  maintenance 0.0    gpumem 6.1
+tick 608   kimg 4903.0   lod 0.00  minibatch 32   time 8d 07h 13m   sec/tick 1091.5  sec/kimg 135.36  maintenance 0.0    gpumem 6.1
+tick 609   kimg 4911.1   lod 0.00  minibatch 32   time 8d 07h 31m   sec/tick 1090.8  sec/kimg 135.27  maintenance 0.0    gpumem 6.1
+tick 610   kimg 4919.2   lod 0.00  minibatch 32   time 8d 07h 49m   sec/tick 1092.2  sec/kimg 135.44  maintenance 0.0    gpumem 6.1
+network-snapshot-004919        time 12m 08s      fid50k 6.5132
+tick 611   kimg 4927.2   lod 0.00  minibatch 32   time 8d 08h 20m   sec/tick 1093.4  sec/kimg 135.59  maintenance 749.5  gpumem 6.1
+tick 612   kimg 4935.3   lod 0.00  minibatch 32   time 8d 08h 38m   sec/tick 1091.7  sec/kimg 135.38  maintenance 0.0    gpumem 6.1
+tick 613   kimg 4943.4   lod 0.00  minibatch 32   time 8d 08h 56m   sec/tick 1090.9  sec/kimg 135.28  maintenance 0.0    gpumem 6.1
+tick 614   kimg 4951.4   lod 0.00  minibatch 32   time 8d 09h 15m   sec/tick 1092.3  sec/kimg 135.45  maintenance 0.0    gpumem 6.1
+tick 615   kimg 4959.5   lod 0.00  minibatch 32   time 8d 09h 33m   sec/tick 1096.7  sec/kimg 136.00  maintenance 0.0    gpumem 6.1
+tick 616   kimg 4967.6   lod 0.00  minibatch 32   time 8d 09h 51m   sec/tick 1093.3  sec/kimg 135.57  maintenance 0.0    gpumem 6.1
+tick 617   kimg 4975.6   lod 0.00  minibatch 32   time 8d 10h 09m   sec/tick 1092.5  sec/kimg 135.48  maintenance 0.0    gpumem 6.1
+tick 618   kimg 4983.7   lod 0.00  minibatch 32   time 8d 10h 28m   sec/tick 1092.3  sec/kimg 135.45  maintenance 0.0    gpumem 6.1
+tick 619   kimg 4991.7   lod 0.00  minibatch 32   time 8d 10h 46m   sec/tick 1093.8  sec/kimg 135.64  maintenance 0.0    gpumem 6.1
+tick 620   kimg 4999.8   lod 0.00  minibatch 32   time 8d 11h 04m   sec/tick 1093.9  sec/kimg 135.65  maintenance 0.0    gpumem 6.1
+network-snapshot-004999        time 12m 07s      fid50k 6.1687
+tick 621   kimg 5007.9   lod 0.00  minibatch 32   time 8d 11h 35m   sec/tick 1092.3  sec/kimg 135.46  maintenance 748.5  gpumem 6.1
+tick 622   kimg 5015.9   lod 0.00  minibatch 32   time 8d 11h 53m   sec/tick 1092.0  sec/kimg 135.42  maintenance 0.0    gpumem 6.1
+tick 623   kimg 5024.0   lod 0.00  minibatch 32   time 8d 12h 11m   sec/tick 1092.6  sec/kimg 135.49  maintenance 0.0    gpumem 6.1
+tick 624   kimg 5032.1   lod 0.00  minibatch 32   time 8d 12h 29m   sec/tick 1092.8  sec/kimg 135.52  maintenance 0.0    gpumem 6.1
+tick 625   kimg 5040.1   lod 0.00  minibatch 32   time 8d 12h 47m   sec/tick 1091.9  sec/kimg 135.41  maintenance 0.0    gpumem 6.1
+tick 626   kimg 5048.2   lod 0.00  minibatch 32   time 8d 13h 06m   sec/tick 1091.4  sec/kimg 135.34  maintenance 0.0    gpumem 6.1
+tick 627   kimg 5056.3   lod 0.00  minibatch 32   time 8d 13h 24m   sec/tick 1092.8  sec/kimg 135.51  maintenance 0.0    gpumem 6.1
+tick 628   kimg 5064.3   lod 0.00  minibatch 32   time 8d 13h 42m   sec/tick 1092.1  sec/kimg 135.43  maintenance 0.0    gpumem 6.1
+tick 629   kimg 5072.4   lod 0.00  minibatch 32   time 8d 14h 00m   sec/tick 1083.8  sec/kimg 134.40  maintenance 0.0    gpumem 6.1
+tick 630   kimg 5080.4   lod 0.00  minibatch 32   time 8d 14h 18m   sec/tick 1084.4  sec/kimg 134.47  maintenance 0.0    gpumem 6.1
+network-snapshot-005080        time 12m 19s      fid50k 6.4190
+tick 631   kimg 5088.5   lod 0.00  minibatch 32   time 8d 14h 49m   sec/tick 1092.7  sec/kimg 135.50  maintenance 759.4  gpumem 6.1
+tick 632   kimg 5096.6   lod 0.00  minibatch 32   time 8d 15h 07m   sec/tick 1090.2  sec/kimg 135.19  maintenance 0.0    gpumem 6.1
+tick 633   kimg 5104.6   lod 0.00  minibatch 32   time 8d 15h 25m   sec/tick 1085.5  sec/kimg 134.60  maintenance 0.0    gpumem 6.1
+tick 634   kimg 5112.7   lod 0.00  minibatch 32   time 8d 15h 43m   sec/tick 1087.2  sec/kimg 134.82  maintenance 0.0    gpumem 6.1
+tick 635   kimg 5120.8   lod 0.00  minibatch 32   time 8d 16h 02m   sec/tick 1086.3  sec/kimg 134.71  maintenance 0.0    gpumem 6.1
+tick 636   kimg 5128.8   lod 0.00  minibatch 32   time 8d 16h 20m   sec/tick 1086.7  sec/kimg 134.76  maintenance 0.0    gpumem 6.1
+tick 637   kimg 5136.9   lod 0.00  minibatch 32   time 8d 16h 38m   sec/tick 1084.8  sec/kimg 134.53  maintenance 0.0    gpumem 6.1
+tick 638   kimg 5145.0   lod 0.00  minibatch 32   time 8d 16h 56m   sec/tick 1086.4  sec/kimg 134.72  maintenance 0.0    gpumem 6.1
+tick 639   kimg 5153.0   lod 0.00  minibatch 32   time 8d 17h 14m   sec/tick 1086.6  sec/kimg 134.75  maintenance 0.0    gpumem 6.1
+tick 640   kimg 5161.1   lod 0.00  minibatch 32   time 8d 17h 32m   sec/tick 1086.5  sec/kimg 134.74  maintenance 0.0    gpumem 6.1
+network-snapshot-005161        time 12m 18s      fid50k 6.3926
+tick 641   kimg 5169.2   lod 0.00  minibatch 32   time 8d 18h 03m   sec/tick 1085.7  sec/kimg 134.64  maintenance 759.8  gpumem 6.1
+tick 642   kimg 5177.2   lod 0.00  minibatch 32   time 8d 18h 21m   sec/tick 1087.2  sec/kimg 134.82  maintenance 0.0    gpumem 6.1
+tick 643   kimg 5185.3   lod 0.00  minibatch 32   time 8d 18h 39m   sec/tick 1086.6  sec/kimg 134.74  maintenance 0.0    gpumem 6.1
+tick 644   kimg 5193.3   lod 0.00  minibatch 32   time 8d 18h 57m   sec/tick 1086.4  sec/kimg 134.72  maintenance 0.0    gpumem 6.1
+tick 645   kimg 5201.4   lod 0.00  minibatch 32   time 8d 19h 15m   sec/tick 1083.3  sec/kimg 134.34  maintenance 0.0    gpumem 6.1
+tick 646   kimg 5209.5   lod 0.00  minibatch 32   time 8d 19h 33m   sec/tick 1085.4  sec/kimg 134.59  maintenance 0.0    gpumem 6.1
+tick 647   kimg 5217.5   lod 0.00  minibatch 32   time 8d 19h 51m   sec/tick 1087.8  sec/kimg 134.90  maintenance 0.0    gpumem 6.1
+tick 648   kimg 5225.6   lod 0.00  minibatch 32   time 8d 20h 10m   sec/tick 1086.2  sec/kimg 134.70  maintenance 0.0    gpumem 6.1
+tick 649   kimg 5233.7   lod 0.00  minibatch 32   time 8d 20h 28m   sec/tick 1085.2  sec/kimg 134.57  maintenance 0.0    gpumem 6.1
+tick 650   kimg 5241.7   lod 0.00  minibatch 32   time 8d 20h 46m   sec/tick 1086.1  sec/kimg 134.68  maintenance 0.0    gpumem 6.1
+network-snapshot-005241        time 12m 08s      fid50k 6.6216
+tick 651   kimg 5249.8   lod 0.00  minibatch 32   time 8d 21h 16m   sec/tick 1085.5  sec/kimg 134.61  maintenance 748.2  gpumem 6.1
+tick 652   kimg 5257.9   lod 0.00  minibatch 32   time 8d 21h 34m   sec/tick 1084.5  sec/kimg 134.48  maintenance 0.0    gpumem 6.1
+tick 653   kimg 5265.9   lod 0.00  minibatch 32   time 8d 21h 52m   sec/tick 1083.9  sec/kimg 134.41  maintenance 0.0    gpumem 6.1
+tick 654   kimg 5274.0   lod 0.00  minibatch 32   time 8d 22h 11m   sec/tick 1085.6  sec/kimg 134.63  maintenance 0.0    gpumem 6.1
+tick 655   kimg 5282.0   lod 0.00  minibatch 32   time 8d 22h 29m   sec/tick 1085.1  sec/kimg 134.56  maintenance 0.0    gpumem 6.1
+tick 656   kimg 5290.1   lod 0.00  minibatch 32   time 8d 22h 47m   sec/tick 1085.1  sec/kimg 134.57  maintenance 0.0    gpumem 6.1
+tick 657   kimg 5298.2   lod 0.00  minibatch 32   time 8d 23h 05m   sec/tick 1083.4  sec/kimg 134.35  maintenance 0.0    gpumem 6.1
+tick 658   kimg 5306.2   lod 0.00  minibatch 32   time 8d 23h 23m   sec/tick 1084.7  sec/kimg 134.51  maintenance 0.0    gpumem 6.1
+tick 659   kimg 5314.3   lod 0.00  minibatch 32   time 8d 23h 41m   sec/tick 1084.3  sec/kimg 134.46  maintenance 0.0    gpumem 6.1
+tick 660   kimg 5322.4   lod 0.00  minibatch 32   time 8d 23h 59m   sec/tick 1085.2  sec/kimg 134.58  maintenance 0.0    gpumem 6.1
+network-snapshot-005322        time 12m 06s      fid50k 5.8391
+tick 661   kimg 5330.4   lod 0.00  minibatch 32   time 9d 00h 30m   sec/tick 1083.7  sec/kimg 134.38  maintenance 747.3  gpumem 6.1
+tick 662   kimg 5338.5   lod 0.00  minibatch 32   time 9d 00h 48m   sec/tick 1086.0  sec/kimg 134.68  maintenance 0.0    gpumem 6.1
+tick 663   kimg 5346.6   lod 0.00  minibatch 32   time 9d 01h 06m   sec/tick 1085.3  sec/kimg 134.59  maintenance 0.0    gpumem 6.1
+tick 664   kimg 5354.6   lod 0.00  minibatch 32   time 9d 01h 24m   sec/tick 1084.6  sec/kimg 134.49  maintenance 0.0    gpumem 6.1
+tick 665   kimg 5362.7   lod 0.00  minibatch 32   time 9d 01h 42m   sec/tick 1082.9  sec/kimg 134.28  maintenance 0.0    gpumem 6.1
+tick 666   kimg 5370.8   lod 0.00  minibatch 32   time 9d 02h 00m   sec/tick 1084.2  sec/kimg 134.45  maintenance 0.0    gpumem 6.1
+tick 667   kimg 5378.8   lod 0.00  minibatch 32   time 9d 02h 18m   sec/tick 1084.8  sec/kimg 134.53  maintenance 0.0    gpumem 6.1
+tick 668   kimg 5386.9   lod 0.00  minibatch 32   time 9d 02h 36m   sec/tick 1084.3  sec/kimg 134.46  maintenance 0.0    gpumem 6.1
+tick 669   kimg 5394.9   lod 0.00  minibatch 32   time 9d 02h 54m   sec/tick 1082.5  sec/kimg 134.24  maintenance 0.0    gpumem 6.1
+tick 670   kimg 5403.0   lod 0.00  minibatch 32   time 9d 03h 12m   sec/tick 1084.4  sec/kimg 134.48  maintenance 0.0    gpumem 6.1
+network-snapshot-005403        time 12m 07s      fid50k 6.2122
+tick 671   kimg 5411.1   lod 0.00  minibatch 32   time 9d 03h 43m   sec/tick 1083.7  sec/kimg 134.39  maintenance 747.7  gpumem 6.1
+tick 672   kimg 5419.1   lod 0.00  minibatch 32   time 9d 04h 01m   sec/tick 1084.2  sec/kimg 134.45  maintenance 0.0    gpumem 6.1
+tick 673   kimg 5427.2   lod 0.00  minibatch 32   time 9d 04h 19m   sec/tick 1083.3  sec/kimg 134.34  maintenance 0.0    gpumem 6.1
+tick 674   kimg 5435.3   lod 0.00  minibatch 32   time 9d 04h 37m   sec/tick 1084.9  sec/kimg 134.53  maintenance 0.0    gpumem 6.1
+tick 675   kimg 5443.3   lod 0.00  minibatch 32   time 9d 04h 55m   sec/tick 1084.9  sec/kimg 134.54  maintenance 0.0    gpumem 6.1
+tick 676   kimg 5451.4   lod 0.00  minibatch 32   time 9d 05h 13m   sec/tick 1084.6  sec/kimg 134.50  maintenance 0.0    gpumem 6.1
+tick 677   kimg 5459.5   lod 0.00  minibatch 32   time 9d 05h 31m   sec/tick 1083.2  sec/kimg 134.33  maintenance 0.0    gpumem 6.1
+tick 678   kimg 5467.5   lod 0.00  minibatch 32   time 9d 05h 49m   sec/tick 1084.6  sec/kimg 134.50  maintenance 0.0    gpumem 6.1
+tick 679   kimg 5475.6   lod 0.00  minibatch 32   time 9d 06h 07m   sec/tick 1084.0  sec/kimg 134.42  maintenance 0.0    gpumem 6.1
+tick 680   kimg 5483.6   lod 0.00  minibatch 32   time 9d 06h 25m   sec/tick 1084.1  sec/kimg 134.44  maintenance 0.0    gpumem 6.1
+network-snapshot-005483        time 12m 06s      fid50k 6.0218
+tick 681   kimg 5491.7   lod 0.00  minibatch 32   time 9d 06h 56m   sec/tick 1083.3  sec/kimg 134.34  maintenance 747.0  gpumem 6.1
+tick 682   kimg 5499.8   lod 0.00  minibatch 32   time 9d 07h 14m   sec/tick 1085.1  sec/kimg 134.56  maintenance 0.0    gpumem 6.1
+tick 683   kimg 5507.8   lod 0.00  minibatch 32   time 9d 07h 32m   sec/tick 1084.2  sec/kimg 134.45  maintenance 0.0    gpumem 6.1
+tick 684   kimg 5515.9   lod 0.00  minibatch 32   time 9d 07h 50m   sec/tick 1085.0  sec/kimg 134.55  maintenance 0.0    gpumem 6.1
+tick 685   kimg 5524.0   lod 0.00  minibatch 32   time 9d 08h 08m   sec/tick 1082.5  sec/kimg 134.24  maintenance 0.0    gpumem 6.1
+tick 686   kimg 5532.0   lod 0.00  minibatch 32   time 9d 08h 26m   sec/tick 1084.5  sec/kimg 134.48  maintenance 0.0    gpumem 6.1
+tick 687   kimg 5540.1   lod 0.00  minibatch 32   time 9d 08h 44m   sec/tick 1084.4  sec/kimg 134.48  maintenance 0.0    gpumem 6.1
+tick 688   kimg 5548.2   lod 0.00  minibatch 32   time 9d 09h 02m   sec/tick 1084.4  sec/kimg 134.48  maintenance 0.0    gpumem 6.1
+tick 689   kimg 5556.2   lod 0.00  minibatch 32   time 9d 09h 20m   sec/tick 1082.6  sec/kimg 134.25  maintenance 0.0    gpumem 6.1
+tick 690   kimg 5564.3   lod 0.00  minibatch 32   time 9d 09h 38m   sec/tick 1084.0  sec/kimg 134.43  maintenance 0.0    gpumem 6.1
+network-snapshot-005564        time 12m 06s      fid50k 5.8336
+tick 691   kimg 5572.4   lod 0.00  minibatch 32   time 9d 10h 09m   sec/tick 1083.9  sec/kimg 134.42  maintenance 746.9  gpumem 6.1
+tick 692   kimg 5580.4   lod 0.00  minibatch 32   time 9d 10h 27m   sec/tick 1084.6  sec/kimg 134.49  maintenance 0.0    gpumem 6.1
+tick 693   kimg 5588.5   lod 0.00  minibatch 32   time 9d 10h 45m   sec/tick 1082.4  sec/kimg 134.22  maintenance 0.0    gpumem 6.1
+tick 694   kimg 5596.5   lod 0.00  minibatch 32   time 9d 11h 03m   sec/tick 1084.0  sec/kimg 134.42  maintenance 0.0    gpumem 6.1
+tick 695   kimg 5604.6   lod 0.00  minibatch 32   time 9d 11h 21m   sec/tick 1084.1  sec/kimg 134.43  maintenance 0.0    gpumem 6.1
+tick 696   kimg 5612.7   lod 0.00  minibatch 32   time 9d 11h 39m   sec/tick 1084.4  sec/kimg 134.47  maintenance 0.0    gpumem 6.1
+tick 697   kimg 5620.7   lod 0.00  minibatch 32   time 9d 11h 57m   sec/tick 1083.0  sec/kimg 134.30  maintenance 0.0    gpumem 6.1
+tick 698   kimg 5628.8   lod 0.00  minibatch 32   time 9d 12h 15m   sec/tick 1084.6  sec/kimg 134.50  maintenance 0.0    gpumem 6.1
+tick 699   kimg 5636.9   lod 0.00  minibatch 32   time 9d 12h 34m   sec/tick 1084.8  sec/kimg 134.53  maintenance 0.0    gpumem 6.1
+tick 700   kimg 5644.9   lod 0.00  minibatch 32   time 9d 12h 52m   sec/tick 1084.2  sec/kimg 134.44  maintenance 0.0    gpumem 6.1
+network-snapshot-005644        time 12m 06s      fid50k 6.6158
+tick 701   kimg 5653.0   lod 0.00  minibatch 32   time 9d 13h 22m   sec/tick 1082.2  sec/kimg 134.20  maintenance 745.9  gpumem 6.1
+tick 702   kimg 5661.1   lod 0.00  minibatch 32   time 9d 13h 40m   sec/tick 1086.5  sec/kimg 134.73  maintenance 0.0    gpumem 6.1
+tick 703   kimg 5669.1   lod 0.00  minibatch 32   time 9d 13h 58m   sec/tick 1088.5  sec/kimg 134.98  maintenance 0.0    gpumem 6.1
+tick 704   kimg 5677.2   lod 0.00  minibatch 32   time 9d 14h 16m   sec/tick 1089.7  sec/kimg 135.13  maintenance 0.0    gpumem 6.1
+tick 705   kimg 5685.2   lod 0.00  minibatch 32   time 9d 14h 35m   sec/tick 1088.5  sec/kimg 134.98  maintenance 0.0    gpumem 6.1
+tick 706   kimg 5693.3   lod 0.00  minibatch 32   time 9d 14h 53m   sec/tick 1090.7  sec/kimg 135.26  maintenance 0.0    gpumem 6.1
+tick 707   kimg 5701.4   lod 0.00  minibatch 32   time 9d 15h 11m   sec/tick 1090.0  sec/kimg 135.17  maintenance 0.0    gpumem 6.1
+tick 708   kimg 5709.4   lod 0.00  minibatch 32   time 9d 15h 29m   sec/tick 1090.4  sec/kimg 135.22  maintenance 0.0    gpumem 6.1
+tick 709   kimg 5717.5   lod 0.00  minibatch 32   time 9d 15h 47m   sec/tick 1087.7  sec/kimg 134.88  maintenance 0.0    gpumem 6.1
+tick 710   kimg 5725.6   lod 0.00  minibatch 32   time 9d 16h 05m   sec/tick 1090.8  sec/kimg 135.27  maintenance 0.0    gpumem 6.1
+network-snapshot-005725        time 12m 00s      fid50k 6.1515
+tick 711   kimg 5733.6   lod 0.00  minibatch 32   time 9d 16h 36m   sec/tick 1088.6  sec/kimg 135.00  maintenance 741.1  gpumem 6.1
+tick 712   kimg 5741.7   lod 0.00  minibatch 32   time 9d 16h 54m   sec/tick 1088.9  sec/kimg 135.03  maintenance 0.0    gpumem 6.1
+tick 713   kimg 5749.8   lod 0.00  minibatch 32   time 9d 17h 12m   sec/tick 1088.0  sec/kimg 134.92  maintenance 0.0    gpumem 6.1
+tick 714   kimg 5757.8   lod 0.00  minibatch 32   time 9d 17h 30m   sec/tick 1089.3  sec/kimg 135.08  maintenance 0.0    gpumem 6.1
+tick 715   kimg 5765.9   lod 0.00  minibatch 32   time 9d 17h 49m   sec/tick 1090.2  sec/kimg 135.20  maintenance 0.0    gpumem 6.1
+tick 716   kimg 5774.0   lod 0.00  minibatch 32   time 9d 18h 07m   sec/tick 1089.3  sec/kimg 135.09  maintenance 0.0    gpumem 6.1
+tick 717   kimg 5782.0   lod 0.00  minibatch 32   time 9d 18h 25m   sec/tick 1089.0  sec/kimg 135.04  maintenance 0.0    gpumem 6.1
+tick 718   kimg 5790.1   lod 0.00  minibatch 32   time 9d 18h 43m   sec/tick 1089.4  sec/kimg 135.09  maintenance 0.0    gpumem 6.1
+tick 719   kimg 5798.1   lod 0.00  minibatch 32   time 9d 19h 01m   sec/tick 1089.2  sec/kimg 135.07  maintenance 0.0    gpumem 6.1
+tick 720   kimg 5806.2   lod 0.00  minibatch 32   time 9d 19h 19m   sec/tick 1089.9  sec/kimg 135.16  maintenance 0.0    gpumem 6.1
+network-snapshot-005806        time 12m 02s      fid50k 6.4016
+tick 721   kimg 5814.3   lod 0.00  minibatch 32   time 9d 19h 50m   sec/tick 1086.9  sec/kimg 134.78  maintenance 743.2  gpumem 6.1
+tick 722   kimg 5822.3   lod 0.00  minibatch 32   time 9d 20h 08m   sec/tick 1089.6  sec/kimg 135.12  maintenance 0.0    gpumem 6.1
+tick 723   kimg 5830.4   lod 0.00  minibatch 32   time 9d 20h 26m   sec/tick 1087.9  sec/kimg 134.91  maintenance 0.0    gpumem 6.1
+tick 724   kimg 5838.5   lod 0.00  minibatch 32   time 9d 20h 44m   sec/tick 1090.8  sec/kimg 135.27  maintenance 0.0    gpumem 6.1
+tick 725   kimg 5846.5   lod 0.00  minibatch 32   time 9d 21h 02m   sec/tick 1087.9  sec/kimg 134.90  maintenance 0.0    gpumem 6.1
+tick 726   kimg 5854.6   lod 0.00  minibatch 32   time 9d 21h 21m   sec/tick 1091.7  sec/kimg 135.39  maintenance 0.0    gpumem 6.1
+tick 727   kimg 5862.7   lod 0.00  minibatch 32   time 9d 21h 39m   sec/tick 1088.6  sec/kimg 135.00  maintenance 0.0    gpumem 6.1
+tick 728   kimg 5870.7   lod 0.00  minibatch 32   time 9d 21h 57m   sec/tick 1089.3  sec/kimg 135.08  maintenance 0.0    gpumem 6.1
+tick 729   kimg 5878.8   lod 0.00  minibatch 32   time 9d 22h 15m   sec/tick 1087.7  sec/kimg 134.89  maintenance 0.0    gpumem 6.1
+tick 730   kimg 5886.8   lod 0.00  minibatch 32   time 9d 22h 33m   sec/tick 1090.5  sec/kimg 135.23  maintenance 0.0    gpumem 6.1
+network-snapshot-005886        time 12m 00s      fid50k 5.9820
+tick 731   kimg 5894.9   lod 0.00  minibatch 32   time 9d 23h 04m   sec/tick 1088.4  sec/kimg 134.97  maintenance 741.0  gpumem 6.1
+tick 732   kimg 5903.0   lod 0.00  minibatch 32   time 9d 23h 22m   sec/tick 1090.3  sec/kimg 135.20  maintenance 0.0    gpumem 6.1
+tick 733   kimg 5911.0   lod 0.00  minibatch 32   time 9d 23h 40m   sec/tick 1088.0  sec/kimg 134.92  maintenance 0.0    gpumem 6.1
+tick 734   kimg 5919.1   lod 0.00  minibatch 32   time 9d 23h 58m   sec/tick 1090.0  sec/kimg 135.17  maintenance 0.0    gpumem 6.1
+tick 735   kimg 5927.2   lod 0.00  minibatch 32   time 10d 00h 16m  sec/tick 1089.6  sec/kimg 135.11  maintenance 0.0    gpumem 6.1
+tick 736   kimg 5935.2   lod 0.00  minibatch 32   time 10d 00h 34m  sec/tick 1089.7  sec/kimg 135.13  maintenance 0.0    gpumem 6.1
+tick 737   kimg 5943.3   lod 0.00  minibatch 32   time 10d 00h 53m  sec/tick 1088.0  sec/kimg 134.92  maintenance 0.0    gpumem 6.1
+tick 738   kimg 5951.4   lod 0.00  minibatch 32   time 10d 01h 11m  sec/tick 1090.2  sec/kimg 135.19  maintenance 0.0    gpumem 6.1
+tick 739   kimg 5959.4   lod 0.00  minibatch 32   time 10d 01h 29m  sec/tick 1090.5  sec/kimg 135.23  maintenance 0.0    gpumem 6.1
+tick 740   kimg 5967.5   lod 0.00  minibatch 32   time 10d 01h 47m  sec/tick 1088.8  sec/kimg 135.01  maintenance 0.0    gpumem 6.1
+network-snapshot-005967        time 12m 03s      fid50k 6.1598
+tick 741   kimg 5975.6   lod 0.00  minibatch 32   time 10d 02h 18m  sec/tick 1087.9  sec/kimg 134.90  maintenance 743.0  gpumem 6.1
+tick 742   kimg 5983.6   lod 0.00  minibatch 32   time 10d 02h 36m  sec/tick 1089.4  sec/kimg 135.10  maintenance 0.0    gpumem 6.1
+tick 743   kimg 5991.7   lod 0.00  minibatch 32   time 10d 02h 54m  sec/tick 1089.0  sec/kimg 135.05  maintenance 0.0    gpumem 6.1
+tick 744   kimg 5999.7   lod 0.00  minibatch 32   time 10d 03h 12m  sec/tick 1088.8  sec/kimg 135.02  maintenance 0.0    gpumem 6.1
+tick 745   kimg 6007.8   lod 0.00  minibatch 32   time 10d 03h 30m  sec/tick 1087.3  sec/kimg 134.83  maintenance 0.0    gpumem 6.1
+tick 746   kimg 6015.9   lod 0.00  minibatch 32   time 10d 03h 48m  sec/tick 1089.2  sec/kimg 135.07  maintenance 0.0    gpumem 6.1
+tick 747   kimg 6023.9   lod 0.00  minibatch 32   time 10d 04h 07m  sec/tick 1089.4  sec/kimg 135.09  maintenance 0.0    gpumem 6.1
+tick 748   kimg 6032.0   lod 0.00  minibatch 32   time 10d 04h 25m  sec/tick 1089.1  sec/kimg 135.06  maintenance 0.0    gpumem 6.1
+tick 749   kimg 6040.1   lod 0.00  minibatch 32   time 10d 04h 43m  sec/tick 1086.9  sec/kimg 134.79  maintenance 0.0    gpumem 6.1
+tick 750   kimg 6048.1   lod 0.00  minibatch 32   time 10d 05h 01m  sec/tick 1088.7  sec/kimg 135.00  maintenance 0.0    gpumem 6.1
+network-snapshot-006048        time 12m 01s      fid50k 6.1233
+tick 751   kimg 6056.2   lod 0.00  minibatch 32   time 10d 05h 31m  sec/tick 1088.7  sec/kimg 135.01  maintenance 742.5  gpumem 6.1
+tick 752   kimg 6064.3   lod 0.00  minibatch 32   time 10d 05h 50m  sec/tick 1088.4  sec/kimg 134.97  maintenance 0.0    gpumem 6.1
+tick 753   kimg 6072.3   lod 0.00  minibatch 32   time 10d 06h 08m  sec/tick 1086.7  sec/kimg 134.76  maintenance 0.0    gpumem 6.1
+tick 754   kimg 6080.4   lod 0.00  minibatch 32   time 10d 06h 26m  sec/tick 1089.5  sec/kimg 135.10  maintenance 0.0    gpumem 6.1
+tick 755   kimg 6088.4   lod 0.00  minibatch 32   time 10d 06h 44m  sec/tick 1088.1  sec/kimg 134.93  maintenance 0.0    gpumem 6.1
+tick 756   kimg 6096.5   lod 0.00  minibatch 32   time 10d 07h 02m  sec/tick 1088.4  sec/kimg 134.97  maintenance 0.0    gpumem 6.1
+tick 757   kimg 6104.6   lod 0.00  minibatch 32   time 10d 07h 20m  sec/tick 1088.4  sec/kimg 134.97  maintenance 0.0    gpumem 6.1
+tick 758   kimg 6112.6   lod 0.00  minibatch 32   time 10d 07h 38m  sec/tick 1088.2  sec/kimg 134.95  maintenance 0.0    gpumem 6.1
+tick 759   kimg 6120.7   lod 0.00  minibatch 32   time 10d 07h 57m  sec/tick 1087.9  sec/kimg 134.91  maintenance 0.0    gpumem 6.1
+tick 760   kimg 6128.8   lod 0.00  minibatch 32   time 10d 08h 15m  sec/tick 1088.8  sec/kimg 135.02  maintenance 0.0    gpumem 6.1
+network-snapshot-006128        time 12m 00s      fid50k 6.2062
+tick 761   kimg 6136.8   lod 0.00  minibatch 32   time 10d 08h 45m  sec/tick 1086.1  sec/kimg 134.68  maintenance 739.8  gpumem 6.1
+tick 762   kimg 6144.9   lod 0.00  minibatch 32   time 10d 09h 03m  sec/tick 1086.5  sec/kimg 134.74  maintenance 0.0    gpumem 6.1
+tick 763   kimg 6153.0   lod 0.00  minibatch 32   time 10d 09h 21m  sec/tick 1086.6  sec/kimg 134.75  maintenance 0.0    gpumem 6.1
+tick 764   kimg 6161.0   lod 0.00  minibatch 32   time 10d 09h 39m  sec/tick 1086.9  sec/kimg 134.78  maintenance 0.0    gpumem 6.1
+tick 765   kimg 6169.1   lod 0.00  minibatch 32   time 10d 09h 58m  sec/tick 1087.2  sec/kimg 134.82  maintenance 0.0    gpumem 6.1
+tick 766   kimg 6177.2   lod 0.00  minibatch 32   time 10d 10h 16m  sec/tick 1088.5  sec/kimg 134.99  maintenance 0.0    gpumem 6.1
+tick 767   kimg 6185.2   lod 0.00  minibatch 32   time 10d 10h 34m  sec/tick 1087.9  sec/kimg 134.91  maintenance 0.0    gpumem 6.1
+tick 768   kimg 6193.3   lod 0.00  minibatch 32   time 10d 10h 52m  sec/tick 1088.5  sec/kimg 134.98  maintenance 0.0    gpumem 6.1
+tick 769   kimg 6201.3   lod 0.00  minibatch 32   time 10d 11h 10m  sec/tick 1087.1  sec/kimg 134.81  maintenance 0.0    gpumem 6.1
+tick 770   kimg 6209.4   lod 0.00  minibatch 32   time 10d 11h 28m  sec/tick 1088.9  sec/kimg 135.03  maintenance 0.0    gpumem 6.1
+network-snapshot-006209        time 12m 00s      fid50k 6.1662
+tick 771   kimg 6217.5   lod 0.00  minibatch 32   time 10d 11h 59m  sec/tick 1086.8  sec/kimg 134.77  maintenance 740.6  gpumem 6.1
+tick 772   kimg 6225.5   lod 0.00  minibatch 32   time 10d 12h 17m  sec/tick 1088.1  sec/kimg 134.93  maintenance 0.0    gpumem 6.1
+tick 773   kimg 6233.6   lod 0.00  minibatch 32   time 10d 12h 35m  sec/tick 1085.1  sec/kimg 134.56  maintenance 0.0    gpumem 6.1
+tick 774   kimg 6241.7   lod 0.00  minibatch 32   time 10d 12h 53m  sec/tick 1086.6  sec/kimg 134.74  maintenance 0.0    gpumem 6.1
+tick 775   kimg 6249.7   lod 0.00  minibatch 32   time 10d 13h 11m  sec/tick 1089.1  sec/kimg 135.06  maintenance 0.0    gpumem 6.1
+tick 776   kimg 6257.8   lod 0.00  minibatch 32   time 10d 13h 29m  sec/tick 1088.5  sec/kimg 134.98  maintenance 0.0    gpumem 6.1
+tick 777   kimg 6265.9   lod 0.00  minibatch 32   time 10d 13h 47m  sec/tick 1087.7  sec/kimg 134.88  maintenance 0.0    gpumem 6.1
+tick 778   kimg 6273.9   lod 0.00  minibatch 32   time 10d 14h 06m  sec/tick 1088.6  sec/kimg 135.00  maintenance 0.0    gpumem 6.1
+tick 779   kimg 6282.0   lod 0.00  minibatch 32   time 10d 14h 24m  sec/tick 1089.6  sec/kimg 135.11  maintenance 0.0    gpumem 6.1
+tick 780   kimg 6290.0   lod 0.00  minibatch 32   time 10d 14h 42m  sec/tick 1089.5  sec/kimg 135.11  maintenance 0.0    gpumem 6.1
+network-snapshot-006290        time 11m 59s      fid50k 6.0070
+tick 781   kimg 6298.1   lod 0.00  minibatch 32   time 10d 15h 12m  sec/tick 1087.6  sec/kimg 134.87  maintenance 740.2  gpumem 6.1
+tick 782   kimg 6306.2   lod 0.00  minibatch 32   time 10d 15h 31m  sec/tick 1090.6  sec/kimg 135.25  maintenance 0.0    gpumem 6.1
+tick 783   kimg 6314.2   lod 0.00  minibatch 32   time 10d 15h 49m  sec/tick 1090.3  sec/kimg 135.21  maintenance 0.0    gpumem 6.1
+tick 784   kimg 6322.3   lod 0.00  minibatch 32   time 10d 16h 07m  sec/tick 1090.8  sec/kimg 135.26  maintenance 0.0    gpumem 6.1
+tick 785   kimg 6330.4   lod 0.00  minibatch 32   time 10d 16h 25m  sec/tick 1089.9  sec/kimg 135.16  maintenance 0.0    gpumem 6.1
+tick 786   kimg 6338.4   lod 0.00  minibatch 32   time 10d 16h 43m  sec/tick 1094.7  sec/kimg 135.75  maintenance 0.0    gpumem 6.1
+tick 787   kimg 6346.5   lod 0.00  minibatch 32   time 10d 17h 02m  sec/tick 1093.2  sec/kimg 135.57  maintenance 0.0    gpumem 6.1
+tick 788   kimg 6354.6   lod 0.00  minibatch 32   time 10d 17h 20m  sec/tick 1091.2  sec/kimg 135.31  maintenance 0.0    gpumem 6.1
+tick 789   kimg 6362.6   lod 0.00  minibatch 32   time 10d 17h 38m  sec/tick 1089.2  sec/kimg 135.07  maintenance 0.0    gpumem 6.1
+tick 790   kimg 6370.7   lod 0.00  minibatch 32   time 10d 17h 56m  sec/tick 1091.0  sec/kimg 135.30  maintenance 0.0    gpumem 6.1
+network-snapshot-006370        time 12m 34s      fid50k 6.7125
+tick 791   kimg 6378.8   lod 0.00  minibatch 32   time 10d 18h 27m  sec/tick 1092.8  sec/kimg 135.52  maintenance 773.7  gpumem 6.1
+tick 792   kimg 6386.8   lod 0.00  minibatch 32   time 10d 18h 45m  sec/tick 1090.3  sec/kimg 135.20  maintenance 0.0    gpumem 6.1
+tick 793   kimg 6394.9   lod 0.00  minibatch 32   time 10d 19h 03m  sec/tick 1087.0  sec/kimg 134.79  maintenance 0.0    gpumem 6.1
+tick 794   kimg 6402.9   lod 0.00  minibatch 32   time 10d 19h 22m  sec/tick 1087.3  sec/kimg 134.83  maintenance 0.0    gpumem 6.1
+tick 795   kimg 6411.0   lod 0.00  minibatch 32   time 10d 19h 40m  sec/tick 1088.4  sec/kimg 134.97  maintenance 0.0    gpumem 6.1
+tick 796   kimg 6419.1   lod 0.00  minibatch 32   time 10d 19h 58m  sec/tick 1087.0  sec/kimg 134.80  maintenance 0.0    gpumem 6.1
+tick 797   kimg 6427.1   lod 0.00  minibatch 32   time 10d 20h 16m  sec/tick 1083.1  sec/kimg 134.31  maintenance 0.0    gpumem 6.1
+tick 798   kimg 6435.2   lod 0.00  minibatch 32   time 10d 20h 34m  sec/tick 1085.0  sec/kimg 134.54  maintenance 0.0    gpumem 6.1
+tick 799   kimg 6443.3   lod 0.00  minibatch 32   time 10d 20h 52m  sec/tick 1084.7  sec/kimg 134.51  maintenance 0.0    gpumem 6.1
+tick 800   kimg 6451.3   lod 0.00  minibatch 32   time 10d 21h 10m  sec/tick 1086.5  sec/kimg 134.73  maintenance 0.0    gpumem 6.1
+network-snapshot-006451        time 12m 05s      fid50k 6.1380
+tick 801   kimg 6459.4   lod 0.00  minibatch 32   time 10d 21h 41m  sec/tick 1086.7  sec/kimg 134.76  maintenance 746.6  gpumem 6.1
+tick 802   kimg 6467.5   lod 0.00  minibatch 32   time 10d 21h 59m  sec/tick 1087.5  sec/kimg 134.86  maintenance 0.0    gpumem 6.1
+tick 803   kimg 6475.5   lod 0.00  minibatch 32   time 10d 22h 17m  sec/tick 1088.0  sec/kimg 134.92  maintenance 0.0    gpumem 6.1
+tick 804   kimg 6483.6   lod 0.00  minibatch 32   time 10d 22h 35m  sec/tick 1090.7  sec/kimg 135.26  maintenance 0.0    gpumem 6.1
+tick 805   kimg 6491.6   lod 0.00  minibatch 32   time 10d 22h 53m  sec/tick 1088.3  sec/kimg 134.95  maintenance 0.0    gpumem 6.1
+tick 806   kimg 6499.7   lod 0.00  minibatch 32   time 10d 23h 11m  sec/tick 1089.4  sec/kimg 135.09  maintenance 0.0    gpumem 6.1
+tick 807   kimg 6507.8   lod 0.00  minibatch 32   time 10d 23h 30m  sec/tick 1090.4  sec/kimg 135.21  maintenance 0.0    gpumem 6.1
+tick 808   kimg 6515.8   lod 0.00  minibatch 32   time 10d 23h 48m  sec/tick 1089.4  sec/kimg 135.09  maintenance 0.0    gpumem 6.1
+tick 809   kimg 6523.9   lod 0.00  minibatch 32   time 11d 00h 06m  sec/tick 1088.7  sec/kimg 135.01  maintenance 0.0    gpumem 6.1
+tick 810   kimg 6532.0   lod 0.00  minibatch 32   time 11d 00h 24m  sec/tick 1090.0  sec/kimg 135.17  maintenance 0.0    gpumem 6.1
+network-snapshot-006531        time 12m 01s      fid50k 6.1418
+tick 811   kimg 6540.0   lod 0.00  minibatch 32   time 11d 00h 55m  sec/tick 1090.6  sec/kimg 135.24  maintenance 741.9  gpumem 6.1
+tick 812   kimg 6548.1   lod 0.00  minibatch 32   time 11d 01h 13m  sec/tick 1089.9  sec/kimg 135.16  maintenance 0.0    gpumem 6.1
+tick 813   kimg 6556.2   lod 0.00  minibatch 32   time 11d 01h 31m  sec/tick 1089.0  sec/kimg 135.05  maintenance 0.0    gpumem 6.1
+tick 814   kimg 6564.2   lod 0.00  minibatch 32   time 11d 01h 49m  sec/tick 1090.1  sec/kimg 135.18  maintenance 0.0    gpumem 6.1
+tick 815   kimg 6572.3   lod 0.00  minibatch 32   time 11d 02h 07m  sec/tick 1089.7  sec/kimg 135.13  maintenance 0.0    gpumem 6.1
+tick 816   kimg 6580.4   lod 0.00  minibatch 32   time 11d 02h 25m  sec/tick 1089.8  sec/kimg 135.14  maintenance 0.0    gpumem 6.1
+tick 817   kimg 6588.4   lod 0.00  minibatch 32   time 11d 02h 44m  sec/tick 1087.6  sec/kimg 134.87  maintenance 0.0    gpumem 6.1
+tick 818   kimg 6596.5   lod 0.00  minibatch 32   time 11d 03h 02m  sec/tick 1090.1  sec/kimg 135.18  maintenance 0.0    gpumem 6.1
+tick 819   kimg 6604.5   lod 0.00  minibatch 32   time 11d 03h 20m  sec/tick 1089.8  sec/kimg 135.14  maintenance 0.0    gpumem 6.1
+tick 820   kimg 6612.6   lod 0.00  minibatch 32   time 11d 03h 38m  sec/tick 1089.5  sec/kimg 135.10  maintenance 0.0    gpumem 6.1
+network-snapshot-006612        time 12m 01s      fid50k 6.4159
+tick 821   kimg 6620.7   lod 0.00  minibatch 32   time 11d 04h 09m  sec/tick 1088.1  sec/kimg 134.93  maintenance 739.8  gpumem 6.1
+tick 822   kimg 6628.7   lod 0.00  minibatch 32   time 11d 04h 27m  sec/tick 1089.5  sec/kimg 135.11  maintenance 0.0    gpumem 6.1
+tick 823   kimg 6636.8   lod 0.00  minibatch 32   time 11d 04h 45m  sec/tick 1088.7  sec/kimg 135.01  maintenance 0.0    gpumem 6.1
+tick 824   kimg 6644.9   lod 0.00  minibatch 32   time 11d 05h 03m  sec/tick 1089.2  sec/kimg 135.06  maintenance 0.0    gpumem 6.1
+tick 825   kimg 6652.9   lod 0.00  minibatch 32   time 11d 05h 21m  sec/tick 1087.4  sec/kimg 134.85  maintenance 0.0    gpumem 6.1
+tick 826   kimg 6661.0   lod 0.00  minibatch 32   time 11d 05h 39m  sec/tick 1090.0  sec/kimg 135.17  maintenance 0.0    gpumem 6.1
+tick 827   kimg 6669.1   lod 0.00  minibatch 32   time 11d 05h 57m  sec/tick 1089.3  sec/kimg 135.08  maintenance 0.0    gpumem 6.1
+tick 828   kimg 6677.1   lod 0.00  minibatch 32   time 11d 06h 16m  sec/tick 1090.6  sec/kimg 135.25  maintenance 0.0    gpumem 6.1
+tick 829   kimg 6685.2   lod 0.00  minibatch 32   time 11d 06h 34m  sec/tick 1087.8  sec/kimg 134.89  maintenance 0.0    gpumem 6.1
+tick 830   kimg 6693.2   lod 0.00  minibatch 32   time 11d 06h 52m  sec/tick 1088.6  sec/kimg 135.00  maintenance 0.0    gpumem 6.1
+network-snapshot-006693        time 12m 02s      fid50k 6.4452
+tick 831   kimg 6701.3   lod 0.00  minibatch 32   time 11d 07h 22m  sec/tick 1088.3  sec/kimg 134.95  maintenance 741.1  gpumem 6.1
+tick 832   kimg 6709.4   lod 0.00  minibatch 32   time 11d 07h 41m  sec/tick 1088.2  sec/kimg 134.94  maintenance 0.0    gpumem 6.1
+tick 833   kimg 6717.4   lod 0.00  minibatch 32   time 11d 07h 59m  sec/tick 1088.8  sec/kimg 135.02  maintenance 0.0    gpumem 6.1
+tick 834   kimg 6725.5   lod 0.00  minibatch 32   time 11d 08h 17m  sec/tick 1089.2  sec/kimg 135.07  maintenance 0.0    gpumem 6.1
+tick 835   kimg 6733.6   lod 0.00  minibatch 32   time 11d 08h 35m  sec/tick 1090.8  sec/kimg 135.27  maintenance 0.0    gpumem 6.1
+tick 836   kimg 6741.6   lod 0.00  minibatch 32   time 11d 08h 53m  sec/tick 1089.6  sec/kimg 135.12  maintenance 0.0    gpumem 6.1
+tick 837   kimg 6749.7   lod 0.00  minibatch 32   time 11d 09h 11m  sec/tick 1088.9  sec/kimg 135.03  maintenance 0.0    gpumem 6.1
+tick 838   kimg 6757.8   lod 0.00  minibatch 32   time 11d 09h 29m  sec/tick 1090.0  sec/kimg 135.17  maintenance 0.0    gpumem 6.1
+tick 839   kimg 6765.8   lod 0.00  minibatch 32   time 11d 09h 48m  sec/tick 1089.8  sec/kimg 135.15  maintenance 0.0    gpumem 6.1
+tick 840   kimg 6773.9   lod 0.00  minibatch 32   time 11d 10h 06m  sec/tick 1090.5  sec/kimg 135.24  maintenance 0.0    gpumem 6.1
+network-snapshot-006773        time 12m 01s      fid50k 5.8309
+tick 841   kimg 6782.0   lod 0.00  minibatch 32   time 11d 10h 36m  sec/tick 1088.5  sec/kimg 134.98  maintenance 741.8  gpumem 6.1
+tick 842   kimg 6790.0   lod 0.00  minibatch 32   time 11d 10h 55m  sec/tick 1092.5  sec/kimg 135.48  maintenance 0.0    gpumem 6.1
+tick 843   kimg 6798.1   lod 0.00  minibatch 32   time 11d 11h 13m  sec/tick 1101.0  sec/kimg 136.54  maintenance 0.0    gpumem 6.1
+tick 844   kimg 6806.1   lod 0.00  minibatch 32   time 11d 11h 31m  sec/tick 1092.2  sec/kimg 135.44  maintenance 0.0    gpumem 6.1
+tick 845   kimg 6814.2   lod 0.00  minibatch 32   time 11d 11h 49m  sec/tick 1084.1  sec/kimg 134.43  maintenance 0.0    gpumem 6.1
+tick 846   kimg 6822.3   lod 0.00  minibatch 32   time 11d 12h 07m  sec/tick 1085.6  sec/kimg 134.62  maintenance 0.0    gpumem 6.1
+tick 847   kimg 6830.3   lod 0.00  minibatch 32   time 11d 12h 25m  sec/tick 1086.9  sec/kimg 134.78  maintenance 0.0    gpumem 6.1
+tick 848   kimg 6838.4   lod 0.00  minibatch 32   time 11d 12h 43m  sec/tick 1086.1  sec/kimg 134.69  maintenance 0.0    gpumem 6.1
+tick 849   kimg 6846.5   lod 0.00  minibatch 32   time 11d 13h 02m  sec/tick 1085.0  sec/kimg 134.55  maintenance 0.0    gpumem 6.1
+tick 850   kimg 6854.5   lod 0.00  minibatch 32   time 11d 13h 20m  sec/tick 1085.5  sec/kimg 134.61  maintenance 0.0    gpumem 6.1
+network-snapshot-006854        time 13m 47s      fid50k 5.7137
+tick 851   kimg 6862.6   lod 0.00  minibatch 32   time 11d 13h 52m  sec/tick 1085.2  sec/kimg 134.57  maintenance 859.2  gpumem 6.1
+tick 852   kimg 6870.7   lod 0.00  minibatch 32   time 11d 14h 10m  sec/tick 1086.0  sec/kimg 134.67  maintenance 0.0    gpumem 6.1
+tick 853   kimg 6878.7   lod 0.00  minibatch 32   time 11d 14h 28m  sec/tick 1085.0  sec/kimg 134.55  maintenance 0.0    gpumem 6.1
+tick 854   kimg 6886.8   lod 0.00  minibatch 32   time 11d 14h 46m  sec/tick 1086.1  sec/kimg 134.68  maintenance 0.0    gpumem 6.1
+tick 855   kimg 6894.8   lod 0.00  minibatch 32   time 11d 15h 04m  sec/tick 1086.3  sec/kimg 134.71  maintenance 0.0    gpumem 6.1
+tick 856   kimg 6902.9   lod 0.00  minibatch 32   time 11d 15h 23m  sec/tick 1086.9  sec/kimg 134.79  maintenance 0.0    gpumem 6.1
+tick 857   kimg 6911.0   lod 0.00  minibatch 32   time 11d 15h 41m  sec/tick 1085.8  sec/kimg 134.65  maintenance 0.0    gpumem 6.1
+tick 858   kimg 6919.0   lod 0.00  minibatch 32   time 11d 15h 59m  sec/tick 1086.4  sec/kimg 134.72  maintenance 0.0    gpumem 6.1
+tick 859   kimg 6927.1   lod 0.00  minibatch 32   time 11d 16h 17m  sec/tick 1086.6  sec/kimg 134.75  maintenance 0.0    gpumem 6.1
+tick 860   kimg 6935.2   lod 0.00  minibatch 32   time 11d 16h 35m  sec/tick 1087.5  sec/kimg 134.86  maintenance 0.0    gpumem 6.1
+network-snapshot-006935        time 13m 36s      fid50k 5.6967
+tick 861   kimg 6943.2   lod 0.00  minibatch 32   time 11d 17h 07m  sec/tick 1083.3  sec/kimg 134.34  maintenance 848.1  gpumem 6.1
+tick 862   kimg 6951.3   lod 0.00  minibatch 32   time 11d 17h 25m  sec/tick 1086.5  sec/kimg 134.73  maintenance 0.0    gpumem 6.1
+tick 863   kimg 6959.4   lod 0.00  minibatch 32   time 11d 17h 43m  sec/tick 1086.8  sec/kimg 134.77  maintenance 0.0    gpumem 6.1
+tick 864   kimg 6967.4   lod 0.00  minibatch 32   time 11d 18h 02m  sec/tick 1087.8  sec/kimg 134.90  maintenance 0.0    gpumem 6.1
+tick 865   kimg 6975.5   lod 0.00  minibatch 32   time 11d 18h 20m  sec/tick 1084.8  sec/kimg 134.53  maintenance 0.0    gpumem 6.1
+tick 866   kimg 6983.6   lod 0.00  minibatch 32   time 11d 18h 38m  sec/tick 1087.0  sec/kimg 134.80  maintenance 0.0    gpumem 6.1
+tick 867   kimg 6991.6   lod 0.00  minibatch 32   time 11d 18h 56m  sec/tick 1086.8  sec/kimg 134.78  maintenance 0.0    gpumem 6.1
+tick 868   kimg 6999.7   lod 0.00  minibatch 32   time 11d 19h 14m  sec/tick 1087.2  sec/kimg 134.82  maintenance 0.0    gpumem 6.1
+tick 869   kimg 7007.7   lod 0.00  minibatch 32   time 11d 19h 32m  sec/tick 1085.9  sec/kimg 134.66  maintenance 0.0    gpumem 6.1
+tick 870   kimg 7015.8   lod 0.00  minibatch 32   time 11d 19h 50m  sec/tick 1086.9  sec/kimg 134.79  maintenance 0.0    gpumem 6.1
+network-snapshot-007015        time 13m 36s      fid50k 5.9790
+tick 871   kimg 7023.9   lod 0.00  minibatch 32   time 11d 20h 23m  sec/tick 1084.9  sec/kimg 134.54  maintenance 854.2  gpumem 6.1
+tick 872   kimg 7031.9   lod 0.00  minibatch 32   time 11d 20h 41m  sec/tick 1087.4  sec/kimg 134.85  maintenance 0.0    gpumem 6.1
+tick 873   kimg 7040.0   lod 0.00  minibatch 32   time 11d 20h 59m  sec/tick 1085.5  sec/kimg 134.62  maintenance 0.0    gpumem 6.1
+tick 874   kimg 7048.1   lod 0.00  minibatch 32   time 11d 21h 17m  sec/tick 1087.7  sec/kimg 134.88  maintenance 0.0    gpumem 6.1
+tick 875   kimg 7056.1   lod 0.00  minibatch 32   time 11d 21h 35m  sec/tick 1087.3  sec/kimg 134.83  maintenance 0.0    gpumem 6.1
+tick 876   kimg 7064.2   lod 0.00  minibatch 32   time 11d 21h 53m  sec/tick 1086.4  sec/kimg 134.73  maintenance 0.0    gpumem 6.1
+tick 877   kimg 7072.3   lod 0.00  minibatch 32   time 11d 22h 11m  sec/tick 1085.7  sec/kimg 134.63  maintenance 0.0    gpumem 6.1
+tick 878   kimg 7080.3   lod 0.00  minibatch 32   time 11d 22h 29m  sec/tick 1086.2  sec/kimg 134.70  maintenance 0.0    gpumem 6.1
+tick 879   kimg 7088.4   lod 0.00  minibatch 32   time 11d 22h 47m  sec/tick 1086.4  sec/kimg 134.73  maintenance 0.0    gpumem 6.1
+tick 880   kimg 7096.4   lod 0.00  minibatch 32   time 11d 23h 05m  sec/tick 1086.5  sec/kimg 134.73  maintenance 0.0    gpumem 6.1
+network-snapshot-007096        time 13m 47s      fid50k 5.9548
+tick 881   kimg 7104.5   lod 0.00  minibatch 32   time 11d 23h 38m  sec/tick 1084.5  sec/kimg 134.49  maintenance 866.2  gpumem 6.1
+tick 882   kimg 7112.6   lod 0.00  minibatch 32   time 11d 23h 56m  sec/tick 1088.0  sec/kimg 134.92  maintenance 0.0    gpumem 6.1
+tick 883   kimg 7120.6   lod 0.00  minibatch 32   time 12d 00h 14m  sec/tick 1088.8  sec/kimg 135.02  maintenance 0.0    gpumem 6.1
+tick 884   kimg 7128.7   lod 0.00  minibatch 32   time 12d 00h 32m  sec/tick 1088.3  sec/kimg 134.96  maintenance 0.0    gpumem 6.1
+tick 885   kimg 7136.8   lod 0.00  minibatch 32   time 12d 00h 51m  sec/tick 1085.3  sec/kimg 134.58  maintenance 0.0    gpumem 6.1
+tick 886   kimg 7144.8   lod 0.00  minibatch 32   time 12d 01h 09m  sec/tick 1086.7  sec/kimg 134.76  maintenance 0.0    gpumem 6.1
+tick 887   kimg 7152.9   lod 0.00  minibatch 32   time 12d 01h 27m  sec/tick 1087.5  sec/kimg 134.86  maintenance 0.0    gpumem 6.1
+tick 888   kimg 7161.0   lod 0.00  minibatch 32   time 12d 01h 45m  sec/tick 1087.1  sec/kimg 134.81  maintenance 0.0    gpumem 6.1
+tick 889   kimg 7169.0   lod 0.00  minibatch 32   time 12d 02h 03m  sec/tick 1085.2  sec/kimg 134.57  maintenance 0.0    gpumem 6.1
+tick 890   kimg 7177.1   lod 0.00  minibatch 32   time 12d 02h 21m  sec/tick 1086.8  sec/kimg 134.77  maintenance 0.0    gpumem 6.1
+network-snapshot-007177        time 13m 23s      fid50k 5.8298
+tick 891   kimg 7185.2   lod 0.00  minibatch 32   time 12d 02h 53m  sec/tick 1085.2  sec/kimg 134.57  maintenance 837.3  gpumem 6.1
+tick 892   kimg 7193.2   lod 0.00  minibatch 32   time 12d 03h 11m  sec/tick 1087.5  sec/kimg 134.85  maintenance 0.0    gpumem 6.1
+tick 893   kimg 7201.3   lod 0.00  minibatch 32   time 12d 03h 29m  sec/tick 1085.4  sec/kimg 134.60  maintenance 0.0    gpumem 6.1
+tick 894   kimg 7209.3   lod 0.00  minibatch 32   time 12d 03h 47m  sec/tick 1085.5  sec/kimg 134.62  maintenance 0.0    gpumem 6.1
+tick 895   kimg 7217.4   lod 0.00  minibatch 32   time 12d 04h 06m  sec/tick 1086.4  sec/kimg 134.73  maintenance 0.0    gpumem 6.1
+tick 896   kimg 7225.5   lod 0.00  minibatch 32   time 12d 04h 24m  sec/tick 1086.2  sec/kimg 134.70  maintenance 0.0    gpumem 6.1
+tick 897   kimg 7233.5   lod 0.00  minibatch 32   time 12d 04h 42m  sec/tick 1092.0  sec/kimg 135.42  maintenance 0.0    gpumem 6.1
+tick 898   kimg 7241.6   lod 0.00  minibatch 32   time 12d 05h 00m  sec/tick 1104.7  sec/kimg 136.99  maintenance 0.0    gpumem 6.1
+tick 899   kimg 7249.7   lod 0.00  minibatch 32   time 12d 05h 19m  sec/tick 1105.3  sec/kimg 137.06  maintenance 0.0    gpumem 6.1
+tick 900   kimg 7257.7   lod 0.00  minibatch 32   time 12d 05h 37m  sec/tick 1104.1  sec/kimg 136.92  maintenance 0.0    gpumem 6.1
+network-snapshot-007257        time 12m 56s      fid50k 5.9799
+tick 901   kimg 7265.8   lod 0.00  minibatch 32   time 12d 06h 09m  sec/tick 1101.0  sec/kimg 136.53  maintenance 797.5  gpumem 6.1
+tick 902   kimg 7273.9   lod 0.00  minibatch 32   time 12d 06h 27m  sec/tick 1104.0  sec/kimg 136.91  maintenance 0.0    gpumem 6.1
+tick 903   kimg 7281.9   lod 0.00  minibatch 32   time 12d 06h 46m  sec/tick 1104.3  sec/kimg 136.94  maintenance 0.0    gpumem 6.1
+tick 904   kimg 7290.0   lod 0.00  minibatch 32   time 12d 07h 04m  sec/tick 1104.0  sec/kimg 136.91  maintenance 0.0    gpumem 6.1
+tick 905   kimg 7298.0   lod 0.00  minibatch 32   time 12d 07h 22m  sec/tick 1102.5  sec/kimg 136.72  maintenance 0.0    gpumem 6.1
+tick 906   kimg 7306.1   lod 0.00  minibatch 32   time 12d 07h 41m  sec/tick 1101.9  sec/kimg 136.64  maintenance 0.0    gpumem 6.1
+tick 907   kimg 7314.2   lod 0.00  minibatch 32   time 12d 07h 59m  sec/tick 1099.7  sec/kimg 136.37  maintenance 0.0    gpumem 6.1
+tick 908   kimg 7322.2   lod 0.00  minibatch 32   time 12d 08h 17m  sec/tick 1100.0  sec/kimg 136.41  maintenance 0.0    gpumem 6.1
+tick 909   kimg 7330.3   lod 0.00  minibatch 32   time 12d 08h 36m  sec/tick 1097.9  sec/kimg 136.15  maintenance 0.0    gpumem 6.1
+tick 910   kimg 7338.4   lod 0.00  minibatch 32   time 12d 08h 54m  sec/tick 1100.9  sec/kimg 136.52  maintenance 0.0    gpumem 6.1
+network-snapshot-007338        time 12m 33s      fid50k 5.9622
+tick 911   kimg 7346.4   lod 0.00  minibatch 32   time 12d 09h 25m  sec/tick 1097.7  sec/kimg 136.12  maintenance 775.1  gpumem 6.1
+tick 912   kimg 7354.5   lod 0.00  minibatch 32   time 12d 09h 43m  sec/tick 1098.9  sec/kimg 136.28  maintenance 0.0    gpumem 6.1
+tick 913   kimg 7362.6   lod 0.00  minibatch 32   time 12d 10h 02m  sec/tick 1087.5  sec/kimg 134.86  maintenance 0.0    gpumem 6.1
+tick 914   kimg 7370.6   lod 0.00  minibatch 32   time 12d 10h 20m  sec/tick 1091.2  sec/kimg 135.31  maintenance 0.0    gpumem 6.1
+tick 915   kimg 7378.7   lod 0.00  minibatch 32   time 12d 10h 38m  sec/tick 1090.6  sec/kimg 135.25  maintenance 0.0    gpumem 6.1
+tick 916   kimg 7386.8   lod 0.00  minibatch 32   time 12d 10h 56m  sec/tick 1091.8  sec/kimg 135.40  maintenance 0.0    gpumem 6.1
+tick 917   kimg 7394.8   lod 0.00  minibatch 32   time 12d 11h 14m  sec/tick 1087.2  sec/kimg 134.82  maintenance 0.0    gpumem 6.1
+tick 918   kimg 7402.9   lod 0.00  minibatch 32   time 12d 11h 32m  sec/tick 1087.3  sec/kimg 134.84  maintenance 0.0    gpumem 6.1
+tick 919   kimg 7410.9   lod 0.00  minibatch 32   time 12d 11h 51m  sec/tick 1087.6  sec/kimg 134.87  maintenance 0.0    gpumem 6.1
+tick 920   kimg 7419.0   lod 0.00  minibatch 32   time 12d 12h 09m  sec/tick 1087.0  sec/kimg 134.79  maintenance 0.0    gpumem 6.1
+network-snapshot-007419        time 13m 21s      fid50k 6.0043
+tick 921   kimg 7427.1   lod 0.00  minibatch 32   time 12d 12h 41m  sec/tick 1091.3  sec/kimg 135.33  maintenance 844.8  gpumem 6.1
+tick 922   kimg 7435.1   lod 0.00  minibatch 32   time 12d 12h 59m  sec/tick 1092.9  sec/kimg 135.53  maintenance 0.0    gpumem 6.1
+tick 923   kimg 7443.2   lod 0.00  minibatch 32   time 12d 13h 17m  sec/tick 1093.4  sec/kimg 135.59  maintenance 0.0    gpumem 6.1
+tick 924   kimg 7451.3   lod 0.00  minibatch 32   time 12d 13h 36m  sec/tick 1099.4  sec/kimg 136.33  maintenance 0.0    gpumem 6.1
+tick 925   kimg 7459.3   lod 0.00  minibatch 32   time 12d 13h 54m  sec/tick 1088.6  sec/kimg 134.99  maintenance 0.0    gpumem 6.1
+tick 926   kimg 7467.4   lod 0.00  minibatch 32   time 12d 14h 12m  sec/tick 1092.4  sec/kimg 135.46  maintenance 0.0    gpumem 6.1
+tick 927   kimg 7475.5   lod 0.00  minibatch 32   time 12d 14h 30m  sec/tick 1104.2  sec/kimg 136.93  maintenance 0.0    gpumem 6.1
+tick 928   kimg 7483.5   lod 0.00  minibatch 32   time 12d 14h 49m  sec/tick 1107.0  sec/kimg 137.27  maintenance 0.0    gpumem 6.1
+tick 929   kimg 7491.6   lod 0.00  minibatch 32   time 12d 15h 07m  sec/tick 1105.3  sec/kimg 137.06  maintenance 0.0    gpumem 6.1
+tick 930   kimg 7499.6   lod 0.00  minibatch 32   time 12d 15h 26m  sec/tick 1106.7  sec/kimg 137.23  maintenance 0.0    gpumem 6.1
+network-snapshot-007499        time 12m 47s      fid50k 5.8627
+tick 931   kimg 7507.7   lod 0.00  minibatch 32   time 12d 15h 57m  sec/tick 1104.4  sec/kimg 136.96  maintenance 789.0  gpumem 6.1
+tick 932   kimg 7515.8   lod 0.00  minibatch 32   time 12d 16h 16m  sec/tick 1090.9  sec/kimg 135.28  maintenance 0.0    gpumem 6.1
+tick 933   kimg 7523.8   lod 0.00  minibatch 32   time 12d 16h 34m  sec/tick 1100.7  sec/kimg 136.49  maintenance 0.0    gpumem 6.1
+tick 934   kimg 7531.9   lod 0.00  minibatch 32   time 12d 16h 52m  sec/tick 1105.0  sec/kimg 137.03  maintenance 0.0    gpumem 6.1
+tick 935   kimg 7540.0   lod 0.00  minibatch 32   time 12d 17h 11m  sec/tick 1104.8  sec/kimg 137.00  maintenance 0.0    gpumem 6.1
+tick 936   kimg 7548.0   lod 0.00  minibatch 32   time 12d 17h 29m  sec/tick 1103.3  sec/kimg 136.82  maintenance 0.0    gpumem 6.1
+tick 937   kimg 7556.1   lod 0.00  minibatch 32   time 12d 17h 47m  sec/tick 1089.4  sec/kimg 135.09  maintenance 0.0    gpumem 6.1
+tick 938   kimg 7564.2   lod 0.00  minibatch 32   time 12d 18h 05m  sec/tick 1089.0  sec/kimg 135.04  maintenance 0.0    gpumem 6.1
+tick 939   kimg 7572.2   lod 0.00  minibatch 32   time 12d 18h 24m  sec/tick 1091.8  sec/kimg 135.39  maintenance 0.0    gpumem 6.1
+tick 940   kimg 7580.3   lod 0.00  minibatch 32   time 12d 18h 42m  sec/tick 1091.1  sec/kimg 135.30  maintenance 0.0    gpumem 6.1
+network-snapshot-007580        time 12m 48s      fid50k 5.7297
+tick 941   kimg 7588.4   lod 0.00  minibatch 32   time 12d 19h 13m  sec/tick 1101.3  sec/kimg 136.57  maintenance 790.2  gpumem 6.1
+tick 942   kimg 7596.4   lod 0.00  minibatch 32   time 12d 19h 32m  sec/tick 1097.0  sec/kimg 136.03  maintenance 0.0    gpumem 6.1
+tick 943   kimg 7604.5   lod 0.00  minibatch 32   time 12d 19h 50m  sec/tick 1092.9  sec/kimg 135.52  maintenance 0.0    gpumem 6.1
+tick 944   kimg 7612.5   lod 0.00  minibatch 32   time 12d 20h 08m  sec/tick 1091.6  sec/kimg 135.37  maintenance 0.0    gpumem 6.1
+tick 945   kimg 7620.6   lod 0.00  minibatch 32   time 12d 20h 26m  sec/tick 1090.7  sec/kimg 135.25  maintenance 0.0    gpumem 6.1
+tick 946   kimg 7628.7   lod 0.00  minibatch 32   time 12d 20h 45m  sec/tick 1101.0  sec/kimg 136.53  maintenance 0.0    gpumem 6.1
+tick 947   kimg 7636.7   lod 0.00  minibatch 32   time 12d 21h 03m  sec/tick 1099.4  sec/kimg 136.34  maintenance 0.0    gpumem 6.1
+tick 948   kimg 7644.8   lod 0.00  minibatch 32   time 12d 21h 21m  sec/tick 1098.6  sec/kimg 136.23  maintenance 0.0    gpumem 6.1
+tick 949   kimg 7652.9   lod 0.00  minibatch 32   time 12d 21h 39m  sec/tick 1100.0  sec/kimg 136.41  maintenance 0.0    gpumem 6.1
+tick 950   kimg 7660.9   lod 0.00  minibatch 32   time 12d 21h 58m  sec/tick 1095.6  sec/kimg 135.86  maintenance 0.0    gpumem 6.1
+network-snapshot-007660        time 14m 11s      fid50k 5.6476
+tick 951   kimg 7669.0   lod 0.00  minibatch 32   time 12d 22h 31m  sec/tick 1091.0  sec/kimg 135.29  maintenance 897.2  gpumem 6.1
+tick 952   kimg 7677.1   lod 0.00  minibatch 32   time 12d 22h 49m  sec/tick 1091.0  sec/kimg 135.29  maintenance 0.0    gpumem 6.1
+tick 953   kimg 7685.1   lod 0.00  minibatch 32   time 12d 23h 07m  sec/tick 1097.6  sec/kimg 136.11  maintenance 0.0    gpumem 6.1
+tick 954   kimg 7693.2   lod 0.00  minibatch 32   time 12d 23h 26m  sec/tick 1099.3  sec/kimg 136.32  maintenance 0.0    gpumem 6.1
+tick 955   kimg 7701.2   lod 0.00  minibatch 32   time 12d 23h 44m  sec/tick 1108.0  sec/kimg 137.39  maintenance 0.0    gpumem 6.1
+tick 956   kimg 7709.3   lod 0.00  minibatch 32   time 13d 00h 03m  sec/tick 1111.3  sec/kimg 137.81  maintenance 0.0    gpumem 6.1
+tick 957   kimg 7717.4   lod 0.00  minibatch 32   time 13d 00h 21m  sec/tick 1110.7  sec/kimg 137.73  maintenance 0.0    gpumem 6.1
+tick 958   kimg 7725.4   lod 0.00  minibatch 32   time 13d 00h 40m  sec/tick 1111.7  sec/kimg 137.86  maintenance 0.0    gpumem 6.1
+tick 959   kimg 7733.5   lod 0.00  minibatch 32   time 13d 00h 58m  sec/tick 1112.9  sec/kimg 138.00  maintenance 0.0    gpumem 6.1
+tick 960   kimg 7741.6   lod 0.00  minibatch 32   time 13d 01h 17m  sec/tick 1111.8  sec/kimg 137.87  maintenance 0.0    gpumem 6.1
+network-snapshot-007741        time 13m 17s      fid50k 6.1254
+tick 961   kimg 7749.6   lod 0.00  minibatch 32   time 13d 01h 49m  sec/tick 1091.4  sec/kimg 135.34  maintenance 819.5  gpumem 6.1
+tick 962   kimg 7757.7   lod 0.00  minibatch 32   time 13d 02h 07m  sec/tick 1094.4  sec/kimg 135.71  maintenance 0.0    gpumem 6.1
+tick 963   kimg 7765.8   lod 0.00  minibatch 32   time 13d 02h 25m  sec/tick 1094.6  sec/kimg 135.74  maintenance 0.0    gpumem 6.1
+tick 964   kimg 7773.8   lod 0.00  minibatch 32   time 13d 02h 43m  sec/tick 1093.7  sec/kimg 135.63  maintenance 0.0    gpumem 6.1
+tick 965   kimg 7781.9   lod 0.00  minibatch 32   time 13d 03h 02m  sec/tick 1091.9  sec/kimg 135.40  maintenance 0.0    gpumem 6.1
+tick 966   kimg 7790.0   lod 0.00  minibatch 32   time 13d 03h 20m  sec/tick 1094.4  sec/kimg 135.72  maintenance 0.0    gpumem 6.1
+tick 967   kimg 7798.0   lod 0.00  minibatch 32   time 13d 03h 38m  sec/tick 1094.9  sec/kimg 135.77  maintenance 0.0    gpumem 6.1
+tick 968   kimg 7806.1   lod 0.00  minibatch 32   time 13d 03h 56m  sec/tick 1089.2  sec/kimg 135.07  maintenance 0.0    gpumem 6.1
+tick 969   kimg 7814.1   lod 0.00  minibatch 32   time 13d 04h 14m  sec/tick 1086.8  sec/kimg 134.77  maintenance 0.0    gpumem 6.1
+tick 970   kimg 7822.2   lod 0.00  minibatch 32   time 13d 04h 32m  sec/tick 1091.6  sec/kimg 135.37  maintenance 0.0    gpumem 6.1
+network-snapshot-007822        time 12m 29s      fid50k 6.2562
+tick 971   kimg 7830.3   lod 0.00  minibatch 32   time 13d 05h 04m  sec/tick 1104.5  sec/kimg 136.97  maintenance 770.2  gpumem 6.1
+tick 972   kimg 7838.3   lod 0.00  minibatch 32   time 13d 05h 22m  sec/tick 1105.2  sec/kimg 137.06  maintenance 0.0    gpumem 6.1
+tick 973   kimg 7846.4   lod 0.00  minibatch 32   time 13d 05h 41m  sec/tick 1104.4  sec/kimg 136.96  maintenance 0.0    gpumem 6.1
+tick 974   kimg 7854.5   lod 0.00  minibatch 32   time 13d 05h 59m  sec/tick 1104.6  sec/kimg 136.97  maintenance 0.0    gpumem 6.1
+tick 975   kimg 7862.5   lod 0.00  minibatch 32   time 13d 06h 17m  sec/tick 1104.9  sec/kimg 137.02  maintenance 0.0    gpumem 6.1
+tick 976   kimg 7870.6   lod 0.00  minibatch 32   time 13d 06h 36m  sec/tick 1105.8  sec/kimg 137.12  maintenance 0.0    gpumem 6.1
+tick 977   kimg 7878.7   lod 0.00  minibatch 32   time 13d 06h 54m  sec/tick 1101.3  sec/kimg 136.56  maintenance 0.0    gpumem 6.1
+tick 978   kimg 7886.7   lod 0.00  minibatch 32   time 13d 07h 13m  sec/tick 1100.7  sec/kimg 136.49  maintenance 0.0    gpumem 6.1
+tick 979   kimg 7894.8   lod 0.00  minibatch 32   time 13d 07h 31m  sec/tick 1099.9  sec/kimg 136.40  maintenance 0.0    gpumem 6.1
+tick 980   kimg 7902.8   lod 0.00  minibatch 32   time 13d 07h 49m  sec/tick 1099.9  sec/kimg 136.40  maintenance 0.0    gpumem 6.1
+network-snapshot-007902        time 12m 22s      fid50k 5.8888
+tick 981   kimg 7910.9   lod 0.00  minibatch 32   time 13d 08h 20m  sec/tick 1098.3  sec/kimg 136.19  maintenance 763.8  gpumem 6.1
+tick 982   kimg 7919.0   lod 0.00  minibatch 32   time 13d 08h 39m  sec/tick 1098.8  sec/kimg 136.26  maintenance 0.0    gpumem 6.1
+tick 983   kimg 7927.0   lod 0.00  minibatch 32   time 13d 08h 57m  sec/tick 1100.1  sec/kimg 136.43  maintenance 0.0    gpumem 6.1
+tick 984   kimg 7935.1   lod 0.00  minibatch 32   time 13d 09h 15m  sec/tick 1098.9  sec/kimg 136.28  maintenance 0.0    gpumem 6.1
+tick 985   kimg 7943.2   lod 0.00  minibatch 32   time 13d 09h 33m  sec/tick 1098.2  sec/kimg 136.19  maintenance 0.0    gpumem 6.1
+tick 986   kimg 7951.2   lod 0.00  minibatch 32   time 13d 09h 52m  sec/tick 1099.4  sec/kimg 136.33  maintenance 0.0    gpumem 6.1
+tick 987   kimg 7959.3   lod 0.00  minibatch 32   time 13d 10h 10m  sec/tick 1100.8  sec/kimg 136.51  maintenance 0.0    gpumem 6.1
+tick 988   kimg 7967.4   lod 0.00  minibatch 32   time 13d 10h 28m  sec/tick 1092.3  sec/kimg 135.45  maintenance 0.0    gpumem 6.1
+tick 989   kimg 7975.4   lod 0.00  minibatch 32   time 13d 10h 47m  sec/tick 1107.4  sec/kimg 137.32  maintenance 0.0    gpumem 6.1
+tick 990   kimg 7983.5   lod 0.00  minibatch 32   time 13d 11h 05m  sec/tick 1102.4  sec/kimg 136.71  maintenance 0.0    gpumem 6.1
+network-snapshot-007983        time 12m 41s      fid50k 5.9051
+tick 991   kimg 7991.6   lod 0.00  minibatch 32   time 13d 11h 37m  sec/tick 1100.5  sec/kimg 136.47  maintenance 783.1  gpumem 6.1
+tick 992   kimg 7999.6   lod 0.00  minibatch 32   time 13d 11h 55m  sec/tick 1101.5  sec/kimg 136.60  maintenance 0.0    gpumem 6.1
+tick 993   kimg 8007.7   lod 0.00  minibatch 32   time 13d 12h 13m  sec/tick 1100.8  sec/kimg 136.50  maintenance 0.0    gpumem 6.1
+tick 994   kimg 8015.7   lod 0.00  minibatch 32   time 13d 12h 32m  sec/tick 1100.7  sec/kimg 136.50  maintenance 0.0    gpumem 6.1
+tick 995   kimg 8023.8   lod 0.00  minibatch 32   time 13d 12h 50m  sec/tick 1111.3  sec/kimg 137.80  maintenance 0.0    gpumem 6.1
+tick 996   kimg 8031.9   lod 0.00  minibatch 32   time 13d 13h 09m  sec/tick 1111.6  sec/kimg 137.85  maintenance 0.0    gpumem 6.1
+tick 997   kimg 8039.9   lod 0.00  minibatch 32   time 13d 13h 27m  sec/tick 1109.1  sec/kimg 137.54  maintenance 0.0    gpumem 6.1
+tick 998   kimg 8048.0   lod 0.00  minibatch 32   time 13d 13h 46m  sec/tick 1112.5  sec/kimg 137.96  maintenance 0.0    gpumem 6.1
+tick 999   kimg 8056.1   lod 0.00  minibatch 32   time 13d 14h 04m  sec/tick 1112.8  sec/kimg 137.99  maintenance 0.0    gpumem 6.1
+tick 1000  kimg 8064.1   lod 0.00  minibatch 32   time 13d 14h 23m  sec/tick 1112.6  sec/kimg 137.97  maintenance 0.0    gpumem 6.1
+network-snapshot-008064        time 13m 03s      fid50k 5.9433
+tick 1001  kimg 8072.2   lod 0.00  minibatch 32   time 13d 14h 55m  sec/tick 1107.7  sec/kimg 137.36  maintenance 806.9  gpumem 6.1
+tick 1002  kimg 8080.3   lod 0.00  minibatch 32   time 13d 15h 13m  sec/tick 1111.3  sec/kimg 137.81  maintenance 0.0    gpumem 6.1
+tick 1003  kimg 8088.3   lod 0.00  minibatch 32   time 13d 15h 32m  sec/tick 1111.6  sec/kimg 137.85  maintenance 0.0    gpumem 6.1
+tick 1004  kimg 8096.4   lod 0.00  minibatch 32   time 13d 15h 50m  sec/tick 1110.6  sec/kimg 137.72  maintenance 0.0    gpumem 6.1
+tick 1005  kimg 8104.4   lod 0.00  minibatch 32   time 13d 16h 09m  sec/tick 1108.5  sec/kimg 137.47  maintenance 0.0    gpumem 6.1
+tick 1006  kimg 8112.5   lod 0.00  minibatch 32   time 13d 16h 27m  sec/tick 1111.9  sec/kimg 137.89  maintenance 0.0    gpumem 6.1
+tick 1007  kimg 8120.6   lod 0.00  minibatch 32   time 13d 16h 46m  sec/tick 1112.5  sec/kimg 137.95  maintenance 0.0    gpumem 6.1
+tick 1008  kimg 8128.6   lod 0.00  minibatch 32   time 13d 17h 04m  sec/tick 1110.1  sec/kimg 137.66  maintenance 0.0    gpumem 6.1
+tick 1009  kimg 8136.7   lod 0.00  minibatch 32   time 13d 17h 23m  sec/tick 1106.5  sec/kimg 137.21  maintenance 0.0    gpumem 6.1
+tick 1010  kimg 8144.8   lod 0.00  minibatch 32   time 13d 17h 41m  sec/tick 1097.4  sec/kimg 136.09  maintenance 0.0    gpumem 6.1
+network-snapshot-008144        time 13m 15s      fid50k 5.7856
+tick 1011  kimg 8152.8   lod 0.00  minibatch 32   time 13d 18h 13m  sec/tick 1085.7  sec/kimg 134.63  maintenance 830.0  gpumem 6.1
+tick 1012  kimg 8160.9   lod 0.00  minibatch 32   time 13d 18h 31m  sec/tick 1088.5  sec/kimg 134.99  maintenance 0.0    gpumem 6.1
+tick 1013  kimg 8169.0   lod 0.00  minibatch 32   time 13d 18h 49m  sec/tick 1087.9  sec/kimg 134.91  maintenance 0.0    gpumem 6.1
+tick 1014  kimg 8177.0   lod 0.00  minibatch 32   time 13d 19h 07m  sec/tick 1087.9  sec/kimg 134.91  maintenance 0.0    gpumem 6.1
+tick 1015  kimg 8185.1   lod 0.00  minibatch 32   time 13d 19h 26m  sec/tick 1088.7  sec/kimg 135.00  maintenance 0.0    gpumem 6.1
+tick 1016  kimg 8193.2   lod 0.00  minibatch 32   time 13d 19h 44m  sec/tick 1088.6  sec/kimg 134.99  maintenance 0.0    gpumem 6.1
+tick 1017  kimg 8201.2   lod 0.00  minibatch 32   time 13d 20h 02m  sec/tick 1086.0  sec/kimg 134.68  maintenance 0.0    gpumem 6.1
+tick 1018  kimg 8209.3   lod 0.00  minibatch 32   time 13d 20h 20m  sec/tick 1087.4  sec/kimg 134.85  maintenance 0.0    gpumem 6.1
+tick 1019  kimg 8217.3   lod 0.00  minibatch 32   time 13d 20h 38m  sec/tick 1089.3  sec/kimg 135.08  maintenance 0.0    gpumem 6.1
+tick 1020  kimg 8225.4   lod 0.00  minibatch 32   time 13d 20h 56m  sec/tick 1090.2  sec/kimg 135.19  maintenance 0.0    gpumem 6.1
+network-snapshot-008225        time 12m 52s      fid50k 6.1064
+tick 1021  kimg 8233.5   lod 0.00  minibatch 32   time 13d 21h 28m  sec/tick 1106.3  sec/kimg 137.19  maintenance 793.3  gpumem 6.1
+tick 1022  kimg 8241.5   lod 0.00  minibatch 32   time 13d 21h 46m  sec/tick 1109.4  sec/kimg 137.58  maintenance 0.0    gpumem 6.1
+tick 1023  kimg 8249.6   lod 0.00  minibatch 32   time 13d 22h 05m  sec/tick 1103.6  sec/kimg 136.86  maintenance 0.0    gpumem 6.1
+tick 1024  kimg 8257.7   lod 0.00  minibatch 32   time 13d 22h 23m  sec/tick 1087.6  sec/kimg 134.88  maintenance 0.0    gpumem 6.1
+tick 1025  kimg 8265.7   lod 0.00  minibatch 32   time 13d 22h 41m  sec/tick 1086.1  sec/kimg 134.68  maintenance 0.0    gpumem 6.1
+tick 1026  kimg 8273.8   lod 0.00  minibatch 32   time 13d 22h 59m  sec/tick 1087.9  sec/kimg 134.91  maintenance 0.0    gpumem 6.1
+tick 1027  kimg 8281.9   lod 0.00  minibatch 32   time 13d 23h 17m  sec/tick 1089.0  sec/kimg 135.05  maintenance 0.0    gpumem 6.1
+tick 1028  kimg 8289.9   lod 0.00  minibatch 32   time 13d 23h 35m  sec/tick 1090.4  sec/kimg 135.21  maintenance 0.0    gpumem 6.1
+tick 1029  kimg 8298.0   lod 0.00  minibatch 32   time 13d 23h 54m  sec/tick 1089.0  sec/kimg 135.05  maintenance 0.0    gpumem 6.1
+tick 1030  kimg 8306.0   lod 0.00  minibatch 32   time 14d 00h 12m  sec/tick 1092.4  sec/kimg 135.47  maintenance 0.0    gpumem 6.1
+network-snapshot-008306        time 14m 39s      fid50k 6.1457
+tick 1031  kimg 8314.1   lod 0.00  minibatch 32   time 14d 00h 46m  sec/tick 1090.9  sec/kimg 135.28  maintenance 935.2  gpumem 6.1
+tick 1032  kimg 8322.2   lod 0.00  minibatch 32   time 14d 01h 04m  sec/tick 1092.1  sec/kimg 135.43  maintenance 0.0    gpumem 6.1
+tick 1033  kimg 8330.2   lod 0.00  minibatch 32   time 14d 01h 22m  sec/tick 1092.3  sec/kimg 135.45  maintenance 0.0    gpumem 6.1
+tick 1034  kimg 8338.3   lod 0.00  minibatch 32   time 14d 01h 40m  sec/tick 1096.5  sec/kimg 135.98  maintenance 0.0    gpumem 6.1
+tick 1035  kimg 8346.4   lod 0.00  minibatch 32   time 14d 01h 59m  sec/tick 1095.8  sec/kimg 135.88  maintenance 0.0    gpumem 6.1
+tick 1036  kimg 8354.4   lod 0.00  minibatch 32   time 14d 02h 17m  sec/tick 1100.7  sec/kimg 136.50  maintenance 0.0    gpumem 6.1
+tick 1037  kimg 8362.5   lod 0.00  minibatch 32   time 14d 02h 35m  sec/tick 1093.1  sec/kimg 135.55  maintenance 0.0    gpumem 6.1
+tick 1038  kimg 8370.6   lod 0.00  minibatch 32   time 14d 02h 53m  sec/tick 1095.7  sec/kimg 135.88  maintenance 0.0    gpumem 6.1
+tick 1039  kimg 8378.6   lod 0.00  minibatch 32   time 14d 03h 12m  sec/tick 1090.7  sec/kimg 135.25  maintenance 0.0    gpumem 6.1
+tick 1040  kimg 8386.7   lod 0.00  minibatch 32   time 14d 03h 30m  sec/tick 1090.9  sec/kimg 135.28  maintenance 0.0    gpumem 6.1
+network-snapshot-008386        time 13m 58s      fid50k 5.5937
+tick 1041  kimg 8394.8   lod 0.00  minibatch 32   time 14d 04h 03m  sec/tick 1088.8  sec/kimg 135.02  maintenance 889.1  gpumem 6.1
+tick 1042  kimg 8402.8   lod 0.00  minibatch 32   time 14d 04h 21m  sec/tick 1091.3  sec/kimg 135.33  maintenance 0.0    gpumem 6.1
+tick 1043  kimg 8410.9   lod 0.00  minibatch 32   time 14d 04h 39m  sec/tick 1092.0  sec/kimg 135.42  maintenance 0.0    gpumem 6.1
+tick 1044  kimg 8418.9   lod 0.00  minibatch 32   time 14d 04h 57m  sec/tick 1091.0  sec/kimg 135.29  maintenance 0.0    gpumem 6.1
+tick 1045  kimg 8427.0   lod 0.00  minibatch 32   time 14d 05h 15m  sec/tick 1089.5  sec/kimg 135.11  maintenance 0.0    gpumem 6.1
+tick 1046  kimg 8435.1   lod 0.00  minibatch 32   time 14d 05h 34m  sec/tick 1091.0  sec/kimg 135.29  maintenance 0.0    gpumem 6.1
+tick 1047  kimg 8443.1   lod 0.00  minibatch 32   time 14d 05h 52m  sec/tick 1091.2  sec/kimg 135.32  maintenance 0.0    gpumem 6.1
+tick 1048  kimg 8451.2   lod 0.00  minibatch 32   time 14d 06h 10m  sec/tick 1091.8  sec/kimg 135.39  maintenance 0.0    gpumem 6.1
+tick 1049  kimg 8459.3   lod 0.00  minibatch 32   time 14d 06h 28m  sec/tick 1089.8  sec/kimg 135.14  maintenance 0.0    gpumem 6.1
+tick 1050  kimg 8467.3   lod 0.00  minibatch 32   time 14d 06h 46m  sec/tick 1090.2  sec/kimg 135.19  maintenance 0.0    gpumem 6.1
+network-snapshot-008467        time 13m 41s      fid50k 5.9221
+tick 1051  kimg 8475.4   lod 0.00  minibatch 32   time 14d 07h 19m  sec/tick 1088.8  sec/kimg 135.02  maintenance 855.2  gpumem 6.1
+tick 1052  kimg 8483.5   lod 0.00  minibatch 32   time 14d 07h 37m  sec/tick 1091.0  sec/kimg 135.29  maintenance 0.0    gpumem 6.1
+tick 1053  kimg 8491.5   lod 0.00  minibatch 32   time 14d 07h 55m  sec/tick 1089.6  sec/kimg 135.12  maintenance 0.0    gpumem 6.1
+tick 1054  kimg 8499.6   lod 0.00  minibatch 32   time 14d 08h 13m  sec/tick 1091.2  sec/kimg 135.32  maintenance 0.1    gpumem 6.1
+tick 1055  kimg 8507.6   lod 0.00  minibatch 32   time 14d 08h 31m  sec/tick 1093.8  sec/kimg 135.64  maintenance 0.0    gpumem 6.1
+tick 1056  kimg 8515.7   lod 0.00  minibatch 32   time 14d 08h 50m  sec/tick 1093.1  sec/kimg 135.55  maintenance 0.0    gpumem 6.1
+tick 1057  kimg 8523.8   lod 0.00  minibatch 32   time 14d 09h 08m  sec/tick 1092.1  sec/kimg 135.43  maintenance 0.0    gpumem 6.1
+tick 1058  kimg 8531.8   lod 0.00  minibatch 32   time 14d 09h 26m  sec/tick 1093.6  sec/kimg 135.62  maintenance 0.0    gpumem 6.1
+tick 1059  kimg 8539.9   lod 0.00  minibatch 32   time 14d 09h 44m  sec/tick 1093.9  sec/kimg 135.65  maintenance 0.0    gpumem 6.1
+tick 1060  kimg 8548.0   lod 0.00  minibatch 32   time 14d 10h 03m  sec/tick 1093.7  sec/kimg 135.63  maintenance 0.0    gpumem 6.1
+network-snapshot-008547        time 13m 01s      fid50k 5.9960
+tick 1061  kimg 8556.0   lod 0.00  minibatch 32   time 14d 10h 34m  sec/tick 1091.7  sec/kimg 135.38  maintenance 806.4  gpumem 6.1
+tick 1062  kimg 8564.1   lod 0.00  minibatch 32   time 14d 10h 52m  sec/tick 1092.2  sec/kimg 135.44  maintenance 0.0    gpumem 6.1
+tick 1063  kimg 8572.2   lod 0.00  minibatch 32   time 14d 11h 11m  sec/tick 1093.0  sec/kimg 135.54  maintenance 0.0    gpumem 6.1
+tick 1064  kimg 8580.2   lod 0.00  minibatch 32   time 14d 11h 29m  sec/tick 1090.5  sec/kimg 135.23  maintenance 0.0    gpumem 6.1
+tick 1065  kimg 8588.3   lod 0.00  minibatch 32   time 14d 11h 47m  sec/tick 1087.9  sec/kimg 134.91  maintenance 0.0    gpumem 6.1
+tick 1066  kimg 8596.4   lod 0.00  minibatch 32   time 14d 12h 05m  sec/tick 1089.6  sec/kimg 135.12  maintenance 0.0    gpumem 6.1
+tick 1067  kimg 8604.4   lod 0.00  minibatch 32   time 14d 12h 23m  sec/tick 1092.5  sec/kimg 135.48  maintenance 0.0    gpumem 6.1
+tick 1068  kimg 8612.5   lod 0.00  minibatch 32   time 14d 12h 42m  sec/tick 1104.4  sec/kimg 136.96  maintenance 0.0    gpumem 6.1
+tick 1069  kimg 8620.5   lod 0.00  minibatch 32   time 14d 13h 00m  sec/tick 1105.2  sec/kimg 137.06  maintenance 0.0    gpumem 6.1
+tick 1070  kimg 8628.6   lod 0.00  minibatch 32   time 14d 13h 19m  sec/tick 1104.8  sec/kimg 137.01  maintenance 0.0    gpumem 6.1
+network-snapshot-008628        time 13m 54s      fid50k 5.9987
+tick 1071  kimg 8636.7   lod 0.00  minibatch 32   time 14d 13h 51m  sec/tick 1099.4  sec/kimg 136.33  maintenance 876.1  gpumem 6.1
+tick 1072  kimg 8644.7   lod 0.00  minibatch 32   time 14d 14h 10m  sec/tick 1101.4  sec/kimg 136.59  maintenance 0.0    gpumem 6.1
+tick 1073  kimg 8652.8   lod 0.00  minibatch 32   time 14d 14h 28m  sec/tick 1100.6  sec/kimg 136.48  maintenance 0.0    gpumem 6.1
+tick 1074  kimg 8660.9   lod 0.00  minibatch 32   time 14d 14h 47m  sec/tick 1108.9  sec/kimg 137.51  maintenance 0.0    gpumem 6.1
+tick 1075  kimg 8668.9   lod 0.00  minibatch 32   time 14d 15h 05m  sec/tick 1106.9  sec/kimg 137.27  maintenance 0.0    gpumem 6.1
+tick 1076  kimg 8677.0   lod 0.00  minibatch 32   time 14d 15h 24m  sec/tick 1107.3  sec/kimg 137.32  maintenance 0.0    gpumem 6.1
+tick 1077  kimg 8685.1   lod 0.00  minibatch 32   time 14d 15h 42m  sec/tick 1106.0  sec/kimg 137.16  maintenance 0.0    gpumem 6.1
+tick 1078  kimg 8693.1   lod 0.00  minibatch 32   time 14d 16h 00m  sec/tick 1105.7  sec/kimg 137.12  maintenance 0.0    gpumem 6.1
+tick 1079  kimg 8701.2   lod 0.00  minibatch 32   time 14d 16h 19m  sec/tick 1106.9  sec/kimg 137.26  maintenance 0.1    gpumem 6.1
+tick 1080  kimg 8709.2   lod 0.00  minibatch 32   time 14d 16h 38m  sec/tick 1119.5  sec/kimg 138.83  maintenance 0.0    gpumem 6.1
+network-snapshot-008709        time 16m 33s      fid50k 5.9068
+tick 1081  kimg 8717.3   lod 0.00  minibatch 32   time 14d 17h 14m  sec/tick 1105.5  sec/kimg 137.09  maintenance 1063.8 gpumem 6.1
+tick 1082  kimg 8725.4   lod 0.00  minibatch 32   time 14d 17h 32m  sec/tick 1108.9  sec/kimg 137.51  maintenance 0.0    gpumem 6.1
+tick 1083  kimg 8733.4   lod 0.00  minibatch 32   time 14d 17h 51m  sec/tick 1110.3  sec/kimg 137.68  maintenance 0.0    gpumem 6.1
+tick 1084  kimg 8741.5   lod 0.00  minibatch 32   time 14d 18h 09m  sec/tick 1110.5  sec/kimg 137.71  maintenance 0.0    gpumem 6.1
+tick 1085  kimg 8749.6   lod 0.00  minibatch 32   time 14d 18h 28m  sec/tick 1110.6  sec/kimg 137.73  maintenance 0.0    gpumem 6.1
+tick 1086  kimg 8757.6   lod 0.00  minibatch 32   time 14d 18h 46m  sec/tick 1112.4  sec/kimg 137.95  maintenance 0.0    gpumem 6.1
+tick 1087  kimg 8765.7   lod 0.00  minibatch 32   time 14d 19h 05m  sec/tick 1111.4  sec/kimg 137.82  maintenance 0.0    gpumem 6.1
+tick 1088  kimg 8773.8   lod 0.00  minibatch 32   time 14d 19h 23m  sec/tick 1108.0  sec/kimg 137.40  maintenance 0.0    gpumem 6.1
+tick 1089  kimg 8781.8   lod 0.00  minibatch 32   time 14d 19h 42m  sec/tick 1108.3  sec/kimg 137.44  maintenance 0.0    gpumem 6.1
+tick 1090  kimg 8789.9   lod 0.00  minibatch 32   time 14d 20h 00m  sec/tick 1111.0  sec/kimg 137.77  maintenance 0.0    gpumem 6.1
+network-snapshot-008789        time 15m 14s      fid50k 6.0699
+tick 1091  kimg 8798.0   lod 0.00  minibatch 32   time 14d 20h 35m  sec/tick 1107.5  sec/kimg 137.34  maintenance 978.7  gpumem 6.1
+tick 1092  kimg 8806.0   lod 0.00  minibatch 32   time 14d 20h 53m  sec/tick 1109.7  sec/kimg 137.61  maintenance 0.0    gpumem 6.1
+tick 1093  kimg 8814.1   lod 0.00  minibatch 32   time 14d 21h 12m  sec/tick 1107.4  sec/kimg 137.32  maintenance 0.0    gpumem 6.1
+tick 1094  kimg 8822.1   lod 0.00  minibatch 32   time 14d 21h 30m  sec/tick 1106.9  sec/kimg 137.26  maintenance 0.0    gpumem 6.1
+tick 1095  kimg 8830.2   lod 0.00  minibatch 32   time 14d 21h 49m  sec/tick 1111.3  sec/kimg 137.81  maintenance 0.0    gpumem 6.1
+tick 1096  kimg 8838.3   lod 0.00  minibatch 32   time 14d 22h 07m  sec/tick 1112.7  sec/kimg 137.99  maintenance 0.0    gpumem 6.1
+tick 1097  kimg 8846.3   lod 0.00  minibatch 32   time 14d 22h 26m  sec/tick 1105.9  sec/kimg 137.14  maintenance 0.0    gpumem 6.1
+tick 1098  kimg 8854.4   lod 0.00  minibatch 32   time 14d 22h 44m  sec/tick 1109.3  sec/kimg 137.57  maintenance 0.0    gpumem 6.1
+tick 1099  kimg 8862.5   lod 0.00  minibatch 32   time 14d 23h 03m  sec/tick 1112.0  sec/kimg 137.89  maintenance 0.0    gpumem 6.1
+tick 1100  kimg 8870.5   lod 0.00  minibatch 32   time 14d 23h 21m  sec/tick 1111.4  sec/kimg 137.82  maintenance 0.0    gpumem 6.1
+network-snapshot-008870        time 15m 20s      fid50k 6.2715
+tick 1101  kimg 8878.6   lod 0.00  minibatch 32   time 14d 23h 56m  sec/tick 1104.3  sec/kimg 136.94  maintenance 966.9  gpumem 6.1
+tick 1102  kimg 8886.7   lod 0.00  minibatch 32   time 15d 00h 14m  sec/tick 1108.7  sec/kimg 137.49  maintenance 0.0    gpumem 6.1
+tick 1103  kimg 8894.7   lod 0.00  minibatch 32   time 15d 00h 33m  sec/tick 1114.0  sec/kimg 138.14  maintenance 0.0    gpumem 6.1
+tick 1104  kimg 8902.8   lod 0.00  minibatch 32   time 15d 00h 52m  sec/tick 1114.2  sec/kimg 138.17  maintenance 0.0    gpumem 6.1
+tick 1105  kimg 8910.8   lod 0.00  minibatch 32   time 15d 01h 10m  sec/tick 1111.0  sec/kimg 137.77  maintenance 0.0    gpumem 6.1
+tick 1106  kimg 8918.9   lod 0.00  minibatch 32   time 15d 01h 29m  sec/tick 1110.5  sec/kimg 137.71  maintenance 0.0    gpumem 6.1
+tick 1107  kimg 8927.0   lod 0.00  minibatch 32   time 15d 01h 47m  sec/tick 1109.6  sec/kimg 137.60  maintenance 0.0    gpumem 6.1
+tick 1108  kimg 8935.0   lod 0.00  minibatch 32   time 15d 02h 06m  sec/tick 1112.7  sec/kimg 137.98  maintenance 0.0    gpumem 6.1
+tick 1109  kimg 8943.1   lod 0.00  minibatch 32   time 15d 02h 24m  sec/tick 1107.4  sec/kimg 137.33  maintenance 0.0    gpumem 6.1
+tick 1110  kimg 8951.2   lod 0.00  minibatch 32   time 15d 02h 43m  sec/tick 1106.1  sec/kimg 137.17  maintenance 0.0    gpumem 6.1
+network-snapshot-008951        time 16m 13s      fid50k 6.5596
+tick 1111  kimg 8959.2   lod 0.00  minibatch 32   time 15d 03h 18m  sec/tick 1101.6  sec/kimg 136.61  maintenance 1031.4 gpumem 6.1
+tick 1112  kimg 8967.3   lod 0.00  minibatch 32   time 15d 03h 36m  sec/tick 1103.1  sec/kimg 136.79  maintenance 0.0    gpumem 6.1
+tick 1113  kimg 8975.4   lod 0.00  minibatch 32   time 15d 03h 55m  sec/tick 1098.9  sec/kimg 136.27  maintenance 0.0    gpumem 6.1
+tick 1114  kimg 8983.4   lod 0.00  minibatch 32   time 15d 04h 13m  sec/tick 1095.9  sec/kimg 135.90  maintenance 0.0    gpumem 6.1
+tick 1115  kimg 8991.5   lod 0.00  minibatch 32   time 15d 04h 31m  sec/tick 1093.9  sec/kimg 135.65  maintenance 0.0    gpumem 6.1
+tick 1116  kimg 8999.6   lod 0.00  minibatch 32   time 15d 04h 50m  sec/tick 1097.2  sec/kimg 136.07  maintenance 0.0    gpumem 6.1
+tick 1117  kimg 9007.6   lod 0.00  minibatch 32   time 15d 05h 08m  sec/tick 1094.0  sec/kimg 135.66  maintenance 0.0    gpumem 6.1
+tick 1118  kimg 9015.7   lod 0.00  minibatch 32   time 15d 05h 26m  sec/tick 1096.5  sec/kimg 135.98  maintenance 0.0    gpumem 6.1
+tick 1119  kimg 9023.7   lod 0.00  minibatch 32   time 15d 05h 44m  sec/tick 1096.8  sec/kimg 136.01  maintenance 0.0    gpumem 6.1
+tick 1120  kimg 9031.8   lod 0.00  minibatch 32   time 15d 06h 03m  sec/tick 1096.5  sec/kimg 135.97  maintenance 0.0    gpumem 6.1
+network-snapshot-009031        time 12m 29s      fid50k 6.2218
+tick 1121  kimg 9039.9   lod 0.00  minibatch 32   time 15d 06h 34m  sec/tick 1097.1  sec/kimg 136.05  maintenance 770.9  gpumem 6.1
+tick 1122  kimg 9047.9   lod 0.00  minibatch 32   time 15d 06h 52m  sec/tick 1099.3  sec/kimg 136.32  maintenance 0.0    gpumem 6.1
+tick 1123  kimg 9056.0   lod 0.00  minibatch 32   time 15d 07h 10m  sec/tick 1099.1  sec/kimg 136.30  maintenance 0.0    gpumem 6.1
+tick 1124  kimg 9064.1   lod 0.00  minibatch 32   time 15d 07h 29m  sec/tick 1099.0  sec/kimg 136.29  maintenance 0.0    gpumem 6.1
+tick 1125  kimg 9072.1   lod 0.00  minibatch 32   time 15d 07h 47m  sec/tick 1094.1  sec/kimg 135.68  maintenance 0.0    gpumem 6.1
+tick 1126  kimg 9080.2   lod 0.00  minibatch 32   time 15d 08h 05m  sec/tick 1096.4  sec/kimg 135.96  maintenance 0.0    gpumem 6.1
+tick 1127  kimg 9088.3   lod 0.00  minibatch 32   time 15d 08h 23m  sec/tick 1095.9  sec/kimg 135.90  maintenance 0.0    gpumem 6.1
+tick 1128  kimg 9096.3   lod 0.00  minibatch 32   time 15d 08h 42m  sec/tick 1097.8  sec/kimg 136.13  maintenance 0.0    gpumem 6.1
+tick 1129  kimg 9104.4   lod 0.00  minibatch 32   time 15d 09h 00m  sec/tick 1095.0  sec/kimg 135.79  maintenance 0.0    gpumem 6.1
+tick 1130  kimg 9112.4   lod 0.00  minibatch 32   time 15d 09h 18m  sec/tick 1100.2  sec/kimg 136.43  maintenance 0.0    gpumem 6.1
+network-snapshot-009112        time 12m 31s      fid50k 5.7290
+tick 1131  kimg 9120.5   lod 0.00  minibatch 32   time 15d 09h 50m  sec/tick 1099.5  sec/kimg 136.34  maintenance 773.0  gpumem 6.1
+tick 1132  kimg 9128.6   lod 0.00  minibatch 32   time 15d 10h 08m  sec/tick 1100.3  sec/kimg 136.45  maintenance 0.0    gpumem 6.1
+tick 1133  kimg 9136.6   lod 0.00  minibatch 32   time 15d 10h 26m  sec/tick 1098.7  sec/kimg 136.24  maintenance 0.0    gpumem 6.1
+tick 1134  kimg 9144.7   lod 0.00  minibatch 32   time 15d 10h 45m  sec/tick 1099.8  sec/kimg 136.39  maintenance 0.0    gpumem 6.1
+tick 1135  kimg 9152.8   lod 0.00  minibatch 32   time 15d 11h 03m  sec/tick 1097.3  sec/kimg 136.08  maintenance 0.0    gpumem 6.1
+tick 1136  kimg 9160.8   lod 0.00  minibatch 32   time 15d 11h 21m  sec/tick 1089.5  sec/kimg 135.11  maintenance 0.0    gpumem 6.1
+tick 1137  kimg 9168.9   lod 0.00  minibatch 32   time 15d 11h 39m  sec/tick 1088.6  sec/kimg 135.00  maintenance 0.0    gpumem 6.1
+tick 1138  kimg 9177.0   lod 0.00  minibatch 32   time 15d 11h 57m  sec/tick 1088.9  sec/kimg 135.03  maintenance 0.0    gpumem 6.1
+tick 1139  kimg 9185.0   lod 0.00  minibatch 32   time 15d 12h 15m  sec/tick 1090.4  sec/kimg 135.22  maintenance 0.0    gpumem 6.1
+tick 1140  kimg 9193.1   lod 0.00  minibatch 32   time 15d 12h 34m  sec/tick 1087.9  sec/kimg 134.91  maintenance 0.0    gpumem 6.1
+network-snapshot-009193        time 13m 02s      fid50k 6.3174
+tick 1141  kimg 9201.2   lod 0.00  minibatch 32   time 15d 13h 06m  sec/tick 1097.5  sec/kimg 136.10  maintenance 818.3  gpumem 6.1
+tick 1142  kimg 9209.2   lod 0.00  minibatch 32   time 15d 13h 24m  sec/tick 1095.7  sec/kimg 135.87  maintenance 0.0    gpumem 6.1
+tick 1143  kimg 9217.3   lod 0.00  minibatch 32   time 15d 13h 42m  sec/tick 1094.3  sec/kimg 135.70  maintenance 0.0    gpumem 6.1
+tick 1144  kimg 9225.3   lod 0.00  minibatch 32   time 15d 14h 00m  sec/tick 1100.9  sec/kimg 136.52  maintenance 0.0    gpumem 6.1
+tick 1145  kimg 9233.4   lod 0.00  minibatch 32   time 15d 14h 19m  sec/tick 1100.2  sec/kimg 136.43  maintenance 0.0    gpumem 6.1
+tick 1146  kimg 9241.5   lod 0.00  minibatch 32   time 15d 14h 37m  sec/tick 1101.4  sec/kimg 136.58  maintenance 0.0    gpumem 6.1
+tick 1147  kimg 9249.5   lod 0.00  minibatch 32   time 15d 14h 55m  sec/tick 1101.4  sec/kimg 136.58  maintenance 0.0    gpumem 6.1
+tick 1148  kimg 9257.6   lod 0.00  minibatch 32   time 15d 15h 14m  sec/tick 1100.6  sec/kimg 136.48  maintenance 0.0    gpumem 6.1
+tick 1149  kimg 9265.7   lod 0.00  minibatch 32   time 15d 15h 32m  sec/tick 1099.9  sec/kimg 136.40  maintenance 0.0    gpumem 6.1
+tick 1150  kimg 9273.7   lod 0.00  minibatch 32   time 15d 15h 50m  sec/tick 1102.2  sec/kimg 136.68  maintenance 0.0    gpumem 6.1
+network-snapshot-009273        time 12m 27s      fid50k 6.1454
+tick 1151  kimg 9281.8   lod 0.00  minibatch 32   time 15d 16h 22m  sec/tick 1098.8  sec/kimg 136.26  maintenance 768.8  gpumem 6.1
+tick 1152  kimg 9289.9   lod 0.00  minibatch 32   time 15d 16h 40m  sec/tick 1100.3  sec/kimg 136.44  maintenance 0.0    gpumem 6.1
+tick 1153  kimg 9297.9   lod 0.00  minibatch 32   time 15d 16h 58m  sec/tick 1098.5  sec/kimg 136.22  maintenance 0.0    gpumem 6.1
+tick 1154  kimg 9306.0   lod 0.00  minibatch 32   time 15d 17h 17m  sec/tick 1097.9  sec/kimg 136.14  maintenance 0.0    gpumem 6.1
+tick 1155  kimg 9314.0   lod 0.00  minibatch 32   time 15d 17h 35m  sec/tick 1099.2  sec/kimg 136.31  maintenance 0.0    gpumem 6.1
+tick 1156  kimg 9322.1   lod 0.00  minibatch 32   time 15d 17h 53m  sec/tick 1099.6  sec/kimg 136.35  maintenance 0.0    gpumem 6.1
+tick 1157  kimg 9330.2   lod 0.00  minibatch 32   time 15d 18h 12m  sec/tick 1099.6  sec/kimg 136.36  maintenance 0.0    gpumem 6.1
+tick 1158  kimg 9338.2   lod 0.00  minibatch 32   time 15d 18h 30m  sec/tick 1094.1  sec/kimg 135.68  maintenance 0.0    gpumem 6.1
+tick 1159  kimg 9346.3   lod 0.00  minibatch 32   time 15d 18h 48m  sec/tick 1093.6  sec/kimg 135.62  maintenance 0.0    gpumem 6.1
+tick 1160  kimg 9354.4   lod 0.00  minibatch 32   time 15d 19h 06m  sec/tick 1093.7  sec/kimg 135.63  maintenance 0.0    gpumem 6.1
+network-snapshot-009354        time 12m 04s      fid50k 5.9617
+tick 1161  kimg 9362.4   lod 0.00  minibatch 32   time 15d 19h 37m  sec/tick 1092.7  sec/kimg 135.51  maintenance 746.0  gpumem 6.1
+tick 1162  kimg 9370.5   lod 0.00  minibatch 32   time 15d 19h 55m  sec/tick 1095.9  sec/kimg 135.91  maintenance 0.0    gpumem 6.1
+tick 1163  kimg 9378.6   lod 0.00  minibatch 32   time 15d 20h 13m  sec/tick 1094.8  sec/kimg 135.76  maintenance 0.0    gpumem 6.1
+tick 1164  kimg 9386.6   lod 0.00  minibatch 32   time 15d 20h 32m  sec/tick 1093.3  sec/kimg 135.57  maintenance 0.0    gpumem 6.1
+tick 1165  kimg 9394.7   lod 0.00  minibatch 32   time 15d 20h 50m  sec/tick 1091.8  sec/kimg 135.39  maintenance 0.0    gpumem 6.1
+tick 1166  kimg 9402.8   lod 0.00  minibatch 32   time 15d 21h 08m  sec/tick 1092.5  sec/kimg 135.48  maintenance 0.0    gpumem 6.1
+tick 1167  kimg 9410.8   lod 0.00  minibatch 32   time 15d 21h 26m  sec/tick 1094.9  sec/kimg 135.78  maintenance 0.0    gpumem 6.1
+tick 1168  kimg 9418.9   lod 0.00  minibatch 32   time 15d 21h 44m  sec/tick 1094.9  sec/kimg 135.77  maintenance 0.0    gpumem 6.1
+tick 1169  kimg 9426.9   lod 0.00  minibatch 32   time 15d 22h 03m  sec/tick 1093.4  sec/kimg 135.59  maintenance 0.0    gpumem 6.1
+tick 1170  kimg 9435.0   lod 0.00  minibatch 32   time 15d 22h 21m  sec/tick 1100.1  sec/kimg 136.43  maintenance 0.0    gpumem 6.1
+network-snapshot-009435        time 12m 17s      fid50k 6.1025
+tick 1171  kimg 9443.1   lod 0.00  minibatch 32   time 15d 22h 52m  sec/tick 1106.9  sec/kimg 137.26  maintenance 757.2  gpumem 6.1
+tick 1172  kimg 9451.1   lod 0.00  minibatch 32   time 15d 23h 10m  sec/tick 1099.6  sec/kimg 136.36  maintenance 0.0    gpumem 6.1
+tick 1173  kimg 9459.2   lod 0.00  minibatch 32   time 15d 23h 29m  sec/tick 1093.8  sec/kimg 135.64  maintenance 0.0    gpumem 6.1
+tick 1174  kimg 9467.3   lod 0.00  minibatch 32   time 15d 23h 47m  sec/tick 1096.6  sec/kimg 135.99  maintenance 0.0    gpumem 6.1
+tick 1175  kimg 9475.3   lod 0.00  minibatch 32   time 16d 00h 05m  sec/tick 1094.9  sec/kimg 135.77  maintenance 0.0    gpumem 6.1
+tick 1176  kimg 9483.4   lod 0.00  minibatch 32   time 16d 00h 23m  sec/tick 1094.7  sec/kimg 135.75  maintenance 0.0    gpumem 6.1
+tick 1177  kimg 9491.5   lod 0.00  minibatch 32   time 16d 00h 42m  sec/tick 1094.7  sec/kimg 135.75  maintenance 0.0    gpumem 6.1
+tick 1178  kimg 9499.5   lod 0.00  minibatch 32   time 16d 01h 00m  sec/tick 1097.8  sec/kimg 136.14  maintenance 0.0    gpumem 6.1
+tick 1179  kimg 9507.6   lod 0.00  minibatch 32   time 16d 01h 18m  sec/tick 1098.5  sec/kimg 136.23  maintenance 0.0    gpumem 6.1
+tick 1180  kimg 9515.6   lod 0.00  minibatch 32   time 16d 01h 37m  sec/tick 1099.1  sec/kimg 136.30  maintenance 0.0    gpumem 6.1
+network-snapshot-009515        time 15m 41s      fid50k 6.1436
+tick 1181  kimg 9523.7   lod 0.00  minibatch 32   time 16d 02h 12m  sec/tick 1100.6  sec/kimg 136.48  maintenance 1013.9 gpumem 6.1
+tick 1182  kimg 9531.8   lod 0.00  minibatch 32   time 16d 02h 30m  sec/tick 1096.3  sec/kimg 135.94  maintenance 0.0    gpumem 6.1
+tick 1183  kimg 9539.8   lod 0.00  minibatch 32   time 16d 02h 48m  sec/tick 1099.1  sec/kimg 136.30  maintenance 0.0    gpumem 6.1
+tick 1184  kimg 9547.9   lod 0.00  minibatch 32   time 16d 03h 07m  sec/tick 1100.5  sec/kimg 136.47  maintenance 0.0    gpumem 6.1
+tick 1185  kimg 9556.0   lod 0.00  minibatch 32   time 16d 03h 25m  sec/tick 1099.8  sec/kimg 136.39  maintenance 0.0    gpumem 6.1
+tick 1186  kimg 9564.0   lod 0.00  minibatch 32   time 16d 03h 43m  sec/tick 1102.1  sec/kimg 136.66  maintenance 0.0    gpumem 6.1
+tick 1187  kimg 9572.1   lod 0.00  minibatch 32   time 16d 04h 02m  sec/tick 1102.3  sec/kimg 136.70  maintenance 0.0    gpumem 6.1
+tick 1188  kimg 9580.2   lod 0.00  minibatch 32   time 16d 04h 20m  sec/tick 1103.3  sec/kimg 136.81  maintenance 0.0    gpumem 6.1
+tick 1189  kimg 9588.2   lod 0.00  minibatch 32   time 16d 04h 39m  sec/tick 1100.9  sec/kimg 136.52  maintenance 0.0    gpumem 6.1
+tick 1190  kimg 9596.3   lod 0.00  minibatch 32   time 16d 04h 57m  sec/tick 1103.4  sec/kimg 136.83  maintenance 0.0    gpumem 6.1
+network-snapshot-009596        time 15m 51s      fid50k 6.1411
+tick 1191  kimg 9604.4   lod 0.00  minibatch 32   time 16d 05h 32m  sec/tick 1102.1  sec/kimg 136.67  maintenance 1026.6 gpumem 6.1
+tick 1192  kimg 9612.4   lod 0.00  minibatch 32   time 16d 05h 51m  sec/tick 1104.9  sec/kimg 137.02  maintenance 0.0    gpumem 6.1
+tick 1193  kimg 9620.5   lod 0.00  minibatch 32   time 16d 06h 09m  sec/tick 1103.1  sec/kimg 136.80  maintenance 0.0    gpumem 6.1
+tick 1194  kimg 9628.5   lod 0.00  minibatch 32   time 16d 06h 28m  sec/tick 1102.3  sec/kimg 136.69  maintenance 0.0    gpumem 6.1
+tick 1195  kimg 9636.6   lod 0.00  minibatch 32   time 16d 06h 46m  sec/tick 1102.6  sec/kimg 136.73  maintenance 0.0    gpumem 6.1
+tick 1196  kimg 9644.7   lod 0.00  minibatch 32   time 16d 07h 04m  sec/tick 1102.4  sec/kimg 136.70  maintenance 0.0    gpumem 6.1
+tick 1197  kimg 9652.7   lod 0.00  minibatch 32   time 16d 07h 23m  sec/tick 1102.9  sec/kimg 136.76  maintenance 0.0    gpumem 6.1
+tick 1198  kimg 9660.8   lod 0.00  minibatch 32   time 16d 07h 41m  sec/tick 1102.7  sec/kimg 136.74  maintenance 0.0    gpumem 6.1
+tick 1199  kimg 9668.9   lod 0.00  minibatch 32   time 16d 08h 00m  sec/tick 1103.6  sec/kimg 136.86  maintenance 0.0    gpumem 6.1
+tick 1200  kimg 9676.9   lod 0.00  minibatch 32   time 16d 08h 18m  sec/tick 1102.1  sec/kimg 136.67  maintenance 0.0    gpumem 6.1
+network-snapshot-009676        time 15m 16s      fid50k 6.3292
+tick 1201  kimg 9685.0   lod 0.00  minibatch 32   time 16d 08h 52m  sec/tick 1100.3  sec/kimg 136.44  maintenance 975.1  gpumem 6.1
+tick 1202  kimg 9693.1   lod 0.00  minibatch 32   time 16d 09h 11m  sec/tick 1101.3  sec/kimg 136.58  maintenance 0.0    gpumem 6.1
+tick 1203  kimg 9701.1   lod 0.00  minibatch 32   time 16d 09h 29m  sec/tick 1103.0  sec/kimg 136.78  maintenance 0.0    gpumem 6.1
+tick 1204  kimg 9709.2   lod 0.00  minibatch 32   time 16d 09h 48m  sec/tick 1103.2  sec/kimg 136.81  maintenance 0.0    gpumem 6.1
+tick 1205  kimg 9717.2   lod 0.00  minibatch 32   time 16d 10h 06m  sec/tick 1105.2  sec/kimg 137.06  maintenance 0.0    gpumem 6.1
+tick 1206  kimg 9725.3   lod 0.00  minibatch 32   time 16d 10h 24m  sec/tick 1104.7  sec/kimg 136.99  maintenance 0.0    gpumem 6.1
+tick 1207  kimg 9733.4   lod 0.00  minibatch 32   time 16d 10h 43m  sec/tick 1107.4  sec/kimg 137.33  maintenance 0.0    gpumem 6.1
+tick 1208  kimg 9741.4   lod 0.00  minibatch 32   time 16d 11h 01m  sec/tick 1106.1  sec/kimg 137.17  maintenance 0.0    gpumem 6.1
+tick 1209  kimg 9749.5   lod 0.00  minibatch 32   time 16d 11h 20m  sec/tick 1104.7  sec/kimg 136.99  maintenance 0.0    gpumem 6.1
+tick 1210  kimg 9757.6   lod 0.00  minibatch 32   time 16d 11h 38m  sec/tick 1105.3  sec/kimg 137.07  maintenance 0.0    gpumem 6.1
+network-snapshot-009757        time 15m 15s      fid50k 5.9992
+tick 1211  kimg 9765.6   lod 0.00  minibatch 32   time 16d 12h 13m  sec/tick 1106.4  sec/kimg 137.20  maintenance 957.4  gpumem 6.1
+tick 1212  kimg 9773.7   lod 0.00  minibatch 32   time 16d 12h 31m  sec/tick 1102.7  sec/kimg 136.75  maintenance 0.0    gpumem 6.1
+tick 1213  kimg 9781.8   lod 0.00  minibatch 32   time 16d 12h 49m  sec/tick 1100.1  sec/kimg 136.42  maintenance 0.0    gpumem 6.1
+tick 1214  kimg 9789.8   lod 0.00  minibatch 32   time 16d 13h 08m  sec/tick 1104.2  sec/kimg 136.93  maintenance 0.0    gpumem 6.1
+tick 1215  kimg 9797.9   lod 0.00  minibatch 32   time 16d 13h 26m  sec/tick 1099.8  sec/kimg 136.39  maintenance 0.0    gpumem 6.1
+tick 1216  kimg 9806.0   lod 0.00  minibatch 32   time 16d 13h 44m  sec/tick 1099.2  sec/kimg 136.31  maintenance 0.0    gpumem 6.1
+tick 1217  kimg 9814.0   lod 0.00  minibatch 32   time 16d 14h 03m  sec/tick 1101.1  sec/kimg 136.55  maintenance 0.0    gpumem 6.1
