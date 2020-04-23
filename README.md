@@ -1,6 +1,6 @@
 # 2D-character generation by StyleGAN 
 This repositry is based on the official implementation. https://github.com/NVlabs/stylegan2
-
+![sample](https://github.com/y60/stylegan2/blob/master/results/00081-generate-images_~5:0.5/example.png?raw=true)
 ## Dataset
 
 17633 face images are used for training.
