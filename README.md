@@ -42,4 +42,5 @@ Good detail variation is observed.
 ### Interpolation
 ### Discussion
 ### Image2StyleGAN(++)
-
+### StyleALAE
+### HoloGAN
