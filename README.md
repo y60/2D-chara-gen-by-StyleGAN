@@ -1,6 +1,4 @@
-# 2D-character generation by StyleGAN 
-This repository is based on the official implementation. https://github.com/NVlabs/stylegan2
-![sample](https://github.com/y60/stylegan2/blob/master/results/00081-generate-images_~5:0.5/example.png?raw=true)
+# 2D-character generation
 ## Dataset
 
 17633 face images are used for training.
@@ -8,8 +6,9 @@ They are gathered from Twitter.
 
 To crop face region, I used an SSD model, which I had previously trained: https://github.com/y60/ml_practice/blob/master/chainer/ssd/demo.ipynb
 
-## Training
-
+## StyleGAN
+This repository is based on the official implementation. https://github.com/NVlabs/stylegan2
+![sample](https://github.com/y60/stylegan2/blob/master/results/00081-generate-images_~5:0.5/example.png?raw=true)
 |     |     |
 | ---- | ---- |
 |GPU | Quadro RTX 8000 * 1|
@@ -17,8 +16,6 @@ To crop face region, I used an SSD model, which I had previously trained: https:
 |StyleGAN config | config-f|
 |Command |  `python run_training.py --num-gpus=1 --data-dir=<data-dir> --mirror-augment=true --config=config-f --dataset=<dataset>` |
 |Time | 16 days|
-
-## Results
 
 ### Random results
 Trained for 8 days:
@@ -42,5 +39,11 @@ Good detail variation is observed.
 ### Interpolation
 ### Discussion
 ### Image2StyleGAN(++)
-### StyleALAE
-### HoloGAN
+## StyleALAE
+|     |     |
+| ---- | ---- |
+|GPU | Quadro RTX 8000 * 1|
+|Data | 17008 face images (256*256)|
+|Command |  `python train_alae.py -c configs/2d-chara.yaml` |
+|Time | ? days|
+## HoloGAN
