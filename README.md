@@ -47,3 +47,4 @@ Good detail variation is observed.
 |Command |  `python train_alae.py -c configs/2d-chara.yaml` |
 |Time | ? days|
 ## HoloGAN
+## FQ-StyleGAN
