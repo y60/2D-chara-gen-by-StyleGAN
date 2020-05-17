@@ -23,7 +23,7 @@ Trained for 8 days:
 
 16 days:
 ![16days](https://github.com/y60/stylegan2/blob/master/results/00012-stylegan2-face_256_-1gpu-config-f/fakes009515_16days_8_5.png?raw=true)
-It seems that this training setting has some difficulty in learning plausible structure, which depends on the latent style code of a few beginning layers. It can be avoided by the truncation (next section), or may be solved by adjusting training hyper-parameters or aligning the dataset images.
+It seems that this training setting has some difficulty in learning plausible structure. It can be avoided by the truncation (next section), or may be suppressed by adjusting training hyper-parameters or aligning the dataset images.
 
 ### Truncation experiments
 
